@@ -129,7 +129,7 @@ class _OnboardingState extends State<Onboarding> {
       width: _currentPage == index ? 24 : 8,
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
-        color: _currentPage == index ? app_Colors_Light.mainColor : Colors.grey,
+        color: _currentPage == index ? app_Colors_Light.MainColor : Colors.grey,
         borderRadius: BorderRadius.circular(4),
       ),
     );

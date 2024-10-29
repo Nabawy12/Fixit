@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 class app_Colors_Light {
-  static Color mainColor = HexColor("#5465FF");
-  static Color BG_color = HexColor("#FFFFFF");
-  static Color ICON_color = HexColor("#FFFFFF");
+  static Color MainColor = Color(0xff5465FF);
+  static Color BG_color = Color(0xffFFFFFF);
+  static Color ICON_color = Color(0xffFFFFFF);
+  static Color BG_Card_color = Color(0xffF5F6F7);
   //static Color starsColor = HexColor("#FFFFFF");
   ///===============================Colors_Fonts==============
-  static Color main_Text_Light = HexColor("#808B97");
-  static Color main_Text_Dark = HexColor("#808B97");
+  static Color Second_Text_Light = Color(0xff808B97);
+  static Color Main_Text_Dark = Color(0xff00162E);
   //static  const Color bordercolor = Color(0xFFe4eaee);
   //static  const Color secondColor = Color(0xFF637381);
   //static  const Color image_back = Color(0xFFf1f3fb);
