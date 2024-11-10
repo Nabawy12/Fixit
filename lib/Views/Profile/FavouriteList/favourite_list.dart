@@ -80,8 +80,8 @@ class _Favourite_ListState extends State<Favourite_List>
                 labelColor: Colors.white,
                 unselectedLabelColor: Colors.grey,
                 tabs: [
-                    Tab(text: S.of(context).Provider),
-                  Tab(text: S.of(context).Service,),
+                  Tab(text: S.of(context).Provider),
+                  Tab(text: S.of(context).Service),
                 ],
               ),
             ),
@@ -92,34 +92,37 @@ class _Favourite_ListState extends State<Favourite_List>
                 controller: _tabController,
                 children: [
                   // Provider Tab Content
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        S.of(context).Provider_list,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      SizedBox(height: 8),
-                      // Search Field
-                      Container(
-                        height: 50,
-                        padding: EdgeInsets.only(bottom: 8, right: 8.0, left: 8.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: S.of(context).Search_here,
-                            prefixIcon: Icon(Icons.search),
-                            filled: true,
-                            fillColor: Theme.of(context).cardColor,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide.none,
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).Provider_list,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        SizedBox(height: 8),
+                        // Search Field
+                        Container(
+                          height: 50,
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: S.of(context).Search_here,
+                              prefixIcon: Icon(Icons.search),
+                              filled: true,
+                              fillColor: Theme.of(context).cardColor,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      // List of Favorite Items
-                      Expanded(
-                        child: ListView.builder(
+                        SizedBox(height: 8),
+                        // List of Favorite Items
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
                           itemCount: 15,
                           itemBuilder: (context, index) {
                             return Padding(
@@ -142,40 +145,32 @@ class _Favourite_ListState extends State<Favourite_List>
                                   contentPadding: EdgeInsets.all(8),
                                   leading: ClipRRect(
                                     borderRadius: BorderRadius.circular(20),
-                                    child: Image.asset("assets/images/me.jpg",width: 70,height: 120,),
+                                    child: Image.asset("assets/images/me.jpg", width: 70, height: 120),
                                   ),
                                   title: Row(
                                     children: [
                                       Text(
                                         "Name ${index + 1}",
                                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 17),
-
                                       ),
                                       Spacer(),
                                       Icon(Icons.favorite, color: Colors.red),
-
                                     ],
                                   ),
                                   subtitle: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        maxLines: 1,
                                         "This business was founded in 2021.",
                                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),
                                       ),
                                       Row(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Icon(Icons.star, color: Colors.amber, size: 16),
                                           SizedBox(width: 4),
-                                          Text("4.${index + 1}",style: Theme.of(context).textTheme.bodySmall,),
+                                          Text("4.${index + 1}", style: Theme.of(context).textTheme.bodySmall),
                                         ],
                                       ),
-
                                     ],
                                   ),
                                 ),
@@ -183,38 +178,42 @@ class _Favourite_ListState extends State<Favourite_List>
                             );
                           },
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   // Service Tab Content
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        S.of(context).Service_list,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                      SizedBox(height: 8),
-                      // Search Field
-                      Container(
-                        height: 50,
-                        padding: EdgeInsets.only(bottom: 8),
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: S.of(context).Search_here,
-                            prefixIcon: Icon(Icons.search),
-                            filled: true,
-                            fillColor: Theme.of(context).cardColor,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide.none,
+                  SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          S.of(context).Service_list,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        SizedBox(height: 8),
+                        // Search Field
+                        Container(
+                          height: 50,
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: S.of(context).Search_here,
+                              prefixIcon: Icon(Icons.search),
+                              filled: true,
+                              fillColor: Theme.of(context).cardColor,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: GridView.builder(
+                        SizedBox(height: 8),
+                        // Grid of Favorite Services
+                        GridView.builder(
                           padding: EdgeInsets.only(top: 4),
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 16,
@@ -243,12 +242,18 @@ class _Favourite_ListState extends State<Favourite_List>
                                           ),
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.circular(8),
-                                              child: Image.asset("assets/images/Flag_Emarat.png",fit: BoxFit.fill,width: double.infinity,height: double.infinity,)),
+                                            child: Image.asset(
+                                              "assets/images/Flag_Emarat.png",
+                                              fit: BoxFit.fill,
+                                              width: double.infinity,
+                                              height: double.infinity,
+                                            ),
+                                          ),
                                         ),
                                         Positioned(
                                           top: 10,
                                           right: 10,
-                                          child: Icon(Icons.favorite,color: Colors.red),
+                                          child: Icon(Icons.favorite, color: Colors.red),
                                         ),
                                       ],
                                     ),
@@ -269,19 +274,15 @@ class _Favourite_ListState extends State<Favourite_List>
                                           style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 13),
                                         ),
                                         Row(
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          mainAxisAlignment: MainAxisAlignment.start,
                                           children: [
                                             Expanded(
-                                              flex:1,
                                               child: Text(
                                                 "\$${(20 + index * 5).toStringAsFixed(2)}",
                                                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14),
                                               ),
                                             ),
-                                            SizedBox(width: 5,),
+                                            SizedBox(width: 5),
                                             Expanded(
-                                              flex:2,
                                               child: ElevatedButton(
                                                 onPressed: () {},
                                                 child: Text("+ Add"),
@@ -303,8 +304,8 @@ class _Favourite_ListState extends State<Favourite_List>
                             );
                           },
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

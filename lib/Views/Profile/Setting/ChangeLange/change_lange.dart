@@ -180,7 +180,7 @@ class LanguageOption extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: AssetImage(flagPath,),
+              backgroundImage: AssetImage(flagPath, ),
             ),
             SizedBox(width: 16),
             Expanded(
