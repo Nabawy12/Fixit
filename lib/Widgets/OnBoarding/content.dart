@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../Utils/Colors/colors.dart';
@@ -61,11 +62,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.white, // Background color of the dropdown
+                    color: Theme.of(context).cardColor, // Background color of the dropdown
                     borderRadius: BorderRadius.circular(8), // Rounded corners
                     boxShadow: [
                       BoxShadow(
-                        color: app_Colors_Light.Second_Text_Light.withOpacity(0.2), // Shadow color
+                        color: Theme.of(context).scaffoldBackgroundColor,
                         spreadRadius: 2, // Spread radius of the shadow
                         blurRadius: 2, // Blur radius of the shadow
                         offset: Offset(2, 2), // Offset for the shadow (horizontal, vertical)
@@ -75,10 +76,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton<String>(
                       padding: EdgeInsets.symmetric(horizontal: 5,),
-                      focusColor: app_Colors_Light.BG_color,
-                      dropdownColor: app_Colors_Light.BG_color,
+                      focusColor:  Theme.of(context).cardColor,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),
+                      dropdownColor: Theme.of(context).scaffoldBackgroundColor,
                       value: _selectedLanguage,
-                      icon: Icon(Icons.arrow_drop_down, color: Colors.black,size: 18,),
+                      icon: Icon(Icons.arrow_drop_down, color: Colors.grey,size: 18,),
                       onChanged: (String? newValue) async {
                         if (newValue != null) {
                           await SharedPrefUtil.setString("lang", newValue.toUpperCase());
@@ -103,12 +105,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               SizedBox(width: 8),
                               Text(
                                 languageCode,
-                                style: TextStyle(
-                                    fontFamily: "DMSans",
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 13,
-                                    color: app_Colors_Light.Main_Text_Dark
-                                ),),
+                                style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),
+                              )
                             ],
                           ),
                         );
@@ -118,14 +116,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 Spacer(),
                 InkWell(
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () =>Navigator.pushReplacementNamed(context, Login_Screen.routeName),
-                  child: Text(
-                    S.of(context).SKIP,
-                    style: TextStyle(
-                        fontFamily: 'DMSans', // Use your custom font family
-                        fontSize: MediaQuery.of(context).size.width * 0.04, // Adjust font size based on screen width
-                        fontWeight: FontWeight.bold,
-                        color: app_Colors_Light.Second_Text_Light
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      S.of(context).SKIP,
+                      style:Theme.of(context).textTheme.bodySmall
                     ),
                   ),
 
@@ -145,11 +143,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
             padding: EdgeInsets.all(24),
             margin: EdgeInsets.symmetric(horizontal: 24),
             decoration: BoxDecoration(
-              color: Colors.grey.shade100,
+              color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   spreadRadius: 2,
                   blurRadius: 8,
                   offset: Offset(0, 4),
@@ -160,27 +158,20 @@ class _OnboardingPageState extends State<OnboardingPage> {
               children: [
                 Text(
                   widget.title,
-                  style: TextStyle(
-                    fontFamily: 'DMSans',
-                    fontSize: MediaQuery.of(context).size.width * 0.05, // Adjust font size based on screen width
-                    fontWeight: FontWeight.bold,
-                    color: app_Colors_Light.Main_Text_Dark
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 12),
                 Text(
                   widget.description,
-                  style: TextStyle(
-                    fontFamily: 'DMSans',
-                    fontSize: MediaQuery.of(context).size.width * 0.04, // Adjust font size based on screen width
-                    color: app_Colors_Light.Second_Text_Light,
-                  ),
-                  textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall,
+            textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
+          SizedBox(height: 20),
+
         ],
       ),
     );

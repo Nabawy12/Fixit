@@ -1,11 +1,164 @@
 {
-
+  "Enter": "ادخل",
   "SKIP": "تخطي",
   "onbording_1": "مرحبا بكم في التطبيق لدينا",
   "onbording_des_1": "تجربة أفضل الخدمات والمنتجات معنا.",
   "onbording_2": "سهل الاستخدام",
   "onbording_des_2": "واجهة سهلة الاستخدام والتنقل السلس.",
   "onbording_3": "ابق على اتصال",
-  "onbording_des_3": "ابق على اطلاع بأحدث الميزات والعروض لدينا."
+  "onbording_des_3": "ابق على اطلاع بأحدث الميزات والعروض لدينا.",
+
+
+  "Login_title": "تسجيل الدخول",
+  "Login_email_title_text_field": "البريد الألكتروني",
+  "Login_email_text_field_hint": "ادخل بريدك الألكتروني",
+  "Login_title_password": "كلمه المرور",
+  "Login_title_password_text_field": "ادخل كلمه المرور",
+  "Login_title_Confirm_Password": "تأكيد كلمه المرور",
+  "Login_title_Confirm_Password_text_field": "تأكيد كلمه المرور",
+  "Forget_password": "هل نسيت كلمه المرور؟",
+  "Not_member": "ليس لديك عضويه؟",
+  "SIGNUP_title": "فتح حساب جديد",
+  "Active": "يجب عليك تفعيل",
+  "Login_again": "اعاده تسجيل الدخول",
+
+  "User_name_title": "اسم المستخدم",
+  "User_name_text_field": "ادخل اسمك",
+  "Phone_Number_title": "رقم هاتفك",
+  "Phone_Number_text_field": "ادخل رقم هاتفك",
+  "Terms_agree": "أوافق على الشروط والأحكام",
+  "Already_member": "انت لديك عضويه بالفعل؟",
+
+  "Forget_Password_des": "ادخل بريدك الذي قمت بتسجيله عند انشاء حسابك",
+
+  "Send_OTP": "ارسال الكود",
+  "VERIFY_OTP": "تأكيد الكود",
+  "VERIFY_OTP_des": "أدخل رمز التحقق الذي تم إرساله إليك بتاريخ اليوم",
+  "VERIFY_OTP_resend": "اعاده ارسال الكود ؟",
+
+  "RESET_PASSWORD" : "اعاده تعيين كلمه المرور",
+  "RESET_PASSWORD_des" : "اهلا بك لقد اشتقنا لك!",
+  "New_Password_text_field": "كلمه المرور الجديد",
+  "New_Password_text_field_content": "ادخل كلمه المرور الجديده",
+  "Successfully_changed": "تم التغير بنحاج",
+  "Successfully_changed_des": "شكرًا لك! لقد كانت محاولة إعادة تعيين كلمة المرور الخاصة بك ناجحة.",
+
+
+
+  "Exit_title": "هل أنت متأكد أنك تريد الخروج؟",
+  "Exit_button_1": "لا أريد",
+  "Exit_button_2": "الخروج",
+
+
+
+
+
+  "userName_vaild": "لا يمكنك ترك الأسم خالي",
+  "Email_vaild": "لا يمكنك ترك البريد الألكتروني خالي",
+  "phone_vaild": "لا يمكنك ترك رقم الهاتف خالي",
+  "password_vaild": "لا يمكنك ترك كلمه المرور خاليه",
+  "password_less_vaild": "يجب علي كلمه المرور ان تكون اكثر من 8 احرف",
+  "password_not_match": "كلمه المرور غير متطابقه",
+  "exit_reset": "في حاله الخروج لن تتمكن من تغير كلمه المرور",
+
+
+  "Continue_guest": "استمر كضيف",
+
+  "Home": "الرئيسية",
+  "Booking":"الحجوزات",
+  "Offer":"العروض",
+  "Profile": "معلوماتك",
+
+
+
+  "Forget_pass_screen" : "اعاده تعيين كلمه المرور",
+  "Current_Password" : "كلمه المرور الحاليه",
+
+
+
+
+  "Change_Language": "تغير اللغه",
+  "Arabic": "العربيه",
+  "English": "الأنجليزيه",
+
+
+
+  "App_Setting": "إعدادت التطبيق",
+  "Dark_theme": "النمط مظلم",
+  "Change_currency": "تغيير العملة",
+  "Forget_password_settings": "تغير كلمه المرور",
+
+
+
+  "UserProfile": "ملف التعريفي الخاص بك",
+  "Update": "تحديث",
+
+  "title_profile": "ادارة معلوماتك الشخصيه",
+
+
+  "Total_balance": "إجمالي الرصيد المتاح:",
+
+
+
+  "GENERAL": "عام",
+  "Favourite_list":"القائمة المفضلة",
+  "Manage_locations": "إدارة الموقع",
+  "My_reviews": "تقييماتي",
+
+  "ABOUT_APP" : "عن التطبيق",
+  "App_details": "تفاصيل التطبيق",
+  "Rate_Us": "تقيمك هيفرق معانا",
+  "Share_app": "مشاركة التطبيق",
+
+
+
+  "Become_provider": "اصبح من مقدمين الخدمه",
+
+
+
+  "ALERT_ZONE": "منطقة التنبيه",
+
+
+
+  "Log_Out": "تسجيل الخروج",
+
+
+
+
+  "About_us": "معلومات عنا",
+  "Privacy_policy": "السياسة الخصوصية",
+  "Cancellation_policy": "سياسة الإلغاء",
+  "Refund_policy": "سياسة استرداد الأموال",
+  "Help_support": "المساعدة والدعم",
+  "Message": "الرساله",
+  "Write_Here": "اكتب هنا",
+  "Purchase_error": "خطأ الشراء",
+  "Technical_error": "خطأ فني",
+  "App_Error": "خطأ في التطبيق",
+  "Feedback": "تعليقك",
+  "Contact_US": "اتصل بنا",
+  "Submit": "أضافه",
+
+
+
+  "body_details_app": "معلومات عنا المساعدة و الدعم و السياسة للتطبيق",
+
+
+  "Favourite_List": "قائمة المفضلة",
+
+  "Search_here": "ابحث هنا",
+  "Provider_list": "قائمة مقدمي الخدمة",
+  "Service_list": "قائمة الخدمة",
+  "Provider": "مقدم الخدمه",
+  "Service": "الخدمه"
+
+
+
+
+
+
+
+
+
 
 }

@@ -40,7 +40,7 @@ class _OnboardingState extends State<Onboarding> {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Column(
         children: [
           Expanded(
@@ -99,14 +99,15 @@ class _OnboardingState extends State<Onboarding> {
                     : Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
+
                     shape: BoxShape.circle,
-                    color: Colors.white,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      color: app_Colors_Light.ICON_color,
+                      color: Theme.of(context).scaffoldBackgroundColor,
                     ),
                   ),
                 ),
@@ -162,7 +163,7 @@ class _OnboardingState extends State<Onboarding> {
       width: _currentPage == index ? 24 : 8,
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
-        color: _currentPage == index ? app_Colors_Light.MainColor : Colors.grey,
+        color: _currentPage == index ? app_Colors_Light.MainColor : Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(4),
       ),
     );

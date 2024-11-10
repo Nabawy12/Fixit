@@ -1,13 +1,142 @@
 {
-
+  "Enter": "Enter",
   "SKIP": "SKIP",
   "onbording_1": "Welcome to Our App",
   "onbording_des_1": "Experience the best service and product with us.",
   "onbording_2": "Easy to Use",
   "onbording_des_2": "User-friendly interface and smooth navigation.",
   "onbording_3": "Stay Connected.",
-  "onbording_des_3": "Stay updated with our latest features and offers."
+  "onbording_des_3": "Stay updated with our latest features and offers.",
 
+
+
+  "Login_title": "LOGIN",
+  "Login_email_title_text_field": "Email",
+  "Login_email_text_field_hint": "Enter email address",
+  "Login_title_password": "Password",
+  "Login_title_password_text_field": "Enter your password",
+  "Login_title_Confirm_Password": "Confirm Password",
+  "Login_title_Confirm_Password_text_field": "Confirm Password",
+  "Login_again": "Login again",
+
+
+  "Forget_password": "Forget password?",
+  "Not_member": "Not a member?",
+
+  "SIGNUP_title": "SIGNUP",
+  "User_name_title": "User name",
+  "User_name_text_field": "Enter Name",
+  "Phone_Number_title": "Phone Number",
+  "Phone_Number_text_field": "Enter Phone",
+  "Terms_agree": "Agree With terms & condition",
+  "Already_member": "Already member?",
+  "Active": "You Must Active",
+
+  "Forget_Password_des": "Enter Your register mail",
+
+  "Send_OTP": "Send OTP",
+  "VERIFY_OTP": "VERIFY OTP",
+  "VERIFY_OTP_des": "Enter the verification code that sent to you on",
+  "VERIFY_OTP_resend": "Resend Code ?",
+
+  "RESET_PASSWORD" : "RESET PASSWORD",
+  "RESET_PASSWORD_des" : "Hello, you have been missed !",
+  "New_Password_text_field": "New Password",
+  "New_Password_text_field_content": "New Password",
+  "Successfully_changed": "Successfully changed",
+  "Successfully_changed_des": "Thank you! The attempt to reset your password was successful.",
+
+
+
+
+  "Exit_title": "Are you sure you want to exit?",
+  "Exit_button_1": "Cancel",
+  "Exit_button_2": "Exit",
+
+
+
+
+
+
+  "userName_vaild": "Username cannot be empty",
+  "Email_vaild": "Email cannot be empty",
+  "phone_vaild": "Phone Number cannot be empty",
+  "password_vaild": "Phone Number cannot be empty",
+  "password_less_vaild": "Password can not be no less than 8",
+  "password_not_match": "Password did not match",
+   "exit_reset": "If you log out, you will not be able to change your password",
+   "Continue_guest": "Continue as a guest",
+
+
+
+    "Home": "Home",
+    "Booking":"Booking",
+    "Offer":"Offer",
+    "Profile": "Profile",
+
+
+
+  "Forget_pass_screen" : "Forget Password",
+  "Current_Password" : "Current Password",
+
+
+  "Change_Language": "Change Language",
+  "Arabic": "Arabic",
+  "English": "English",
+
+  "App_Setting": "App Setting",
+  "Dark_theme": "Dark theme",
+  "Change_currency": "Change currency",
+  "Forget_password_settings": "Forget Password",
+
+  "UserProfile": "UserProfile",
+  "Update": "Update",
+
+  "title_profile": "Profile & setting",
+
+  "Total_balance": "Total available balance :",
+
+  "GENERAL": "GENERAL",
+  "Favourite_list":"Favourite list",
+  "Manage_locations": "Manage locations",
+  "My_reviews": "My reviews",
+
+  "ABOUT_APP" : "ABOUT APP",
+  "App_details": "App details",
+  "Rate_Us": "Rate Us",
+  "Share_app": "Share app",
+
+
+  "Become_provider": "Become a provider",
+
+
+  "ALERT_ZONE": "ALERT ZONE",
+
+  "Log_Out": "Log Out",
+
+  "About_us": "About Us",
+  "Privacy_policy": "Privacy policy",
+  "Cancellation_policy": "Cancellation policy",
+  "Refund_policy": "Refund policy",
+  "Help_support": "Help & support",
+  "Message": "Message",
+  "Write_Here": "Write Here",
+  "Purchase_error": "Purchase error",
+  "Technical_error": "Technical error",
+  "App_Error": "App Error",
+  "Feedback": "Feedback",
+  "Contact_US": "Contact US",
+  "Submit": "Submit",
+
+
+  "body_details_app": "About us policy help & support",
+
+  "Favourite_List": "Favourite List",
+  "Search_here": "Search here",
+  "Provider_list": "Provider list",
+  "Service_list": "Service list",
+  "Provider": "Provider",
+  "Service": "Service"
 
 
 

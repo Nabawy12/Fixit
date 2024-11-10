@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import '../../providers/settings/settings.dart';
 import '../OnBoarding/on_boarding.dart';
 
 class Splash_Screen extends StatefulWidget {
@@ -14,9 +15,14 @@ class _SplashScreenState extends State<Splash_Screen> {
   @override
   void initState() {
     super.initState();
-    // Navigate to onboarding screen after a 2-second delay
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacementNamed(context, Onboarding_Screen.routeName);
+
+    // Load saved theme and language preferences
+    final settingProvider = Provider.of<setting_Providers>(context, listen: false);
+    settingProvider.loadPreferences().then((_) {
+      // Navigate to Onboarding screen after a 2-second delay
+      Future.delayed(const Duration(seconds: 2), () {
+        Navigator.pushReplacementNamed(context, Onboarding_Screen.routeName);
+      });
     });
   }
 
