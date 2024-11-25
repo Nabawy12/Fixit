@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:yourcolor/Utils/Elevated_Button/button.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../providers/settings/settings.dart';
+import '../../../../providers_state_mange/settings/settings.dart';
 
 class ChangeLange extends StatefulWidget {
   static const routeName = "/ChangeLange";
@@ -56,7 +56,7 @@ class _ChangeLangeState extends State<ChangeLange> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,7 +74,7 @@ class _ChangeLangeState extends State<ChangeLange> {
                     ),
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      color: Colors.grey.shade500,
+                      color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
                     ),
                   ),
                 ),

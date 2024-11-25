@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../Utils/Colors/colors.dart';
 import '../../../../Utils/Elevated_Button/button.dart';
 import '../../../../Utils/Text_Form_Field/text_field.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../providers/settings/settings.dart';
 
 class Contactus extends StatefulWidget {
   static const routeName = "/Contactus";

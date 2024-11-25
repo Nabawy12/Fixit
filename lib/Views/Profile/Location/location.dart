@@ -90,12 +90,12 @@ class Location extends StatelessWidget {
                                 children: [
                                   Text(
                                     'Kristin Watson ${index+1}',
-                                    style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15,fontWeight: FontWeight.bold),
+                                    style:Theme.of(context).textTheme.bodyMedium,
                                   ),
                                   SizedBox(height: 4),
                                   Text(
                                     '(406) 555-0120',
-                                    style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13)
+                                    style:Theme.of(context).textTheme.bodyMedium,
                                   ),
                                 ],
                               ),
@@ -123,12 +123,12 @@ class Location extends StatelessWidget {
                           ),
                           Text(
                             'Address :',
-                            style:Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 13,)
+                            style:Theme.of(context).textTheme.bodySmall,
                           ),
                           SizedBox(height: 4),
                           Text(
                             '3891 Ranchview Dr. Richardson, California - 62639, USA.',
-                            style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 15)
+                            style:Theme.of(context).textTheme.bodyMedium,
                           ),
                           SizedBox(height: 12),
                           Row(

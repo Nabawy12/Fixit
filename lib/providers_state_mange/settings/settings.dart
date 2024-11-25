@@ -4,8 +4,10 @@ import 'package:yourcolor/Utils/Shared_Prefence/SharedPrefence.dart';
 class setting_Providers extends ChangeNotifier {
   ThemeMode currentTheme = ThemeMode.light;
   Locale currentLocale = Locale('en');
+  String user = "user";
+  String currentNavigateAt = "login";
 
-  setting_Providers() {
+  SettingProviders() {
     loadPreferences();
   }
 
@@ -37,6 +39,18 @@ class setting_Providers extends ChangeNotifier {
       currentLocale = Locale(savedLang);
     }
 
+    notifyListeners();
+  }
+
+  // New method to change the user type
+  void changeUserType() {
+    user = (user == "user") ? "provider" : "user";  // Toggle between 'user' and 'provider'
+    notifyListeners();
+  }
+
+  // New method to change the navigation state
+  void changeNavigateAt() {
+    currentNavigateAt = (currentNavigateAt == "login") ? "profile" : "login";  // Toggle between 'login' and 'profile'
     notifyListeners();
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yourcolor/Views/Providers/SignUp/signUP.dart';
+import 'package:yourcolor/Views/Providers/onboarding/onboarding.dart';
 import 'package:yourcolor/Widgets/OnBoarding/content.dart';
 
 import '../../Utils/Colors/colors.dart';
-import '../../Views/Login/login.dart';
 import '../../generated/l10n.dart';
 
 class Onboarding extends StatefulWidget {
@@ -123,7 +124,7 @@ class _OnboardingState extends State<Onboarding> {
                 InkWell(
                   onTap: () {
                     if (_currentPage == _onboardingData.length - 1) {
-                      Navigator.pushReplacementNamed(context, Login_Screen.routeName);
+                      Navigator.pushNamed(context, Onboarding_provider.routeName);
                     } else {
                       setState(() {
                         _pageController.nextPage(

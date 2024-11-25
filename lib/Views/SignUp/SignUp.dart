@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:yourcolor/Utils/Elevated_Button/button.dart';
 import 'package:yourcolor/Utils/Text_Form_Field/text_field.dart';
-import 'package:yourcolor/Views/ForgetPassword/ForgetPassword.dart';
-import 'package:yourcolor/Views/Login/login.dart';
+
 import 'package:yourcolor/Views/NavBar/navbar.dart';
 
 import '../../generated/l10n.dart';
@@ -28,7 +25,6 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
   bool isChecked = false;
   bool showAgreementError = false;
   bool visblePassword = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +139,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                               keyboardType: TextInputType.emailAddress,
                               hintText: S.of(context).Login_email_text_field_hint,
                               controller: email,
-                              prefixIcon: Icons.email_outlined,
+                              prefixIcon:Icons.email_outlined,
                               fillColor: Theme.of(context).scaffoldBackgroundColor,
                               obscureText: false,
                               hintTextColor: Colors.grey.shade400,

@@ -21,6 +21,7 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed ?? () {}, // Use the provided onPressed or a default no-op
         style: ElevatedButton.styleFrom(
+          overlayColor: Colors.transparent,
           backgroundColor: color ?? app_Colors_Light.MainColor, // default color
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0), // optional rounded corners

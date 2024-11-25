@@ -61,7 +61,7 @@
   "userName_vaild": "Username cannot be empty",
   "Email_vaild": "Email cannot be empty",
   "phone_vaild": "Phone Number cannot be empty",
-  "password_vaild": "Phone Number cannot be empty",
+  "password_vaild": "Password cannot be empty",
   "password_less_vaild": "Password can not be no less than 8",
   "password_not_match": "Password did not match",
    "exit_reset": "If you log out, you will not be able to change your password",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/settings/settings.dart';
+import '../../providers_state_mange/settings/settings.dart';
 import '../OnBoarding/on_boarding.dart';
 
 class Splash_Screen extends StatefulWidget {

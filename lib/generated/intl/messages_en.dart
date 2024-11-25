@@ -160,8 +160,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password can not be no less than 8"),
         "password_not_match":
             MessageLookupByLibrary.simpleMessage("Password did not match"),
-        "password_vaild": MessageLookupByLibrary.simpleMessage(
-            "Phone Number cannot be empty"),
+        "password_vaild":
+            MessageLookupByLibrary.simpleMessage("Password cannot be empty"),
         "phone_vaild": MessageLookupByLibrary.simpleMessage(
             "Phone Number cannot be empty"),
         "title_profile":

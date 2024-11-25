@@ -5,8 +5,9 @@ import 'package:provider/provider.dart';
 import '../../Utils/Colors/colors.dart';
 import '../../Utils/Shared_Prefence/SharedPrefence.dart';
 import '../../Views/Login/login.dart';
+import '../../Views/Providers/onboarding/onboarding.dart';
 import '../../generated/l10n.dart';
-import '../../providers/settings/settings.dart';
+import '../../providers_state_mange/settings/settings.dart';
 
 class OnboardingPage extends StatefulWidget {
   final String image;
@@ -118,7 +119,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 InkWell(
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
-                  onTap: () =>Navigator.pushReplacementNamed(context, Login_Screen.routeName),
+                  onTap: () =>Navigator.pushReplacementNamed(context, Onboarding_provider.routeName),
                   child: Container(
                     padding: EdgeInsets.all(10),
                     child: Text(

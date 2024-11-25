@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:yourcolor/Views/Login/login.dart';
 import 'package:yourcolor/Views/Profile/FavouriteList/favourite_list.dart';
 import 'package:yourcolor/Views/Profile/Location/location.dart';
+import 'package:yourcolor/Views/SignUp/SignUp.dart';
 import '../../generated/l10n.dart';
+import '../../providers_state_mange/settings/settings.dart';
+import '../Providers/onboarding/onboarding.dart';
 import 'AppDetails/appdetails.dart';
 import 'MyReviews/myReviews.dart';
 import 'RateUs/rate_us.dart';
@@ -18,6 +22,7 @@ class profile_screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<setting_Providers>(context);
     return SafeArea(
       child: Scaffold(
 
@@ -29,9 +34,9 @@ class profile_screen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-          
+
                 //TITLE
-          
+
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -39,7 +44,7 @@ class profile_screen extends StatelessWidget {
                     Text(
                       S.of(context).title_profile,
                       style: Theme.of(context).textTheme.bodyLarge
-          
+
                     ),
                     Spacer(),
                     InkWell(
@@ -51,16 +56,19 @@ class profile_screen extends StatelessWidget {
                       child: Container(
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: Theme.of(context).scaffoldBackgroundColor,
+                            color: Theme.of(context).cardColor,
                             shape: BoxShape.circle
                         ),
                         child: Icon(
-                          Icons.settings_outlined, color: Colors.grey.shade500,),
+                          Icons.settings_outlined,
+
+                          color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
+                        ),
                       ),
                     )
                   ],
                 ),
-          
+
                 SizedBox(height: 30,),
                 //DETAILS_OF_USER
                 Container(
@@ -83,15 +91,22 @@ class profile_screen extends StatelessWidget {
                             splashColor:Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () => Navigator.pushNamed(context,Userprofile.routeName),
-                            child: Icon(
-                              Icons.edit,
-                              color: app_Colors_Light.MainColor,
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: Theme.of(context).scaffoldBackgroundColor,
+                                  shape: BoxShape.circle
+                              ),
+                              child: Icon(
+                                Icons.edit,
+                                color: app_Colors_Light.MainColor,
+                              ),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(height: 10),
-          
+
                       // Profile image
                       Container(
                         decoration: BoxDecoration(
@@ -106,7 +121,7 @@ class profile_screen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10),
-          
+
                       // Name
                       Text(
                         'Zeyad Nabawy',
@@ -116,7 +131,7 @@ class profile_screen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 5),
-          
+
                       // Email
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -136,9 +151,9 @@ class profile_screen extends StatelessWidget {
                           ),
                         ],
                       ),
-          
+
                       SizedBox(height: 20),
-          
+
                       // Balance information
                       Container(
                         width: double.infinity,
@@ -190,14 +205,22 @@ class profile_screen extends StatelessWidget {
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 10),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(12.0),
                     boxShadow: [
+                      // Shadow for the top
                       BoxShadow(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        spreadRadius: 2,
-                        blurRadius: 8,
-                        offset: Offset(0, 4),
+                        color: Theme.of(context).cardColor,
+                        spreadRadius: 0,
+                        blurRadius: 7,
+                        offset: Offset(0, -3), // Negative Y offset for top shadow
+                      ),
+                      // Shadow for the bottom
+                      BoxShadow(
+                        color: Theme.of(context).cardColor,
+                        spreadRadius: 0,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // Positive Y offset for bottom shadow
                       ),
                     ],
                   ),
@@ -240,14 +263,22 @@ class profile_screen extends StatelessWidget {
                   width: double.infinity,
                   padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 10),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(12.0),
                     boxShadow: [
+                      // Shadow for the top
                       BoxShadow(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        spreadRadius: 2,
-                        blurRadius: 8,
-                        offset: Offset(0, 4),
+                        color: Theme.of(context).cardColor,
+                        spreadRadius: 0,
+                        blurRadius: 7,
+                        offset: Offset(0, -3), // Negative Y offset for top shadow
+                      ),
+                      // Shadow for the bottom
+                      BoxShadow(
+                        color: Theme.of(context).cardColor,
+                        spreadRadius: 0,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // Positive Y offset for bottom shadow
                       ),
                     ],
                   ),
@@ -280,45 +311,55 @@ class profile_screen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
-                  decoration: BoxDecoration(
-                    color: app_Colors_Light.MainColor.withOpacity(0.07), // Light background color
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  child: Row(
-                    children: [
-                      // Profile Image (Circular Avatar)
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: app_Colors_Light.MainColor.withOpacity(0.2), // Background color for the avatar
+                InkWell(
+                    onTap: () {
+                      provider.changeNavigateAt();
+                      provider.changeUserType();
+                        Navigator.pushNamed(
+                          context,
+                          Onboarding_provider.routeName,
+                        );
+                    },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+                    decoration: BoxDecoration(
+                      color: app_Colors_Light.MainColor.withOpacity(0.07), // Light background color
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Row(
+                      children: [
+                        // Profile Image (Circular Avatar)
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: app_Colors_Light.MainColor.withOpacity(0.2), // Background color for the avatar
+                          ),
+                          child: Icon(
+                            Icons.person, // Replace with an image if available
+                            color: app_Colors_Light.MainColor,
+                            size: 28,
+                          ),
                         ),
-                        child: Icon(
-                          Icons.person, // Replace with an image if available
-                          color: app_Colors_Light.MainColor,
-                          size: 28,
-                        ),
-                      ),
-                      SizedBox(width: 12.0), // Space between the avatar and the text
+                        SizedBox(width: 12.0), // Space between the avatar and the text
 
-                      // Main Text
-                      Expanded(
-                        child: Text(
-                          S.of(context).Become_provider,
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor)
+                        // Main Text
+                        Expanded(
+                          child: Text(
+                            S.of(context).Become_provider,
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),
+                          ),
                         ),
-                      ),
 
-                      // Trailing Arrow Icon
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        size: 18,
-                        color: app_Colors_Light.MainColor.withOpacity(0.9),
-                      ),
-                    ],
+                        // Trailing Arrow Icon
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 18,
+                          color: app_Colors_Light.MainColor.withOpacity(0.9),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 20,),
@@ -368,7 +409,7 @@ class profile_screen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 35,),
-
+                //
 
 
               ],
@@ -389,10 +430,6 @@ class profile_screen extends StatelessWidget {
     return ListTile(
       leading: Container(
         padding: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          shape: BoxShape.circle,
-        ),
         child: Icon(
           icon,
           color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
@@ -407,7 +444,7 @@ class profile_screen extends StatelessWidget {
         body_text,
         style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 11, fontWeight: FontWeight.w500),
       )
-          : null, // Only display subtitle if body_text is provided
+          : null,
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18,

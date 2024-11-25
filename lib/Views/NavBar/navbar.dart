@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 
 import '../../generated/l10n.dart';
+import '../../providers_state_mange/settings/settings.dart';
 import '../Home/home.dart';
 import '../Offer/offer.dart';
 import '../Profile/profile.dart';
+import '../Providers/AddNew_Services/add_new_services.dart';
+import '../Providers/Home/home.dart';
+import '../Providers/profile_po/profile.dart';
+import '../Providers/wallet/walet.dart';
 import '../booking/booking.dart';
 
 class Navbar extends StatefulWidget {
@@ -16,16 +22,11 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
+
   DateTime? lastSwipeTime;
   int swipeCount = 0;
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    home_screen(),
-    booking_screen(),
-    offer_screen(),
-    profile_screen(),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -35,17 +36,33 @@ class _NavbarState extends State<Navbar> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<setting_Providers>(context);
+    final List<Widget> _screens = [
+      provider.user== "user" ?
+      home_screen() : home_provider(),
+      booking_screen(),
+      provider.user == "user" ?
+      offer_screen() : Walet(),
+
+      provider.user== "user" ?
+      profile_screen() : Profile_provider(),
+    ];
+
+
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          provider.user== "user" ?
+          print("USER"):Navigator.pushNamed(context, AddNewServices.routeName);
           // Action for the FAB
         },
         shape: CircleBorder(),
         backgroundColor: app_Colors_Light.MainColor,
         child: Icon(
-          Icons.shopping_basket_outlined,
+          provider.user== "user" ?
+          Icons.shopping_basket_outlined : Icons.add_outlined,
           color: Colors.white,
         ),
       ),
@@ -77,7 +94,7 @@ class _NavbarState extends State<Navbar> {
         shape: CircularNotchedRectangle(),
         color: Theme.of(context).cardColor,
         clipBehavior: Clip.hardEdge,
-        notchMargin: 8,
+        notchMargin: 1,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -139,6 +156,7 @@ class _NavbarState extends State<Navbar> {
               child: Container(
                 child: Column(
                   children: [
+                    provider.user == "user" ?
                     Icon(
                       _selectedIndex == 2
                           ? Icons.local_offer
@@ -146,10 +164,18 @@ class _NavbarState extends State<Navbar> {
                       color: _selectedIndex == 2
                           ? app_Colors_Light.MainColor
                           : Colors.grey,
+                    ): Icon(
+                      _selectedIndex == 2 ?
+                      Icons.wallet_outlined : Icons.wallet,
+                      color: _selectedIndex == 2 ?
+                          app_Colors_Light.MainColor :
+                      Theme.of(context).textTheme.bodySmall!.color,
                     ),
                     SizedBox(height: 3,),
 
-                    Text(S.of(context).Offer,
+                    Text(
+                      provider.user == "user" ?
+                        S.of(context).Offer : "Wallet",
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
                               color: _selectedIndex == 2
                                   ? app_Colors_Light.MainColor

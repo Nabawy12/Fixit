@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:yourcolor/Utils/Elevated_Button/button.dart';
 import 'package:yourcolor/Utils/Text_Form_Field/text_field.dart';
 import 'package:yourcolor/Views/ForgetPassword/ForgetPassword.dart';
+import 'package:yourcolor/Views/Providers/onboarding/onboarding.dart';
 
 import '../../generated/l10n.dart';
+import '../../providers_state_mange/settings/settings.dart';
 import '../NavBar/navbar.dart';
+import '../Providers/SignUp/signUP.dart';
 import '../SignUp/SignUp.dart';
 
 class Login_Screen extends StatefulWidget {
@@ -28,28 +32,36 @@ class _Login_ScreenState extends State<Login_Screen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<setting_Providers>(context);
+
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: WillPopScope(
-        onWillPop: () async {
-          DateTime now = DateTime.now();
-          if (lastSwipeTime == null || now.difference(lastSwipeTime!) > Duration(seconds: 2)) {
-            swipeCount = 1;
-            lastSwipeTime = now;
-            return false;
-          } else {
-            swipeCount++;
-            lastSwipeTime = now;
 
-            if (swipeCount == 2) {
-              swipeCount = 0;
-              _showExitDialog(context);
-              return false;
-            } else {
-              swipeCount = 0;
-              return false;
-            }
+        onWillPop: () async  {
+          if(provider.user == "user" || provider.currentNavigateAt == "login"){
+            provider.user == "provider" ?
+            provider.changeUserType() : null;
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                Onboarding_provider.routeName,
+                    (Route<dynamic> route) => false,
+              );
+              FocusScope.of(context).unfocus();
+              return Future.value(true);
+
           }
+          else{
+            //provider.changeUserType();
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              Onboarding_provider.routeName,
+                  (Route<dynamic> route) => false,
+            );
+            FocusScope.of(context).unfocus();
+            return Future.value(true);
+          }
+
         },
         child: Center(
           child: SafeArea(
@@ -67,7 +79,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                           ? Alignment.centerLeft
                           : Alignment.centerRight,
                       child: Text(
-                        S.of(context).Login_title,
+                        provider.user == "user" ?
+                        S.of(context).Login_title : "LOGIN AS A PROVIDER",
                         style: Theme.of(context).textTheme.bodyLarge
                       ),
                     ),
@@ -103,8 +116,9 @@ class _Login_ScreenState extends State<Login_Screen> {
                           ),
                           SizedBox(height: 10,),
                           Container(
-                              padding: EdgeInsets.symmetric(horizontal: 16),
+                                padding: EdgeInsets.symmetric(horizontal: 16),
                               child: customTextField(
+                                isRequired: true,
                                 context: context,
                                 validator:  (value) {
                                   if (value == null || value.isEmpty) {
@@ -145,6 +159,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                           Container(
                               padding: EdgeInsets.symmetric(horizontal: 16),
                               child: customTextField(
+                                isRequired: true,
                                 context: context,
 
                                 validator:  (value) {
@@ -229,7 +244,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, SignUp_Screen.routeName);
+                                  provider.user == "user" ?
+                                  Navigator.pushNamed(context, SignUp_Screen.routeName) : Navigator.pushNamed(context, Signup_provider.routeName) ;
                                 },
                                 child: Text(
                                     S.of(context).SIGNUP_title,
@@ -246,6 +262,7 @@ class _Login_ScreenState extends State<Login_Screen> {
 
 
                     // Continue as Guest
+                    provider.user == "user" ?
                     TextButton.icon(
                       onPressed: () {
                         Navigator.pushNamedAndRemoveUntil(context, Navbar.routeName, (Route<dynamic> route) => false,);
@@ -255,7 +272,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         S.of(context).Continue_guest,
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.Second_Text_Light),
                       ),
-                    ),
+                    ) : Container(),
                   ],
                 ),
               ),
@@ -266,7 +283,7 @@ class _Login_ScreenState extends State<Login_Screen> {
     );
   }
 
-  void _showExitDialog(BuildContext context) {
+  /*void _showExitDialog(BuildContext context) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -347,7 +364,7 @@ class _Login_ScreenState extends State<Login_Screen> {
         );
       },
     );
-  }
+  }*/
 }
 
 

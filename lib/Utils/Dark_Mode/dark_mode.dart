@@ -74,6 +74,8 @@ class style_mode {
 
 
   static ThemeData DarkTheme =  ThemeData(
+    highlightColor: Colors.transparent,
+    splashColor: Colors.transparent,
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: app_Colors_Light.MainColor,
       selectionColor: app_Colors_Light.MainColor,
@@ -109,7 +111,7 @@ class style_mode {
        fontSize: 14,fontWeight: FontWeight.w500,color: app_Colors_Dark.main_Text_Dark,
     ),
       bodySmall: GoogleFonts.alexandria(
-          fontSize: 12,fontWeight: FontWeight.w400,color: app_Colors_Dark.main_Text_Light
+          fontSize: 12,fontWeight: FontWeight.w600,color: app_Colors_Dark.main_Text_Light
       ),
 
     ),

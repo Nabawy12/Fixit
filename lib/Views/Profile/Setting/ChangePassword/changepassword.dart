@@ -31,24 +31,10 @@ class _changePasswordState extends State<changePassword> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: WillPopScope(
         onWillPop: () async {
-          DateTime now = DateTime.now();
-          if (lastSwipeTime == null || now.difference(lastSwipeTime!) > Duration(seconds: 2)) {
-            swipeCount = 1;
-            lastSwipeTime = now;
-            return false;
-          } else {
-            swipeCount++;
-            lastSwipeTime = now;
+          Navigator.pop(context);
+          FocusScope.of(context).unfocus();
+          return Future.value(true);
 
-            if (swipeCount == 2) {
-              swipeCount = 0;
-              _showExitDialog(context);
-              return false;
-            } else {
-              swipeCount = 0;
-              return false;
-            }
-          }
         },
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 24),
@@ -73,7 +59,12 @@ class _changePasswordState extends State<changePassword> {
                             color: Theme.of(context).cardColor,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(Icons.arrow_back_ios_new,color: Colors.grey.shade500,),
+                          child: Icon(Icons.arrow_back_ios_new,
+
+
+                            color:Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
+
+                          ),
                         ),
                       ),
                       Spacer(),
@@ -359,101 +350,4 @@ class _changePasswordState extends State<changePassword> {
     );
   }
 
-  void _showExitDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return WillPopScope(
-          onWillPop: () {
-            SystemNavigator.pop();
-            return Future.value(true);
-          },
-          child: AlertDialog(
-            backgroundColor: Theme.of(context).cardColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            contentPadding: EdgeInsets.all(16),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  S.of(context).exit_reset,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: "DMSans",
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15,
-                      color: app_Colors_Light.Main_Text_Dark
-
-                  ),
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // Cancel Button
-                    Expanded(
-                        child: InkWell(
-                          onTap: () => Navigator.pop(context),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color:Theme.of(context).cardColor,
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                    color: app_Colors_Light.MainColor
-                                ),
-                                shape: BoxShape.rectangle
-                            ),
-                            child: Text(
-                              S.of(context).Exit_button_1,
-                              style: TextStyle(
-                                  fontFamily: "DMSans",
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 13,
-                                  color: app_Colors_Light.Main_Text_Dark
-                              ),
-                            ),
-                          ),
-                        )
-                    ),
-                    SizedBox(width: 8,),
-                    // Exit Button
-                    Expanded(
-                        child: InkWell(
-                          onTap: () =>SystemNavigator.pop(),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: app_Colors_Light.MainColor,
-                                borderRadius: BorderRadius.circular(12),
-                                shape: BoxShape.rectangle
-
-                            ),
-                            child: Text(
-                              S.of(context).Exit_button_2,
-                              style: TextStyle(
-                                  fontFamily: "DMSans",
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 13,
-                                  color: app_Colors_Light.BG_color
-                              ),
-
-                            ),
-                          ),
-                        )),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
 }

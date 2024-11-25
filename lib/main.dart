@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcolor/Views/NavBar/navbar.dart';
 import 'package:yourcolor/Views/Splash/splash.dart';
+import 'package:yourcolor/providers_state_mange/settings/settings.dart';
 import 'Utils/Dark_Mode/dark_mode.dart';
+import 'Views/All_Category/all_category.dart';
+import 'Views/Details_provider/details_provider.dart';
 import 'Views/ForgetPassword/OTP/otp.dart';
 import 'Views/ForgetPassword/RseetPassword.dart';
 import 'Views/Login/login.dart';
@@ -23,16 +27,27 @@ import 'Views/Profile/Setting/ChangeLange/change_lange.dart';
 import 'Views/Profile/Setting/ChangePassword/changepassword.dart';
 import 'Views/Profile/Setting/setting.dart';
 import 'Views/Profile/UserProfile/userprofile.dart';
+import 'Views/Providers/AddNew_Services/add_new_services.dart';
+import 'Views/Providers/SignUp/signUP.dart';
+import 'Views/Providers/SingleService/all review/all_reviews.dart';
+import 'Views/Providers/SingleService/singleservice.dart';
+import 'Views/Providers/onboarding/onboarding.dart';
+import 'Views/Providers/profile_po/CompanyDetails/company_details.dart';
 import 'Views/SignUp/SignUp.dart';
+import 'Views/single_services/single_services.dart';
+import 'Widgets/Home/bookings/Details_booking/details_booking.dart';
 import 'Widgets/Main/style_navigate.dart';
 import 'generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'dart:ui' as ui;
 
-import 'providers/settings/settings.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(
+      ChangeNotifierProvider(
+
     create: (context) => setting_Providers(),
     child: MyApp(),
   ));
@@ -45,6 +60,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<setting_Providers>(context);
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       themeMode: provider.currentTheme,
       theme: style_mode.LightTheme,
@@ -109,6 +125,27 @@ class MyApp extends StatelessWidget {
             return createSlideRoute(CancelPolicy(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
           case RefundPolicy.routeName:
             return createSlideRoute(RefundPolicy(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case Onboarding_provider.routeName:
+            return createSlideRoute(Onboarding_provider(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case Signup_provider.routeName:
+            return createSlideRoute(Signup_provider(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case CompanyDetails_profile.routeName:
+            return createSlideRoute(CompanyDetails_profile(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case AddNewServices.routeName:
+            return createSlideRoute(AddNewServices(),TransitionType.slide);
+          case Singleservice_Pro.routeName:
+            return createSlideRoute(Singleservice_Pro(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case AllReviewsScreen.routeName:
+            return createSlideRoute(AllReviewsScreen(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case DetailsBooking.routeName:
+            return createSlideRoute(DetailsBooking(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case AllCategory.routeName:
+            return createSlideRoute(AllCategory(), TransitionType.slide);
+          case Singleservice_user.routeName:
+            return createSlideRoute(Singleservice_user(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+          case DetailsProvider.routeName:
+            return createSlideRoute(DetailsProvider(), provider.currentLocale.languageCode == "en" ?TransitionType.rightToLeft :TransitionType.leftToRight);
+
           default:
             return null;
         }

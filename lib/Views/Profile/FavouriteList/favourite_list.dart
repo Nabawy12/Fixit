@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 
 import '../../../generated/l10n.dart';
@@ -12,6 +13,8 @@ class Favourite_List extends StatefulWidget {
 class _Favourite_ListState extends State<Favourite_List>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  ScrollController allpage = ScrollController();
+
 
   @override
   void initState() {
@@ -89,10 +92,12 @@ class _Favourite_ListState extends State<Favourite_List>
             // Displaying the TabBarView
             Expanded(
               child: TabBarView(
+
                 controller: _tabController,
                 children: [
                   // Provider Tab Content
                   SingleChildScrollView(
+                    controller:allpage,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -104,7 +109,6 @@ class _Favourite_ListState extends State<Favourite_List>
                         // Search Field
                         Container(
                           height: 50,
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: S.of(context).Search_here,
@@ -183,6 +187,7 @@ class _Favourite_ListState extends State<Favourite_List>
                   ),
                   // Service Tab Content
                   SingleChildScrollView(
+                    controller:allpage,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -194,7 +199,6 @@ class _Favourite_ListState extends State<Favourite_List>
                         // Search Field
                         Container(
                           height: 50,
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: S.of(context).Search_here,
@@ -276,16 +280,18 @@ class _Favourite_ListState extends State<Favourite_List>
                                         Row(
                                           children: [
                                             Expanded(
+                                              flex:1,
                                               child: Text(
                                                 "\$${(20 + index * 5).toStringAsFixed(2)}",
-                                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 14),
+                                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 12),
                                               ),
                                             ),
                                             SizedBox(width: 5),
                                             Expanded(
+                                              flex:2,
                                               child: ElevatedButton(
                                                 onPressed: () {},
-                                                child: Text("+ Add"),
+                                                child: Text("Add",style: GoogleFonts.alexandria(fontSize: 13,fontWeight: FontWeight.w400),),
                                                 style: ElevatedButton.styleFrom(
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius: BorderRadius.circular(8),

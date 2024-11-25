@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../generated/l10n.dart';
-import '../../../../providers/settings/settings.dart';
+import '../../../../providers_state_mange/settings/settings.dart';
 
 class HelpSupport extends StatelessWidget {
   static const routeName = "/HelpSupport";

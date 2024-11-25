@@ -53,13 +53,22 @@ class Appdetails extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               padding: EdgeInsets.symmetric(vertical: 16.0),
               decoration: BoxDecoration(
-                color: Theme.of(context).cardColor,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
+                  // Shadow for the top
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 10,
-                    offset: Offset(0, 4),
+                    color: Theme.of(context).cardColor,
+                    spreadRadius: 0,
+                    blurRadius: 7,
+                    offset: Offset(0, -3), // Negative Y offset for top shadow
+                  ),
+                  // Shadow for the bottom
+                  BoxShadow(
+                    color: Theme.of(context).cardColor,
+                    spreadRadius: 0,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // Positive Y offset for bottom shadow
                   ),
                 ],
               ),
@@ -114,14 +123,13 @@ class Appdetails extends StatelessWidget {
         onTap: onTap,
         child: Row(
           children: [
-            CircleAvatar(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              radius: 20,
-              child: Icon(
+            Container(
+              padding: EdgeInsets.all(8),
+              child:Icon(
                 icon,
                 color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
                 size: 24,
-              ),
+              ) ,
             ),
             SizedBox(width: 16),
             Text(
@@ -132,6 +140,8 @@ class Appdetails extends StatelessWidget {
             Icon(
               Icons.arrow_forward_ios_outlined,
               color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
+              size: 18,
+
             )
 
           ],

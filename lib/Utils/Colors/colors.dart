@@ -10,6 +10,9 @@ class app_Colors_Light {
   static Color Success_color = Color(0xff27AF4D);
   static Color ICon_textForm_color = Colors.grey.shade400;
   static Color ICon_back_color = Color(0xfff5f6f7);
+  static Color Rate_color = Color(0xffFFC412);
+  static Color BG_Selcted = Color(0xffeef0ff);
+  static Color OFFER_Selcted = Color(0xffFF4B4B);
   //static Color starsColor = HexColor("#FFFFFF");
   ///===============================Colors_Fonts==============
   static Color Second_Text_Light = Color(0xff808B97);

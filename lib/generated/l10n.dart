@@ -480,10 +480,10 @@ class S {
     );
   }
 
-  /// `Phone Number cannot be empty`
+  /// `Password cannot be empty`
   String get password_vaild {
     return Intl.message(
-      'Phone Number cannot be empty',
+      'Password cannot be empty',
       name: 'password_vaild',
       desc: '',
       args: [],

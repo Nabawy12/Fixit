@@ -19,6 +19,8 @@ Widget customTextField({
   String? Function(String?)? validator,
   void Function()? onSuffixIconTap,
   List<TextInputFormatter>? inputFormatters,
+  bool isRequired = false, // Flag to make the field required or not
+  void Function(String)? onFieldSubmitted, // Callback for onFieldSubmitted
 }) {
   final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
@@ -27,28 +29,34 @@ Widget customTextField({
     controller: controller,
     obscureText: obscureText,
     keyboardType: keyboardType,
-    validator: validator,
+    validator: isRequired
+        ? validator // If required, apply the provided validator
+        : (value) => null, // If not required, skip validation
     inputFormatters: inputFormatters,
-    style: GoogleFonts.cairo(
+    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
       color: isDarkMode ? Colors.white : Colors.black,
-      fontSize: 15,
     ),
     cursorColor: app_Colors_Light.MainColor,
     decoration: InputDecoration(
       hintText: hintText,
-      hintStyle: GoogleFonts.dmSans(
-        color: hintTextColor ?? (isDarkMode ? Colors.white60 : Colors.grey),
-        fontSize: 15,
-      ),
+      hintStyle: Theme.of(context).textTheme.bodySmall,
       prefixIcon: prefixIcon != null
-          ? Icon(prefixIcon, color: iconColor ?? (isDarkMode ? Colors.white70 : Colors.grey))
+          ? Icon(
+        prefixIcon,
+        color: iconColor ?? (isDarkMode ? Colors.white70 : Colors.grey),
+      )
           : null,
       suffixIcon: suffixIcon != null
           ? GestureDetector(
         onTap: onSuffixIconTap,
-        child: Icon(suffixIcon, color: iconColor ?? (isDarkMode ? Colors.white70 : Colors.grey)),
+        child: Icon(
+          suffixIcon,
+          color: iconColor ?? (isDarkMode ? Colors.white70 : Colors.grey),
+        ),
       )
           : null,
+      suffixIconColor: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
+      prefixIconColor: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12.0),
         borderSide: BorderSide.none,
@@ -61,7 +69,8 @@ Widget customTextField({
           color: focusColor ?? Theme.of(context).colorScheme.outline,
         ),
       ),
-      errorStyle: GoogleFonts.dmSans(color: Colors.red, fontSize: 12),
+      errorStyle: GoogleFonts.alexandria(color: Colors.red, fontSize: 12),
     ),
+    onFieldSubmitted: onFieldSubmitted, // Handle form submission here
   );
 }
