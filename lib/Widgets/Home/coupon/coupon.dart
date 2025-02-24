@@ -20,8 +20,7 @@ class CouponCard extends StatelessWidget {
     var provider = Provider.of<setting_Providers>(context);
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16),
-      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(20),
@@ -38,6 +37,9 @@ class CouponCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    width: 5,
+                  ),
                   CircleAvatar(
                     radius: 20,
                     backgroundColor: app_Colors_Light.MainColor,
@@ -55,7 +57,10 @@ class CouponCard extends StatelessWidget {
                       children: [
                         Text(
                           bank,
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 13),
                         ),
                         SizedBox(height: 5),
                         Text(
@@ -88,7 +93,10 @@ class CouponCard extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 discount,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: app_Colors_Light.MainColor),
               ),
             ),
           ],

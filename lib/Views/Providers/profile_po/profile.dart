@@ -14,24 +14,21 @@ class Profile_provider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(bottom: 100, top: 30),
         child: Container(
           margin: EdgeInsets.only(top: 20, left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-
               //TITLE
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                      S.of(context).title_profile,
-                      style: Theme.of(context).textTheme.bodyLarge
-
-                  ),
+                  Text(S.of(context).title_profile,
+                      style: Theme.of(context).textTheme.bodyLarge),
                   Spacer(),
                   InkWell(
                     splashColor: Theme.of(context).scaffoldBackgroundColor,
@@ -43,19 +40,23 @@ class Profile_provider extends StatelessWidget {
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: Theme.of(context).cardColor,
-                          shape: BoxShape.circle
-                      ),
+                          shape: BoxShape.circle),
                       child: Icon(
                         Icons.settings_outlined,
-
-                        color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
+                        color: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .color!
+                            .withOpacity(0.8),
                       ),
                     ),
                   )
                 ],
               ),
 
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               //DETAILS_OF_Provider
               Container(
                 width: double.infinity,
@@ -74,15 +75,16 @@ class Profile_provider extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         InkWell(
-                          splashColor:Colors.transparent,
+                          splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
-                          onTap: () => Navigator.pushNamed(context,Userprofile.routeName),
+                          onTap: () => Navigator.pushNamed(
+                              context, Userprofile.routeName),
                           child: Container(
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
-                                color: Theme.of(context).scaffoldBackgroundColor,
-                                shape: BoxShape.circle
-                            ),
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                shape: BoxShape.circle),
                             child: Icon(
                               Icons.edit,
                               color: app_Colors_Light.MainColor,
@@ -98,12 +100,10 @@ class Profile_provider extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(
-                              color: app_Colors_Light.Strok_color, width: 2)
-                      ),
+                              color: app_Colors_Light.Strok_color, width: 2)),
                       child: CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage(
-                            'assets/images/forget.png'),
+                        backgroundImage: AssetImage('assets/images/forget.png'),
                       ),
                     ),
                     SizedBox(height: 10),
@@ -153,16 +153,21 @@ class Profile_provider extends StatelessWidget {
                         children: [
                           Text(
                             S.of(context).Total_balance,
-                            style:Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.white),
                           ),
                           SizedBox(height: 5),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                  '\$152.23',
-                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white,fontSize: 25)
-                              ),
+                              Text('\$152.23',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          color: Colors.white, fontSize: 25)),
                               Icon(
                                 Icons.arrow_forward,
                                 color: Colors.white,
@@ -175,21 +180,22 @@ class Profile_provider extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Text(
                 "COMPANY DETAILS",
-                style: Theme
-                    .of(context)
+                style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
-                    .copyWith(
-                    color: app_Colors_Light.MainColor
-                ),
+                    .copyWith(color: app_Colors_Light.MainColor),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 10),
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(12.0),
@@ -206,53 +212,54 @@ class Profile_provider extends StatelessWidget {
                       color: Theme.of(context).cardColor,
                       spreadRadius: 0,
                       blurRadius: 7,
-                      offset: Offset(0, 3), // Positive Y offset for bottom shadow
+                      offset:
+                          Offset(0, 3), // Positive Y offset for bottom shadow
                     ),
                   ],
                 ),
                 child: Column(
                   children: [
                     _buildMenuItem(
-                        icon: FontAwesomeIcons.building,
-                        text: "Company Details",
-                        context: context,
-                        onTap: () {
-                          Navigator.pushNamed(context, CompanyDetails_profile.routeName);
-                        },
+                      icon: FontAwesomeIcons.building,
+                      text: "Company Details",
+                      context: context,
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, CompanyDetails_profile.routeName);
+                      },
                     ),
                     Divider(color: Theme.of(context).scaffoldBackgroundColor),
                     _buildMenuItem(
                         icon: FontAwesomeIcons.bank,
                         text: "Bank Details",
-                        context: context
-                    ),
+                        context: context),
                     Divider(color: Theme.of(context).scaffoldBackgroundColor),
                     _buildMenuItem(
                         icon: FontAwesomeIcons.idCard,
                         text: "Id Verification",
-                        context: context
+                        context: context),
+                    SizedBox(
+                      height: 10,
                     ),
-                    SizedBox(height: 10,),
-
-
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 "Other Details",
-                style: Theme
-                    .of(context)
+                style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
-                    .copyWith(
-                    color: app_Colors_Light.MainColor
-                ),
+                    .copyWith(color: app_Colors_Light.MainColor),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 10),
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(12.0),
@@ -269,7 +276,8 @@ class Profile_provider extends StatelessWidget {
                       color: Theme.of(context).cardColor,
                       spreadRadius: 0,
                       blurRadius: 7,
-                      offset: Offset(0, 3), // Positive Y offset for bottom shadow
+                      offset:
+                          Offset(0, 3), // Positive Y offset for bottom shadow
                     ),
                   ],
                 ),
@@ -278,35 +286,31 @@ class Profile_provider extends StatelessWidget {
                     _buildMenuItem(
                         icon: FontAwesomeIcons.calendar,
                         text: "Time slots",
-                        context: context
-                    ),
+                        context: context),
                     Divider(color: Theme.of(context).scaffoldBackgroundColor),
                     _buildMenuItem(
                         icon: FontAwesomeIcons.gift,
                         text: "Commission history",
-                        context: context
-                    ),
+                        context: context),
                     Divider(color: Theme.of(context).scaffoldBackgroundColor),
                     _buildMenuItem(
                         icon: FontAwesomeIcons.star,
                         text: "My Reviews",
-                        context: context
-                    ),
+                        context: context),
                     Divider(color: Theme.of(context).scaffoldBackgroundColor),
                     _buildMenuItem(
                         icon: FontAwesomeIcons.handshake,
                         text: "Subscription plan",
-                        context: context
+                        context: context),
+                    SizedBox(
+                      height: 10,
                     ),
-                    SizedBox(height: 10,),
-
-
-
-
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.red.withOpacity(0.07), // Light background color
@@ -317,8 +321,8 @@ class Profile_provider extends StatelessWidget {
                     InkWell(
                       onTap: () => _showExitDialog(context),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
-
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 10.0),
                         child: Row(
                           children: [
                             // Profile Image (Circular Avatar)
@@ -327,7 +331,8 @@ class Profile_provider extends StatelessWidget {
                               height: 40,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Theme.of(context).scaffoldBackgroundColor,
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
                               ),
                               child: Icon(
                                 Icons.logout_outlined,
@@ -339,11 +344,11 @@ class Profile_provider extends StatelessWidget {
 
                             // Main Text
                             Expanded(
-                              child: Text(
-                                  S.of(context).Log_Out,
-                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.red)
-
-                              ),
+                              child: Text(S.of(context).Log_Out,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(color: Colors.red)),
                             ),
 
                             // Trailing Arrow Icon
@@ -357,13 +362,17 @@ class Profile_provider extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
-                      child: Divider(color: Theme.of(context).colorScheme.outline,),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 5),
+                      child: Divider(
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
                     ),
                     InkWell(
                       onTap: () => _showExitDialog(context),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 10.0),
                         child: Row(
                           children: [
                             // Profile Image (Circular Avatar)
@@ -372,7 +381,8 @@ class Profile_provider extends StatelessWidget {
                               height: 40,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: Theme.of(context).scaffoldBackgroundColor,
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
                               ),
                               child: Icon(
                                 Icons.delete_outline_outlined,
@@ -384,11 +394,11 @@ class Profile_provider extends StatelessWidget {
 
                             // Main Text
                             Expanded(
-                              child: Text(
-                                  "Delete account",
-                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.red)
-
-                              ),
+                              child: Text("Delete account",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(color: Colors.red)),
                             ),
 
                             // Trailing Arrow Icon
@@ -404,19 +414,16 @@ class Profile_provider extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 35,),
-
-
-
-
-
-
+              SizedBox(
+                height: 35,
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
   Widget _buildMenuItem({
     required IconData icon,
     required String text,
@@ -429,29 +436,34 @@ class Profile_provider extends StatelessWidget {
         padding: EdgeInsets.all(8),
         child: Icon(
           icon,
-          color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
+          color:
+              Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
         ),
       ),
       title: Text(
         text,
-        style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w600),
+        style: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .copyWith(fontWeight: FontWeight.w600),
       ),
       subtitle: body_text != null
           ? Text(
-        body_text,
-        style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 11, fontWeight: FontWeight.w500),
-      )
+              body_text,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodySmall!
+                  .copyWith(fontSize: 11, fontWeight: FontWeight.w500),
+            )
           : null,
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18,
-        color:Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
+        color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
       ),
       onTap: onTap, // onTap is optional
     );
   }
-
-
 
   void _showExitDialog(BuildContext context) {
     showDialog(
@@ -460,7 +472,7 @@ class Profile_provider extends StatelessWidget {
       builder: (BuildContext context) {
         return WillPopScope(
           onWillPop: () {
-            Navigator.pushNamed(context,Login_Screen.routeName);
+            Navigator.pushNamed(context, Login_Screen.routeName);
             return Future.value(true);
           },
           child: AlertDialog(
@@ -490,48 +502,49 @@ class Profile_provider extends StatelessWidget {
                     // Cancel Button
                     Expanded(
                         child: InkWell(
-                          onTap: () => Navigator.pop(context),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).cardColor,
-                                borderRadius: BorderRadius.circular(12),
-                                border:
+                      onTap: () => Navigator.pop(context),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border:
                                 Border.all(color: app_Colors_Light.MainColor),
-                                shape: BoxShape.rectangle),
-                            child: Text(
-                              S.of(context).Exit_button_1,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(fontSize: 14),
-                            ),
-                          ),
-                        )),
+                            shape: BoxShape.rectangle),
+                        child: Text(
+                          S.of(context).Exit_button_1,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 14),
+                        ),
+                      ),
+                    )),
                     SizedBox(
                       width: 8,
                     ),
                     // Exit Button
                     Expanded(
                         child: InkWell(
-                          onTap: () => Navigator.pushNamed(context,Login_Screen.routeName),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: app_Colors_Light.MainColor,
-                                borderRadius: BorderRadius.circular(12),
-                                shape: BoxShape.rectangle),
-                            child: Text(
-                              S.of(context).Log_Out,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(fontSize: 14),
-                            ),
-                          ),
-                        )),
+                      onTap: () =>
+                          Navigator.pushNamed(context, Login_Screen.routeName),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: app_Colors_Light.MainColor,
+                            borderRadius: BorderRadius.circular(12),
+                            shape: BoxShape.rectangle),
+                        child: Text(
+                          S.of(context).Log_Out,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 14),
+                        ),
+                      ),
+                    )),
                   ],
                 ),
               ],
@@ -541,5 +554,4 @@ class Profile_provider extends StatelessWidget {
       },
     );
   }
-
 }

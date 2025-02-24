@@ -17,16 +17,16 @@ import '../booking/booking.dart';
 class Navbar extends StatefulWidget {
   static const routeName = "/Navbar";
 
+  const Navbar({super.key});
+
   @override
   _NavbarState createState() => _NavbarState();
 }
 
 class _NavbarState extends State<Navbar> {
-
   DateTime? lastSwipeTime;
   int swipeCount = 0;
   int _selectedIndex = 0;
-
 
   void _onItemTapped(int index) {
     setState(() {
@@ -37,32 +37,34 @@ class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<setting_Providers>(context);
-    final List<Widget> _screens = [
-      provider.user== "user" ?
-      home_screen() : home_provider(),
-      booking_screen(),
-      provider.user == "user" ?
-      offer_screen() : Walet(),
-
-      provider.user== "user" ?
-      profile_screen() : Profile_provider(),
+    final List<Widget> screens = [
+      provider.user == "user" ? const home_screen() : const home_provider(),
+      const booking_screen(),
+      provider.user == "user" ? const offer_screen() : const Walet(),
+      provider.user == "user"
+          ? const profile_screen()
+          : const Profile_provider(),
     ];
 
-
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).cardColor,
+      extendBody: true,
       resizeToAvoidBottomInset: false,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
         onPressed: () {
-          provider.user== "user" ?
-          print("USER"):Navigator.pushNamed(context, AddNewServices.routeName);
+          provider.user == "user"
+              ? print("USER")
+              : Navigator.pushNamed(context, AddNewServices.routeName);
           // Action for the FAB
         },
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         backgroundColor: app_Colors_Light.MainColor,
         child: Icon(
-          provider.user== "user" ?
-          Icons.shopping_basket_outlined : Icons.add_outlined,
+          provider.user == "user"
+              ? Icons.shopping_basket_outlined
+              : Icons.add_outlined,
           color: Colors.white,
         ),
       ),
@@ -70,31 +72,44 @@ class _NavbarState extends State<Navbar> {
       body: WillPopScope(
           onWillPop: () async {
             DateTime now = DateTime.now();
-            if (lastSwipeTime == null || now.difference(lastSwipeTime!) > Duration(seconds: 2)) {
-              swipeCount = 1;
+
+            // إذا مر وقت طويل بين السحب الأخير والوقت الحالي
+            if (lastSwipeTime == null ||
+                now.difference(lastSwipeTime!) > const Duration(seconds: 2)) {
+              swipeCount = 1; // أول سحب
               lastSwipeTime = now;
+              setState(() {
+                _selectedIndex = 0; // الرجوع إلى الـ index 0
+              });
               return false;
             } else {
-              swipeCount++;
+              swipeCount++; // زيادة عدد السحبات
               lastSwipeTime = now;
 
-              if (swipeCount == 2) {
-                swipeCount = 0;
-                _showExitDialog(context);
-                return false;
+              if (_selectedIndex != 0) {
+                setState(() {
+                  _selectedIndex = 0; // الرجوع إلى الـ index 0
+                });
+                return false; // إذا كان الـ index ليس 0 نرجع للـ index 0
               } else {
-                swipeCount = 0;
-                return false;
+                if (swipeCount == 2) {
+                  swipeCount = 0; // عند السحب الثاني
+                  _showExitDialog(context); // عرض الـ dialog
+                  return false; // منع الرجوع
+                } else {
+                  swipeCount = 0; // إعادة تعيين عدد السحبات في المرة الأولى
+                  return false;
+                }
               }
             }
           },
-          child: _screens[_selectedIndex]
-      ),
+          child: screens[_selectedIndex]),
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        elevation: 0,
+        shape: const CircularNotchedRectangle(),
         color: Theme.of(context).cardColor,
         clipBehavior: Clip.hardEdge,
-        notchMargin: 1,
+        notchMargin: 5,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -102,113 +117,110 @@ class _NavbarState extends State<Navbar> {
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () => _onItemTapped(0),
-              child: Container(
-                child: Column(
-                  children: [
-                    Icon(
-                      _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
-                      color: _selectedIndex == 0
-                          ? app_Colors_Light.MainColor
-                          : Colors.grey,
-                    ),
-                    SizedBox(height: 3,),
-                    Text(S.of(context).Home,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: _selectedIndex == 0
-                                  ? app_Colors_Light.MainColor
-                                  : Colors.grey,
-                            ))
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Icon(
+                    _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
+                    color: _selectedIndex == 0
+                        ? app_Colors_Light.MainColor
+                        : Colors.grey,
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(S.of(context).Home,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: _selectedIndex == 0
+                                ? app_Colors_Light.MainColor
+                                : Colors.grey,
+                          ))
+                ],
               ),
             ),
             InkWell(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () => _onItemTapped(1),
-              child: Container(
-                child: Column(
-                  children: [
-                    Icon(
-                      _selectedIndex == 1
-                          ? Icons.bookmark
-                          : Icons.bookmark_outline_outlined,
-                      color: _selectedIndex == 1
-                          ? app_Colors_Light.MainColor
-                          : Colors.grey,
-                    ),
-                    SizedBox(height: 3,),
-                    Text(S.of(context).Booking,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: _selectedIndex == 1
-                                  ? app_Colors_Light.MainColor
-                                  : Colors.grey,
-                            ))
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Icon(
+                    _selectedIndex == 1
+                        ? Icons.bookmark
+                        : Icons.bookmark_outline_outlined,
+                    color: _selectedIndex == 1
+                        ? app_Colors_Light.MainColor
+                        : Colors.grey,
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(S.of(context).Booking,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: _selectedIndex == 1
+                                ? app_Colors_Light.MainColor
+                                : Colors.grey,
+                          ))
+                ],
               ),
             ),
-            SizedBox(width: 40), // Spacer for the FAB
+            const SizedBox(width: 40), // Spacer for the FAB
             InkWell(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () => _onItemTapped(2),
-              child: Container(
-                child: Column(
-                  children: [
-                    provider.user == "user" ?
-                    Icon(
-                      _selectedIndex == 2
-                          ? Icons.local_offer
-                          : Icons.local_offer_outlined,
-                      color: _selectedIndex == 2
-                          ? app_Colors_Light.MainColor
-                          : Colors.grey,
-                    ): Icon(
-                      _selectedIndex == 2 ?
-                      Icons.wallet_outlined : Icons.wallet,
-                      color: _selectedIndex == 2 ?
-                          app_Colors_Light.MainColor :
-                      Theme.of(context).textTheme.bodySmall!.color,
-                    ),
-                    SizedBox(height: 3,),
-
-                    Text(
-                      provider.user == "user" ?
-                        S.of(context).Offer : "Wallet",
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: _selectedIndex == 2
-                                  ? app_Colors_Light.MainColor
-                                  : Colors.grey,
-                            ))
-                  ],
-                ),
+              child: Column(
+                children: [
+                  provider.user == "user"
+                      ? Icon(
+                          _selectedIndex == 2
+                              ? Icons.local_offer
+                              : Icons.local_offer_outlined,
+                          color: _selectedIndex == 2
+                              ? app_Colors_Light.MainColor
+                              : Colors.grey,
+                        )
+                      : Icon(
+                          _selectedIndex == 2
+                              ? Icons.wallet_outlined
+                              : Icons.wallet,
+                          color: _selectedIndex == 2
+                              ? app_Colors_Light.MainColor
+                              : Theme.of(context).textTheme.bodySmall!.color,
+                        ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(provider.user == "user" ? S.of(context).Offer : "Wallet",
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: _selectedIndex == 2
+                                ? app_Colors_Light.MainColor
+                                : Colors.grey,
+                          ))
+                ],
               ),
             ),
             InkWell(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () => _onItemTapped(3),
-              child: Container(
-                child: Column(
-                  children: [
-                    Icon(
-                      _selectedIndex == 3 ? Icons.person : Icons.person_outline,
-                      color: _selectedIndex == 3
-                          ? app_Colors_Light.MainColor
-                          : Colors.grey,
-                    ),
-                    SizedBox(height: 3,),
-
-                    Text(
-                        S.of(context).Profile,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: _selectedIndex == 3
-                                  ? app_Colors_Light.MainColor
-                                  : Colors.grey,
-                            ))
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Icon(
+                    _selectedIndex == 3 ? Icons.person : Icons.person_outline,
+                    color: _selectedIndex == 3
+                        ? app_Colors_Light.MainColor
+                        : Colors.grey,
+                  ),
+                  const SizedBox(
+                    height: 3,
+                  ),
+                  Text(S.of(context).Profile,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: _selectedIndex == 3
+                                ? app_Colors_Light.MainColor
+                                : Colors.grey,
+                          ))
+                ],
               ),
             ),
           ],
@@ -232,7 +244,7 @@ class _NavbarState extends State<Navbar> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            contentPadding: EdgeInsets.all(16),
+            contentPadding: const EdgeInsets.all(16),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -244,9 +256,9 @@ class _NavbarState extends State<Navbar> {
                       .bodyLarge!
                       .copyWith(fontSize: 17),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Image.asset("assets/images/log_out.png"),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -273,7 +285,7 @@ class _NavbarState extends State<Navbar> {
                         ),
                       ),
                     )),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     // Exit Button

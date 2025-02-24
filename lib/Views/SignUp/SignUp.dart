@@ -9,7 +9,7 @@ import 'package:yourcolor/Views/NavBar/navbar.dart';
 import '../../generated/l10n.dart';
 
 class SignUp_Screen extends StatefulWidget {
-  static const routeName = "/SignUp" ;
+  static const routeName = "/SignUp";
 
   @override
   State<SignUp_Screen> createState() => _SignUp_ScreenState();
@@ -44,11 +44,15 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image(image: AssetImage('assets/images/logo.png'), width: 150, height: 100),
+                    Image(
+                        image: AssetImage('assets/images/logo.png'),
+                        width: 150,
+                        height: 100),
                     Align(
-                      alignment: Localizations.localeOf(context).languageCode == 'en'
-                          ? Alignment.centerLeft
-                          : Alignment.centerRight,
+                      alignment:
+                          Localizations.localeOf(context).languageCode == 'en'
+                              ? Alignment.centerLeft
+                              : Alignment.centerRight,
                       child: Text(
                         S.of(context).SIGNUP_title,
                         style: Theme.of(context).textTheme.bodyLarge,
@@ -80,7 +84,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                               SizedBox(width: 16),
                               Text(
                                 S.of(context).User_name_title,
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                style: Theme.of(context).textTheme.bodyMedium,
                               )
                             ],
                           ),
@@ -88,8 +92,9 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: customTextField(
+                              isRequired: true,
                               context: context,
-                              validator:  (value) {
+                              validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "${S.of(context).userName_vaild}";
                                 }
@@ -99,7 +104,8 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                               hintText: S.of(context).User_name_text_field,
                               controller: username,
                               prefixIcon: Icons.person_2_outlined,
-                              fillColor: Theme.of(context).scaffoldBackgroundColor,
+                              fillColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
                               hintTextColor: Colors.grey.shade400,
                               iconColor: app_Colors_Light.ICon_textForm_color,
                               obscureText: false,
@@ -129,18 +135,21 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: customTextField(
+                              isRequired: true,
                               context: context,
-                              validator:  (value) {
+                              validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "${S.of(context).Email_vaild}";
                                 }
                                 return null;
                               },
                               keyboardType: TextInputType.emailAddress,
-                              hintText: S.of(context).Login_email_text_field_hint,
+                              hintText:
+                                  S.of(context).Login_email_text_field_hint,
                               controller: email,
-                              prefixIcon:Icons.email_outlined,
-                              fillColor: Theme.of(context).scaffoldBackgroundColor,
+                              prefixIcon: Icons.email_outlined,
+                              fillColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
                               obscureText: false,
                               hintTextColor: Colors.grey.shade400,
                               iconColor: app_Colors_Light.ICon_textForm_color,
@@ -170,6 +179,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: customTextField(
+                              isRequired: true,
                               context: context,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
@@ -181,7 +191,8 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                               hintText: S.of(context).Phone_Number_text_field,
                               controller: phone,
                               prefixIcon: Icons.local_phone_outlined,
-                              fillColor: Theme.of(context).scaffoldBackgroundColor,
+                              fillColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
                               obscureText: false,
                               hintTextColor: Colors.grey.shade400,
                               iconColor: app_Colors_Light.ICon_textForm_color,
@@ -214,33 +225,39 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: customTextField(
+                              isRequired: true,
                               context: context,
-                              validator:  (value) {
+                              validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "${S.of(context).password_vaild}";
-                                }else if (value.length< 8){
+                                } else if (value.length < 8) {
                                   return "${S.of(context).password_less_vaild}";
                                 }
                                 return null;
                               },
                               keyboardType: TextInputType.visiblePassword,
-                              hintText: S.of(context).Login_title_password_text_field,
+                              hintText:
+                                  S.of(context).Login_title_password_text_field,
                               controller: password,
-                              prefixIcon:  Icons.lock_outline,
-                              suffixIcon: visblePassword==false ?Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
+                              prefixIcon: Icons.lock_outline,
+                              suffixIcon: visblePassword == false
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.remove_red_eye_outlined,
                               onSuffixIconTap: () {
-                                if(visblePassword== true){
+                                if (visblePassword == true) {
                                   setState(() {
-                                    visblePassword = false ;
+                                    visblePassword = false;
                                   });
-                                }else{
+                                } else {
                                   setState(() {
                                     visblePassword = true;
                                   });
                                 }
                               },
-                              fillColor: Theme.of(context).scaffoldBackgroundColor,
-                              obscureText: visblePassword==false? true : false,
+                              fillColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
+                              obscureText:
+                                  visblePassword == false ? true : false,
                               hintTextColor: Colors.grey.shade400,
                               iconColor: app_Colors_Light.ICon_textForm_color,
                             ),
@@ -259,7 +276,9 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                               ),
                               SizedBox(width: 16),
                               Text(
-                                S.of(context).Login_title_Confirm_Password_text_field,
+                                S
+                                    .of(context)
+                                    .Login_title_Confirm_Password_text_field,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               )
                             ],
@@ -268,28 +287,34 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: customTextField(
+                              isRequired: true,
                               context: context,
-
-                              validator:  (value) {
+                              validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "${S.of(context).password_vaild}";
-                                }else if (repassword.text!=password.text){
+                                } else if (repassword.text != password.text) {
                                   return "${S.of(context).password_less_vaild}";
                                 }
                                 return null;
                               },
                               keyboardType: TextInputType.visiblePassword,
-                              hintText: S.of(context).Login_title_Confirm_Password_text_field,
+                              hintText: S
+                                  .of(context)
+                                  .Login_title_Confirm_Password_text_field,
                               controller: repassword,
                               prefixIcon: Icons.lock_outline,
-                              suffixIcon: visblePassword==false ?Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
+                              suffixIcon: visblePassword == false
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.remove_red_eye_outlined,
                               onSuffixIconTap: () {
                                 setState(() {
-                                  visblePassword = true ;
+                                  visblePassword = true;
                                 });
                               },
-                              fillColor: Theme.of(context).scaffoldBackgroundColor,
-                              obscureText: visblePassword==false? true : false,
+                              fillColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
+                              obscureText:
+                                  visblePassword == false ? true : false,
                               hintTextColor: Colors.grey.shade400,
                               iconColor: app_Colors_Light.ICon_textForm_color,
                             ),
@@ -307,11 +332,15 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                                     onChanged: (value) {
                                       setState(() {
                                         isChecked = value ?? false;
-                                        showAgreementError = false; // Hide error if checkbox is checked
+                                        showAgreementError =
+                                            false; // Hide error if checkbox is checked
                                       });
                                     },
-                                    fillColor: MaterialStateProperty.all(Theme.of(context).scaffoldBackgroundColor),
-                                    side: BorderSide(color: app_Colors_Light.Strok_color),
+                                    fillColor: MaterialStateProperty.all(
+                                        Theme.of(context)
+                                            .scaffoldBackgroundColor),
+                                    side: BorderSide(
+                                        color: app_Colors_Light.Strok_color),
                                     activeColor: app_Colors_Light.MainColor,
                                     checkColor: app_Colors_Light.MainColor,
                                   ),
@@ -327,9 +356,10 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           // Error message if terms are not agreed
                           if (showAgreementError)
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
                               child: Text(
-                               "${S.of(context).Active} ${S.of(context).Terms_agree}",
+                                "${S.of(context).Active} ${S.of(context).Terms_agree}",
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.red,
@@ -344,24 +374,32 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             child: CustomButton(
                               text: S.of(context).SIGNUP_title,
-                                onPressed: () {
-                                  setState(() {
-                                    if (_formKey.currentState!.validate()) {
-                                      Navigator.pushNamedAndRemoveUntil(
-                                        context,
-                                        Navbar.routeName,
-                                            (Route<dynamic> route) => false,);
-                                    } else {
-                                    }
-                                    if (!isChecked) {
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  if (!isChecked) {
+                                    setState(() {
                                       showAgreementError = true;
-                                    } else {
+                                    });
+                                  } else {
+                                    setState(() {
                                       showAgreementError = false;
-                                      // Proceed with signup
-                                    }
+                                    });
+                                    // Proceed with the registration process
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      Navbar.routeName,
+                                      (Route<dynamic> route) => false,
+                                    );
+                                  }
+                                } else {
+                                  // Show error if form is invalid
+                                  setState(() {
+                                    showAgreementError =
+                                        false; // Ensure the checkbox error is hidden if form is invalid
                                   });
                                 }
-                                ),
+                              },
+                            ),
                           ),
 
                           SizedBox(height: 10),
@@ -370,15 +408,21 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(S.of(context).Already_member,style: Theme.of(context).textTheme.bodyMedium,),
+                              Text(
+                                S.of(context).Already_member,
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
                               TextButton(
                                 onPressed: () {
-                               Navigator.pop(context);
+                                  Navigator.pop(context);
                                 },
                                 child: Text(
                                   S.of(context).Login_title,
-                                  style: Theme.of(context).textTheme.bodySmall!.copyWith(color: app_Colors_Light.MainColor),
-
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                          color: app_Colors_Light.MainColor),
                                 ),
                               ),
                             ],

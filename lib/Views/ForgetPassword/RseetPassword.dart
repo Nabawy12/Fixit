@@ -9,7 +9,7 @@ import 'package:yourcolor/Views/Login/login.dart';
 import '../../generated/l10n.dart';
 
 class Reset_Password_Screen extends StatefulWidget {
-  static const routeName = "/Reset_Password" ;
+  static const routeName = "/Reset_Password";
 
   @override
   State<Reset_Password_Screen> createState() => _Reset_Password_ScreenState();
@@ -26,13 +26,13 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: WillPopScope(
         onWillPop: () async {
           DateTime now = DateTime.now();
-          if (lastSwipeTime == null || now.difference(lastSwipeTime!) > Duration(seconds: 2)) {
+          if (lastSwipeTime == null ||
+              now.difference(lastSwipeTime!) > Duration(seconds: 2)) {
             swipeCount = 1;
             lastSwipeTime = now;
             return false;
@@ -58,7 +58,9 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Align(
                     alignment: Alignment.center,
                     child: Text(
@@ -71,7 +73,10 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
                     alignment: Alignment.center,
                     child: Text(
                       S.of(context).RESET_PASSWORD_des,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.Second_Text_Light),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: app_Colors_Light.Second_Text_Light),
                     ),
                   ),
                   SizedBox(height: 16),
@@ -91,105 +96,127 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
                           children: [
                             Container(
                               width: 4, // Fixed width for the line
-                              height: 20, // Line height based on responsive text height
+                              height:
+                                  20, // Line height based on responsive text height
                               decoration: BoxDecoration(
                                 color: app_Colors_Light.MainColor, // Line color
-                                borderRadius: BorderRadius.circular(10), // Rounded edges
+                                borderRadius:
+                                    BorderRadius.circular(10), // Rounded edges
                               ),
                             ),
-                            SizedBox(width: 16,),
+                            SizedBox(
+                              width: 16,
+                            ),
                             Text(
                               S.of(context).New_Password_text_field,
                               style: Theme.of(context).textTheme.bodyMedium,
                             )
                           ],
                         ),
-                        SizedBox(height: 10,),
-                        Container(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            child: customTextField(
-                              context: context,
-                              validator:  (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "${S.of(context).password_vaild}";
-                                }else if (value.length< 8){
-                                  return "${S.of(context).password_less_vaild}";
-                                }
-                                return null;
-                              },
-                              hintText: S.of(context).New_Password_text_field_content,
-                              controller: password,
-                              prefixIcon: Icons.lock_outlined,
-                              suffixIcon: visblePassword==false ?Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
-                              onSuffixIconTap: () {
-                                if(visblePassword== true){
-                                  setState(() {
-                                    visblePassword = false ;
-                                  });
-                                }else{
-                                  setState(() {
-                                    visblePassword = true;
-                                  });
-                                }
-                              },
-
-                              fillColor: Theme.of(context).scaffoldBackgroundColor,
-                              hintTextColor: Colors.grey.shade400,
-                              iconColor: app_Colors_Light.ICon_textForm_color,
-                              obscureText: visblePassword==false? true : false,
-                            ),
+                        SizedBox(
+                          height: 10,
                         ),
-                        SizedBox(height: 10,),
+                        Container(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: customTextField(
+                            isRequired: true,
+                            context: context,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "${S.of(context).password_vaild}";
+                              } else if (value.length < 8) {
+                                return "${S.of(context).password_less_vaild}";
+                              }
+                              return null;
+                            },
+                            hintText:
+                                S.of(context).New_Password_text_field_content,
+                            controller: password,
+                            prefixIcon: Icons.lock_outlined,
+                            suffixIcon: visblePassword == false
+                                ? Icons.visibility_off_outlined
+                                : Icons.remove_red_eye_outlined,
+                            onSuffixIconTap: () {
+                              if (visblePassword == true) {
+                                setState(() {
+                                  visblePassword = false;
+                                });
+                              } else {
+                                setState(() {
+                                  visblePassword = true;
+                                });
+                              }
+                            },
+                            fillColor:
+                                Theme.of(context).scaffoldBackgroundColor,
+                            hintTextColor: Colors.grey.shade400,
+                            iconColor: app_Colors_Light.ICon_textForm_color,
+                            obscureText: visblePassword == false ? true : false,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           children: [
                             Container(
                               width: 4, // Fixed width for the line
-                              height: 20, // Line height based on responsive text height
+                              height:
+                                  20, // Line height based on responsive text height
                               decoration: BoxDecoration(
                                 color: app_Colors_Light.MainColor, // Line color
-                                borderRadius: BorderRadius.circular(10), // Rounded edges
+                                borderRadius:
+                                    BorderRadius.circular(10), // Rounded edges
                               ),
                             ),
-                            SizedBox(width: 16,),
+                            SizedBox(
+                              width: 16,
+                            ),
                             Text(
                               S.of(context).Login_title_Confirm_Password,
                               style: Theme.of(context).textTheme.bodyMedium,
                             )
                           ],
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 16),
                           child: customTextField(
+                            isRequired: true,
                             context: context,
-                            validator:  (value) {
+                            validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return "${S.of(context).password_vaild}";
-                              }else if (repassword.text!=password.text){
+                              } else if (repassword.text != password.text) {
                                 return "${S.of(context).password_not_match}";
                               }
                               return null;
                             },
-                            hintText:S.of(context).Login_title_Confirm_Password,
+                            hintText:
+                                S.of(context).Login_title_Confirm_Password,
                             controller: repassword,
                             prefixIcon: Icons.lock_outlined,
-                            suffixIcon: visblePassword==false ?Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
+                            suffixIcon: visblePassword == false
+                                ? Icons.visibility_off_outlined
+                                : Icons.remove_red_eye_outlined,
                             onSuffixIconTap: () {
-                              if(visblePassword== true){
+                              if (visblePassword == true) {
                                 setState(() {
-                                  visblePassword = false ;
+                                  visblePassword = false;
                                 });
-                              }else{
+                              } else {
                                 setState(() {
                                   visblePassword = true;
                                 });
                               }
                             },
-
-                            fillColor:Theme.of(context).scaffoldBackgroundColor,
+                            fillColor:
+                                Theme.of(context).scaffoldBackgroundColor,
                             hintTextColor: Colors.grey.shade400,
                             iconColor: app_Colors_Light.ICon_textForm_color,
-                            obscureText: visblePassword==false? true : false,
+                            obscureText: visblePassword == false ? true : false,
                           ),
                         ),
                         SizedBox(height: 20),
@@ -202,12 +229,10 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
                                 setState(() {
                                   if (_formKey.currentState!.validate()) {
                                     showCustomDialog(context);
-                                  } else {
-                                  }
+                                  } else {}
                                 });
                               },
-                            )
-                        ),
+                            )),
 
                         SizedBox(height: 10),
                         // Sign Up Text
@@ -222,6 +247,7 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
       ),
     );
   }
+
   void showCustomDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -229,7 +255,11 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
       builder: (BuildContext context) {
         return WillPopScope(
           onWillPop: () {
-            Navigator.pushNamedAndRemoveUntil(context, Login_Screen.routeName,(Route<dynamic> route) => false,);
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              Login_Screen.routeName,
+              (Route<dynamic> route) => false,
+            );
             FocusScope.of(context).unfocus();
             return Future.value(true);
           },
@@ -247,11 +277,11 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
                   textAlign: TextAlign.center,
                   S.of(context).Successfully_changed,
                   style: TextStyle(
-                  fontFamily: "DMSans",
-                  color: app_Colors_Light.Main_Text_Dark,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 17,
-                ),
+                    fontFamily: "DMSans",
+                    color: app_Colors_Light.Main_Text_Dark,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 17,
+                  ),
                 ),
               ],
             ),
@@ -284,7 +314,14 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
             ),
             actions: [
               Center(
-                child: CustomButton(text: S.of(context).Login_again,onPressed: () => Navigator.pushNamedAndRemoveUntil(context, Login_Screen.routeName,(Route<dynamic> route) => false,),),
+                child: CustomButton(
+                  text: S.of(context).Login_again,
+                  onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    Login_Screen.routeName,
+                    (Route<dynamic> route) => false,
+                  ),
+                ),
               ),
             ],
           ),
@@ -325,47 +362,48 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
                     // Cancel Button
                     Expanded(
                         child: InkWell(
-                          onTap: () => Navigator.pop(context),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color:Theme.of(context).cardColor,
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                    color: app_Colors_Light.MainColor
-                                ),
-                                shape: BoxShape.rectangle
-                            ),
-                            child: Text(
-                              S.of(context).Exit_button_1,
-                              style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),
-                            ),
-                          ),
-                        )
+                      onTap: () => Navigator.pop(context),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(12),
+                            border:
+                                Border.all(color: app_Colors_Light.MainColor),
+                            shape: BoxShape.rectangle),
+                        child: Text(
+                          S.of(context).Exit_button_1,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 13),
+                        ),
+                      ),
+                    )),
+                    SizedBox(
+                      width: 8,
                     ),
-                    SizedBox(width: 8,),
                     // Exit Button
                     Expanded(
                         child: InkWell(
-                          onTap: () =>SystemNavigator.pop(),
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: app_Colors_Light.MainColor,
-                                borderRadius: BorderRadius.circular(12),
-                                shape: BoxShape.rectangle
-
-                            ),
-                            child: Text(
-                              S.of(context).Exit_button_2,
-                              style:Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13),
-
-
-                            ),
-                          ),
-                        )),
+                      onTap: () => SystemNavigator.pop(),
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: app_Colors_Light.MainColor,
+                            borderRadius: BorderRadius.circular(12),
+                            shape: BoxShape.rectangle),
+                        child: Text(
+                          S.of(context).Exit_button_2,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(fontSize: 13),
+                        ),
+                      ),
+                    )),
                   ],
                 ),
               ],
@@ -375,7 +413,4 @@ class _Reset_Password_ScreenState extends State<Reset_Password_Screen> {
       },
     );
   }
-
-
 }
-

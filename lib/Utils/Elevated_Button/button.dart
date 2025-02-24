@@ -4,32 +4,35 @@ import 'package:yourcolor/Utils/Colors/colors.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final Color? color;
-  final VoidCallback? onPressed; // Add the optional onPressed parameter
+  final VoidCallback? onPressed;
 
   const CustomButton({
     Key? key,
     required this.text,
     this.color,
-    this.onPressed, // Include the parameter in the constructor
+    this.onPressed,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50.0, // constant height
+    return SizedBox(
+      height: 40.0, // constant height
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: onPressed ?? () {}, // Use the provided onPressed or a default no-op
+        onPressed: onPressed ?? () {},
         style: ElevatedButton.styleFrom(
           overlayColor: Colors.transparent,
-          backgroundColor: color ?? app_Colors_Light.MainColor, // default color
+          backgroundColor: color ?? app_Colors_Light.MainColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0), // optional rounded corners
+            borderRadius: BorderRadius.circular(5.0),
           ),
         ),
         child: Text(
           text,
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.white),
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: Colors.white),
         ),
       ),
     );

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:table_calendar/table_calendar.dart';
+import 'package:scrollable_clean_calendar/controllers/clean_calendar_controller.dart';
+import 'package:scrollable_clean_calendar/scrollable_clean_calendar.dart';
+import 'package:scrollable_clean_calendar/utils/enums.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
-
 import '../../Widgets/Home/bookings/Details_booking/details_booking.dart';
 import '../../Widgets/Home/bookings/bookings.dart';
 import '../../generated/l10n.dart';
@@ -14,22 +14,32 @@ class booking_screen extends StatefulWidget {
   State<booking_screen> createState() => _BookingScreenState();
 }
 
-class _BookingScreenState extends State<booking_screen> with TickerProviderStateMixin {
-  late TabController _tabController;
-  DateTime? _rangeStart;
-  DateTime? _rangeEnd;
+class _BookingScreenState extends State<booking_screen>
+    with TickerProviderStateMixin {
+  final calendarController = CleanCalendarController(
+    minDate: DateTime(2024, 1, 1),
+    maxDate: DateTime.now().add(const Duration(days: 365)),
+    onRangeSelected: (firstDate, secondDate) {},
+    onDayTapped: (date) {},
+    onPreviousMinDateTapped: (date) {},
+    onAfterMaxDateTapped: (date) {},
+    weekdayStart: DateTime.monday,
+  );
+  late TabController tabController;
+  DateTime? rangeStart;
+  DateTime? rangeEnd;
 
   String selectedStatus = "All booking";
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 3, vsync: this);
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    tabController.dispose();
     super.dispose();
   }
 
@@ -87,15 +97,15 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
       "serviceImage": "assets/images/service man.jpg",
       "statusColor": Colors.red,
     },
-
   ];
-
 
   List<Map<String, dynamic>> get filteredBookings {
     if (selectedStatus == "All booking") {
       return bookings;
     }
-    return bookings.where((booking) => booking["status"] == selectedStatus).toList();
+    return bookings
+        .where((booking) => booking["status"] == selectedStatus)
+        .toList();
   }
 
   void showFilterSheet() {
@@ -116,7 +126,7 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(4),
+                      padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
                         color: Theme.of(context).cardColor,
                         borderRadius: BorderRadius.circular(30),
@@ -125,7 +135,7 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
                         labelStyle: Theme.of(context).textTheme.bodySmall,
                         dividerHeight: 0,
                         dividerColor: Theme.of(context).scaffoldBackgroundColor,
-                        controller: _tabController,
+                        controller: tabController,
                         indicatorSize: TabBarIndicatorSize.tab,
                         indicator: BoxDecoration(
                           color: app_Colors_Light.MainColor,
@@ -143,57 +153,55 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
                     const SizedBox(height: 16),
                     Expanded(
                       child: TabBarView(
-                        controller: _tabController,
+                        controller: tabController,
                         children: [
                           ListView(
                             shrinkWrap: true,
                             children: [
-                              ...["All booking", "Pending", "Completed", "Cancelled"]
-                                  .map((status) {
+                              ...[
+                                "All booking",
+                                "Pending",
+                                "Completed",
+                                "Cancelled"
+                              ].map((status) {
                                 return RadioListTile<String>(
-                                  fillColor: WidgetStatePropertyAll(app_Colors_Light.MainColor),
-                                  title: Text(status, style: Theme.of(context).textTheme.bodyMedium),
+                                  fillColor: WidgetStatePropertyAll(
+                                      app_Colors_Light.MainColor),
+                                  title: Text(status,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                   value: status,
                                   groupValue: selectedStatus,
                                   onChanged: (value) {
                                     Navigator.pop(context, value);
                                   },
                                 );
-                              }).toList(),
+                              }),
                             ],
                           ),
-                          TableCalendar(
-                            rangeSelectionMode: RangeSelectionMode.toggledOn,
-                            firstDay: DateTime.utc(2024, 10, 1),
-                            lastDay: DateTime.utc(2100, 12, 31),
-                            focusedDay: _rangeStart ?? DateTime.now(),
-                            selectedDayPredicate: (day) {
-                              return day == _rangeStart ||
-                                  day == _rangeEnd ||
-                                  (day.isAfter(_rangeStart ?? DateTime.now()) &&
-                                      day.isBefore(_rangeEnd ?? DateTime.now()));
-                            },
-                            rangeStartDay: _rangeStart,
-                            rangeEndDay: _rangeEnd,
-                            onDaySelected: (selectedDay, focusedDay) {
-                              setState(() {
-                                if (_rangeStart == null || _rangeEnd != null) {
-                                  _rangeStart = selectedDay;
-                                  _rangeEnd = null;
-                                } else if (selectedDay.isBefore(_rangeStart!)) {
-                                  _rangeStart = selectedDay;
-                                } else {
-                                  _rangeEnd = selectedDay;
-                                }
-                              });
-                            },
+                          ScrollableCleanCalendar(
+                            showWeekdays: true,
+                            dayBackgroundColor: Theme.of(context).cardColor,
+                            daySelectedBackgroundColorBetween:
+                                app_Colors_Light.MainColor,
+                            calendarController: calendarController,
+                            daySelectedBackgroundColor:
+                                app_Colors_Light.MainColor,
+                            dayDisableColor: Colors.black,
+                            dayDisableBackgroundColor:
+                                Theme.of(context).cardColor,
+                            layout: Layout.DEFAULT,
+                            calendarCrossAxisSpacing: 10,
+                            calendarMainAxisSpacing: 10,
                           ),
                           ListView(
                             shrinkWrap: true,
                             physics: const AlwaysScrollableScrollPhysics(),
                             children: List.generate(6, (index) {
                               return ListTile(
-                                leading: Icon(Icons.category, color: Colors.grey),
+                                leading: const Icon(Icons.category,
+                                    color: Colors.grey),
                                 title: Text("Category ${index + 1}"),
                                 trailing: Checkbox(
                                   value: false,
@@ -236,7 +244,8 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
               children: [
                 Row(
                   children: [
-                    Text("Bookings", style: Theme.of(context).textTheme.bodyMedium),
+                    Text("Bookings",
+                        style: Theme.of(context).textTheme.bodyMedium),
                     const Spacer(),
                     GestureDetector(
                       onTap: () => showFilterSheet(),
@@ -252,7 +261,7 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
                   ],
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                Container(
+                SizedBox(
                   height: screenHeight * 0.06,
                   child: TextField(
                     style: Theme.of(context).textTheme.bodySmall,
@@ -273,20 +282,23 @@ class _BookingScreenState extends State<booking_screen> with TickerProviderState
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                Text(selectedStatus, style: Theme.of(context).textTheme.bodyMedium),
+                Text(selectedStatus,
+                    style: Theme.of(context).textTheme.bodyMedium),
                 SizedBox(height: screenHeight * 0.02),
                 ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: filteredBookings.length + 1, // زيادة العدد بمقدار واحد لإضافة SizedBox في النهاية
-                  padding: EdgeInsets.all(0),
+                  itemCount: filteredBookings.length +
+                      1, // زيادة العدد بمقدار واحد لإضافة SizedBox في النهاية
+                  padding: const EdgeInsets.all(0),
                   itemBuilder: (context, index) {
                     if (index == filteredBookings.length) {
-                      return SizedBox(height: 10);
+                      return const SizedBox(height: 10);
                     } else {
                       final booking = filteredBookings[index];
                       return serviceRequestCard(
-                        onTap: () => Navigator.pushNamed(context, DetailsBooking.routeName),
+                        onTap: () => Navigator.pushNamed(
+                            context, DetailsBooking.routeName),
                         context: context,
                         requestId: booking["requestId"],
                         serviceName: booking["serviceName"],

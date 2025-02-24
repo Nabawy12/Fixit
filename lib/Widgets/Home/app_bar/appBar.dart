@@ -76,7 +76,8 @@ class _LocationWidgetState extends State<LocationWidget> {
   Future<void> _getAddressFromLatLng(double latitude, double longitude) async {
     try {
       // Get the list of placemarks (addresses) from the latitude and longitude
-      List<Placemark> placemarks = await GeocodingPlatform.instance!.placemarkFromCoordinates(latitude, longitude);
+      List<Placemark> placemarks = await GeocodingPlatform.instance!
+          .placemarkFromCoordinates(latitude, longitude);
 
       // Get the first placemark (address)
       Placemark place = placemarks[0];
@@ -90,7 +91,7 @@ class _LocationWidgetState extends State<LocationWidget> {
     } catch (e) {
       if (mounted) {
         setState(() {
-          _locationMessage = "Could not get location name: $e";
+          _locationMessage = "Could not get location name:";
         });
       }
     }

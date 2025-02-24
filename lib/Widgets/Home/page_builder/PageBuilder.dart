@@ -17,8 +17,9 @@ class OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,  // Ensure the container takes up the full width
+      margin: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
           image: AssetImage("assets/images/service man.jpg"),
           fit: BoxFit.cover,
@@ -38,14 +39,14 @@ class OfferCard extends StatelessWidget {
               ),
               child: Text(
                 tag,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 12),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 12),
               ),
             ),
             SizedBox(height: 10),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.bodyMedium
-            ),
+            Text(title, style: Theme.of(context).textTheme.bodyMedium),
             Text(
               subtitle,
               style: Theme.of(context).textTheme.bodySmall,

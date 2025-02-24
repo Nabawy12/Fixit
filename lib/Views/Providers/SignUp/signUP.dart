@@ -43,6 +43,7 @@ class _Signup_providerState extends State<Signup_provider> {
       _selectedType = _selectedType == "Male" ? "Female" : "Male";
     });
   }
+
   File? _image;
 
   // Explicitly choose the gallery
@@ -79,8 +80,10 @@ class _Signup_providerState extends State<Signup_provider> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
-                          splashColor: Theme.of(context).scaffoldBackgroundColor,
-                          highlightColor: Theme.of(context).scaffoldBackgroundColor,
+                          splashColor:
+                              Theme.of(context).scaffoldBackgroundColor,
+                          highlightColor:
+                              Theme.of(context).scaffoldBackgroundColor,
                           onTap: () {
                             Navigator.pop(context);
                           },
@@ -92,7 +95,8 @@ class _Signup_providerState extends State<Signup_provider> {
                             ),
                             child: Icon(
                               Icons.arrow_back_ios_new,
-                              color: Theme.of(context).textTheme.bodyMedium!.color,
+                              color:
+                                  Theme.of(context).textTheme.bodyMedium!.color,
                             ),
                           ),
                         ),
@@ -119,12 +123,14 @@ class _Signup_providerState extends State<Signup_provider> {
                         ),
                         // Foreground progress indicator with AnimatedContainer
                         AnimatedContainer(
-                          duration: Duration(milliseconds: 500), // Duration of the animation
+                          duration: Duration(
+                              milliseconds: 500), // Duration of the animation
                           curve: Curves.easeInOut, // Animation curve
                           height: 50,
-                          width: (MediaQuery.of(context).size.width * _progress).isFinite
+                          width: (MediaQuery.of(context).size.width * _progress)
+                                  .isFinite
                               ? MediaQuery.of(context).size.width * _progress
-                              : 0.0,  // Default to 0.0 if the width is not a valid number
+                              : 0.0, // Default to 0.0 if the width is not a valid number
                           decoration: BoxDecoration(
                             color: app_Colors_Light.MainColor,
                             borderRadius: BorderRadius.circular(15),
@@ -132,20 +138,26 @@ class _Signup_providerState extends State<Signup_provider> {
                           alignment: Alignment.center,
                           child: Text(
                             'Few more steps to earn more',
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 11, color: Colors.white),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(fontSize: 11, color: Colors.white),
                           ),
                         ),
                         // Coin icon at the end
-                        provider.currentLocale.languageCode == "en" ?
-                        Positioned(
-                          right: 10,
-                          top: 5,
-                          child: Icon(Icons.attach_money, color: Colors.yellow[700], size: 40),
-                        ) :Positioned(
-                          left: 10,
-                          top: 5,
-                          child: Icon(Icons.attach_money, color: Colors.yellow[700], size: 40),
-                        ),
+                        provider.currentLocale.languageCode == "en"
+                            ? Positioned(
+                                right: 10,
+                                top: 5,
+                                child: Icon(Icons.attach_money,
+                                    color: Colors.yellow[700], size: 40),
+                              )
+                            : Positioned(
+                                left: 10,
+                                top: 5,
+                                child: Icon(Icons.attach_money,
+                                    color: Colors.yellow[700], size: 40),
+                              ),
                       ],
                     ),
                     SizedBox(height: 20),
@@ -157,8 +169,9 @@ class _Signup_providerState extends State<Signup_provider> {
           // PageView for the next screens, disabled swipe and use button to navigate
           Expanded(
             child: PageView(
-              controller: _pageController,  // Controller to manage page navigation
-              physics: NeverScrollableScrollPhysics(),  // Disable swipe gestures
+              controller:
+                  _pageController, // Controller to manage page navigation
+              physics: NeverScrollableScrollPhysics(), // Disable swipe gestures
               children: [
                 // First screen (sign up screen)
                 SingleChildScrollView(
@@ -177,36 +190,46 @@ class _Signup_providerState extends State<Signup_provider> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Align(
-                                alignment:Alignment.topCenter,
-                                  child: Text("PROVIDER DETAILS")
-                              ),
-                              Divider(color: Theme.of(context).scaffoldBackgroundColor),
+                                  alignment: Alignment.topCenter,
+                                  child: Text("PROVIDER DETAILS")),
+                              Divider(
+                                  color: Theme.of(context)
+                                      .scaffoldBackgroundColor),
                               SizedBox(height: 10),
                               // Name Field
                               Row(
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Owner name", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Owner name",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: customTextField(
+                                  isRequired: true,
                                   prefixIcon: Icons.person_outline,
                                   context: context,
                                   hintText: "Enter Name",
                                   controller: name,
-                                  focusColor: Theme.of(context).colorScheme.outline,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  focusColor:
+                                      Theme.of(context).colorScheme.outline,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                 ),
                               ),
                               SizedBox(height: 16),
@@ -214,20 +237,28 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Phone Number", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Phone Number",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
                                 child: customTextField(
+                                  isRequired: true,
                                   context: context,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -236,14 +267,19 @@ class _Signup_providerState extends State<Signup_provider> {
                                     return null;
                                   },
                                   keyboardType: TextInputType.phone,
-                                  hintText: S.of(context).Phone_Number_text_field,
+                                  hintText:
+                                      S.of(context).Phone_Number_text_field,
                                   controller: phone,
                                   prefixIcon: Icons.local_phone_outlined,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                   obscureText: false,
                                   hintTextColor: Colors.grey.shade400,
-                                  iconColor: app_Colors_Light.ICon_textForm_color,
-                                  inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                                  iconColor:
+                                      app_Colors_Light.ICon_textForm_color,
+                                  inputFormatters: <TextInputFormatter>[
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
                                 ),
                               ),
                               SizedBox(height: 16),
@@ -251,26 +287,35 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Email", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Email",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: customTextField(
+                                  isRequired: true,
                                   prefixIcon: Icons.email_outlined,
                                   context: context,
                                   hintText: "Enter Email",
                                   controller: name,
-                                  focusColor: Theme.of(context).colorScheme.outline,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  focusColor:
+                                      Theme.of(context).colorScheme.outline,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                 ),
                               ),
                               SizedBox(height: 16),
@@ -278,40 +323,48 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Identity type", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Identity type",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: InkWell(
-                                  onTap: _toggleType, // Toggle between Male and Female
+                                  onTap:
+                                      _toggleType, // Toggle between Male and Female
                                   child: Container(
                                     padding: EdgeInsets.all(15),
                                     decoration: BoxDecoration(
-                                      color: Theme.of(context).scaffoldBackgroundColor,
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: Row(
                                       children: [
-                                        Icon(
-                                            _selectedType == "Male" ?
-                                            Icons.male :
-                                            _selectedType == "Female" ?
-                                            Icons.female :
-                                            Icons.select_all_outlined
-                                        ),
+                                        Icon(_selectedType == "Male"
+                                            ? Icons.male
+                                            : _selectedType == "Female"
+                                                ? Icons.female
+                                                : Icons.select_all_outlined),
                                         SizedBox(width: 10),
                                         Text(
                                           _selectedType,
-                                          style: Theme.of(context).textTheme.bodySmall,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
                                         )
                                       ],
                                     ),
@@ -323,14 +376,20 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Upload Photo", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Upload Photo",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -340,31 +399,35 @@ class _Signup_providerState extends State<Signup_provider> {
                                 },
                                 child: _image == null
                                     ? Container(
-                                      margin: EdgeInsets.symmetric(horizontal: 16),
-                                      padding: EdgeInsets.all(20),
-                                      width: double.infinity,
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).scaffoldBackgroundColor,
-                                        borderRadius: BorderRadius.circular(12)
-                                      ),
-                                      child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                      Icon(Icons.upload),
-                                      SizedBox(height: 10),
-                                      Text(
-                                        "Upload logo Image",
-                                        style: Theme.of(context).textTheme.bodyMedium,
-                                      ),
-                                                                        ],
-                                                                      ),
-                                    )
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        padding: EdgeInsets.all(20),
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .scaffoldBackgroundColor,
+                                            borderRadius:
+                                                BorderRadius.circular(12)),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.upload),
+                                            SizedBox(height: 10),
+                                            Text(
+                                              "Upload logo Image",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      )
                                     : CircleAvatar(
-                                  radius: 60, // Adjust size as needed
-                                  backgroundImage: FileImage(_image!),
-                                ), // Show the uploaded image as a circular avatar
+                                        radius: 60, // Adjust size as needed
+                                        backgroundImage: FileImage(_image!),
+                                      ), // Show the uploaded image as a circular avatar
                               ),
-
                             ],
                           ),
                         ),
@@ -380,7 +443,9 @@ class _Signup_providerState extends State<Signup_provider> {
                             _increaseProgress();
                           },
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                       ],
                     ),
                   ),
@@ -401,21 +466,29 @@ class _Signup_providerState extends State<Signup_provider> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text("COMPANY DETAILS"),
-                              Divider(color: Theme.of(context).scaffoldBackgroundColor),
+                              Divider(
+                                  color: Theme.of(context)
+                                      .scaffoldBackgroundColor),
                               SizedBox(height: 20),
                               // Name Field
                               Row(
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Upload Logo", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Upload Logo",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -425,43 +498,54 @@ class _Signup_providerState extends State<Signup_provider> {
                                 },
                                 child: _image == null
                                     ? Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 16),
-                                  padding: EdgeInsets.all(20),
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Theme.of(context).scaffoldBackgroundColor,
-                                      borderRadius: BorderRadius.circular(12)
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.upload),
-                                      SizedBox(height: 10),
-                                      Text(
-                                        "Upload logo Image",
-                                        style: Theme.of(context).textTheme.bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                )
+                                        margin: EdgeInsets.symmetric(
+                                            horizontal: 16),
+                                        padding: EdgeInsets.all(20),
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                            color: Theme.of(context)
+                                                .scaffoldBackgroundColor,
+                                            borderRadius:
+                                                BorderRadius.circular(12)),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.upload),
+                                            SizedBox(height: 10),
+                                            Text(
+                                              "Upload logo Image",
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium,
+                                            ),
+                                          ],
+                                        ),
+                                      )
                                     : CircleAvatar(
-                                  radius: 60, // Adjust size as needed
-                                  backgroundImage: FileImage(_image!),
-                                ), // Show the uploaded image as a circular avatar
+                                        radius: 60, // Adjust size as needed
+                                        backgroundImage: FileImage(_image!),
+                                      ), // Show the uploaded image as a circular avatar
                               ),
                               SizedBox(height: 16),
                               Row(
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Company Name", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Company Name",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -472,8 +556,10 @@ class _Signup_providerState extends State<Signup_provider> {
                                   context: context,
                                   hintText: "Enter Company Name",
                                   controller: name,
-                                  focusColor: Theme.of(context).colorScheme.outline,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  focusColor:
+                                      Theme.of(context).colorScheme.outline,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                 ),
                               ),
                               SizedBox(height: 16),
@@ -481,19 +567,26 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Phone Number", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Phone Number",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0),
                                 child: customTextField(
                                   context: context,
                                   validator: (value) {
@@ -503,14 +596,19 @@ class _Signup_providerState extends State<Signup_provider> {
                                     return null;
                                   },
                                   keyboardType: TextInputType.phone,
-                                  hintText: S.of(context).Phone_Number_text_field,
+                                  hintText:
+                                      S.of(context).Phone_Number_text_field,
                                   controller: phone,
                                   prefixIcon: Icons.local_phone_outlined,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                   obscureText: false,
                                   hintTextColor: Colors.grey.shade400,
-                                  iconColor: app_Colors_Light.ICon_textForm_color,
-                                  inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                                  iconColor:
+                                      app_Colors_Light.ICon_textForm_color,
+                                  inputFormatters: <TextInputFormatter>[
+                                    FilteringTextInputFormatter.digitsOnly
+                                  ],
                                 ),
                               ),
                               SizedBox(height: 16),
@@ -518,14 +616,20 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Company Email", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Company Email",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -536,8 +640,10 @@ class _Signup_providerState extends State<Signup_provider> {
                                   context: context,
                                   hintText: "Enter Company Email",
                                   controller: name,
-                                  focusColor: Theme.of(context).colorScheme.outline,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  focusColor:
+                                      Theme.of(context).colorScheme.outline,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                 ),
                               ),
                               SizedBox(height: 16),
@@ -545,14 +651,20 @@ class _Signup_providerState extends State<Signup_provider> {
                                 children: [
                                   Container(
                                     width: 4, // Fixed width for the line
-                                    height: 20, // Line height based on responsive text height
+                                    height:
+                                        20, // Line height based on responsive text height
                                     decoration: BoxDecoration(
-                                      color: app_Colors_Light.MainColor, // Line color
-                                      borderRadius: BorderRadius.circular(10), // Rounded edges
+                                      color: app_Colors_Light
+                                          .MainColor, // Line color
+                                      borderRadius: BorderRadius.circular(
+                                          10), // Rounded edges
                                     ),
                                   ),
                                   SizedBox(width: 16),
-                                  Text("Description", style: Theme.of(context).textTheme.bodyMedium),
+                                  Text("Description",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium),
                                 ],
                               ),
                               SizedBox(height: 10),
@@ -563,12 +675,12 @@ class _Signup_providerState extends State<Signup_provider> {
                                   context: context,
                                   hintText: "Enter Details",
                                   controller: name,
-                                  focusColor: Theme.of(context).colorScheme.outline,
-                                  fillColor: Theme.of(context).scaffoldBackgroundColor,
+                                  focusColor:
+                                      Theme.of(context).colorScheme.outline,
+                                  fillColor:
+                                      Theme.of(context).scaffoldBackgroundColor,
                                 ),
                               ),
-
-
                             ],
                           ),
                         ),
@@ -587,8 +699,9 @@ class _Signup_providerState extends State<Signup_provider> {
                             _increaseProgress();
                           },
                         ),
-                        SizedBox(height: 20,),
-
+                        SizedBox(
+                          height: 20,
+                        ),
                       ],
                     ),
                   ),

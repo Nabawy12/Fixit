@@ -15,7 +15,7 @@ class HelpSupport extends StatelessWidget {
     Future<void> _launchEmail() async {
       final Uri emailUri = Uri(
         scheme: 'mailto',
-        path: 'example.help&support@gmail.com',
+        path: 'example.help%26support@gmail.com', // Use %26 for '&'
       );
 
       if (await canLaunchUrl(emailUri)) {
@@ -24,6 +24,7 @@ class HelpSupport extends StatelessWidget {
         throw 'Could not launch $emailUri';
       }
     }
+
     Future<void> _launchPhone(String phoneNumber) async {
       final Uri phoneUri = Uri(
         scheme: 'tel',
@@ -36,12 +37,17 @@ class HelpSupport extends StatelessWidget {
         throw 'Could not launch $phoneUri';
       }
     }
+
     return Scaffold(
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 20,child:Container(color: Theme.of(context).cardColor,) ,),
-
+            SizedBox(
+              height: 20,
+              child: Container(
+                color: Theme.of(context).cardColor,
+              ),
+            ),
             Container(
               color: Theme.of(context).cardColor,
               child: Row(
@@ -53,7 +59,9 @@ class HelpSupport extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      margin: provider.currentLocale.languageCode == "en" ?EdgeInsets.only(left: 16) :EdgeInsets.only(right: 16) ,
+                      margin: provider.currentLocale.languageCode == "en"
+                          ? EdgeInsets.only(left: 16)
+                          : EdgeInsets.only(right: 16),
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
@@ -75,9 +83,13 @@ class HelpSupport extends StatelessWidget {
               ),
             ),
             ClipRRect(
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
                 child: Image.asset("assets/images/support.png")),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Align(
@@ -95,7 +107,8 @@ class HelpSupport extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color:Theme.of(context).colorScheme.outline),
+                border:
+                    Border.all(color: Theme.of(context).colorScheme.outline),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,8 +128,7 @@ class HelpSupport extends StatelessWidget {
                     onTap: () {
                       FocusScope.of(context).unfocus();
                       _launchEmail();
-                      },
-
+                    },
                     child: Container(
                       child: Text(
                         'example.help&support@gmail.com',
@@ -141,10 +153,9 @@ class HelpSupport extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap:() {
+                        onTap: () {
                           FocusScope.of(context).unfocus();
                           _launchPhone("+201012126866");
-
                         },
                         child: Text(
                           '+201012126866',
@@ -152,7 +163,7 @@ class HelpSupport extends StatelessWidget {
                         ),
                       ),
                       InkWell(
-                        onTap:() {
+                        onTap: () {
                           FocusScope.of(context).unfocus();
                           _launchPhone("+201127547535");
                         },

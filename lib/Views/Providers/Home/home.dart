@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:yourcolor/Utils/Elevated_Button/button.dart';
-
 import '../../../Utils/Truncation/Text.dart';
 import '../../../Widgets/Home/bookings/Details_booking/details_booking.dart';
 import '../../../Widgets/Home/bookings/bookings.dart';
@@ -68,32 +66,38 @@ class _home_providerState extends State<home_provider> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02), // Dynamic height
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      0.02), // Dynamic height
 
               Container(
                 margin: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.04, // 4% of screen width
+                  horizontal: MediaQuery.of(context).size.width *
+                      0.04, // 4% of screen width
                 ),
                 child: Row(
                   children: [
                     CircleAvatar(
-                      radius: MediaQuery.of(context).size.width * 0.05, // CircleAvatar size relative to screen width
+                      radius: MediaQuery.of(context).size.width *
+                          0.05, // CircleAvatar size relative to screen width
                       backgroundColor: Theme.of(context).cardColor,
-                      backgroundImage: AssetImage("assets/images/service man.jpg"),
+                      backgroundImage:
+                          const AssetImage("assets/images/service man.jpg"),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.02, // 2% of screen width
+                      width: MediaQuery.of(context).size.width *
+                          0.02, // 2% of screen width
                     ),
                     Flexible(
                       child: TruncatedText(
                         text: "Zeyad Nabawy Mostafa",
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       padding: EdgeInsets.all(
-                        MediaQuery.of(context).size.width * 0.025, // Padding relative to screen width
+                        MediaQuery.of(context).size.width *
+                            0.025, // Padding relative to screen width
                       ),
                       decoration: BoxDecoration(
                         color: Theme.of(context).cardColor,
@@ -101,82 +105,105 @@ class _home_providerState extends State<home_provider> {
                       ),
                       child: Icon(
                         Icons.message_outlined,
-                        size: MediaQuery.of(context).size.width * 0.05, // Icon size relative to screen width
+                        size: MediaQuery.of(context).size.width *
+                            0.05, // Icon size relative to screen width
                       ),
                     ),
                   ],
                 ),
               ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02), // 3% of screen height
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      0.02), // 3% of screen height
 
               // WALLET
 
               Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.04, // 4% of screen width
+                alignment: Alignment.center,
+                margin: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width *
+                      0.04, // 4% of screen width
+                ),
+                padding: EdgeInsets.all(
+                  MediaQuery.of(context).size.width *
+                      0.03, // 3% of screen width
+                ),
+                decoration: BoxDecoration(
+                  color: app_Colors_Light.MainColor,
+                  borderRadius: BorderRadius.circular(
+                    MediaQuery.of(context).size.width *
+                        0.10, // 6% of screen width
                   ),
-                  padding: EdgeInsets.all(
-                    MediaQuery.of(context).size.width * 0.03, // 3% of screen width
-                  ),
-                  decoration: BoxDecoration(
-                    color: app_Colors_Light.MainColor,
-                    borderRadius: BorderRadius.circular(
-                      MediaQuery.of(context).size.width * 0.10, // 6% of screen width
-                    ),
-                  ),
+                ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       padding: EdgeInsets.all(
-                        MediaQuery.of(context).size.width * 0.02, // 2% of screen width
+                        MediaQuery.of(context).size.width *
+                            0.02, // 2% of screen width
                       ),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
                         Icons.wallet_outlined,
                         color: app_Colors_Light.MainColor,
-                        size: MediaQuery.of(context).size.width * 0.07, // Icon size based on width
+                        size: MediaQuery.of(context).size.width *
+                            0.07, // Icon size based on width
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.04), // 4% of screen width
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width *
+                            0.04), // 4% of screen width
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Wallet bal :",
-                            style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              fontSize: MediaQuery.of(context).size.width * 0.035, // Font size relative to width
-                              color: Colors.white,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.035, // Font size relative to width
+                                  color: Colors.white,
+                                ),
                           ),
-                          SizedBox(height: MediaQuery.of(context).size.height * 0.005), // Small height gap
+                          SizedBox(
+                              height: MediaQuery.of(context).size.height *
+                                  0.005), // Small height gap
                           Text(
                             "\$2,562.23",
-                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                              color: Colors.white,
-                              fontSize: MediaQuery.of(context).size.width * 0.045, // Larger font size
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(
+                                  color: Colors.white,
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.045, // Larger font size
+                                ),
                           ),
                         ],
                       ),
                     ),
-                    Spacer(),// 4% of screen width
+                    const Spacer(), // 4% of screen width
                     Flexible(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           padding: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width * 0.03, // Horizontal padding
-                            vertical: MediaQuery.of(context).size.height * 0.01, // Vertical padding
+                            horizontal: MediaQuery.of(context).size.width *
+                                0.03, // Horizontal padding
+                            vertical: MediaQuery.of(context).size.height *
+                                0.01, // Vertical padding
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
-                              MediaQuery.of(context).size.width * 0.02, // Border radius
+                              MediaQuery.of(context).size.width *
+                                  0.02, // Border radius
                             ),
                           ),
                         ),
@@ -184,210 +211,288 @@ class _home_providerState extends State<home_provider> {
                         child: FittedBox(
                           child: Text(
                             "Withdraw",
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              color: app_Colors_Light.MainColor,
-                              fontSize: MediaQuery.of(context).size.width * 0.035, // Font size
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  color: app_Colors_Light.MainColor,
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.035, // Font size
+                                ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.01), // 4% of screen width
-
+                    SizedBox(
+                        width: MediaQuery.of(context).size.width *
+                            0.01), // 4% of screen width
                   ],
                 ),
               ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02), // 2% of screen height
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      0.02), // 2% of screen height
 
               // REFERENCE
 
               Container(
-            margin: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.04, // 4% of screen width
-            ),
-            child: Column(
-              children: [
-                // FIRST ROW
-                Row(
+                margin: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width *
+                      0.04, // 4% of screen width
+                ),
+                child: Column(
                   children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.width * 0.035, // 3.5% of screen width
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.width * 0.03, // 3% of screen width
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.monetization_on_outlined, color: app_Colors_Light.MainColor),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.03), // 3% of screen height
-                            Text(
-                              "Total Earning",
-                              style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 15),
+                    // FIRST ROW
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.width *
+                                  0.035, // 3.5% of screen width
                             ),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.01), // 1% of screen height
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: BorderRadius.circular(
+                                MediaQuery.of(context).size.width *
+                                    0.03, // 3% of screen width
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Icon(Icons.monetization_on_outlined,
+                                    color: app_Colors_Light.MainColor),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03), // 3% of screen height
                                 Text(
-                                  "\$3,263.03",
+                                  "Total Earning",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: app_Colors_Light.MainColor),
+                                      .bodySmall!
+                                      .copyWith(fontSize: 15),
                                 ),
-                                Icon(Icons.arrow_forward, color: Theme.of(context).textTheme.bodySmall!.color),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01), // 1% of screen height
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "\$3,263.03",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              color:
+                                                  app_Colors_Light.MainColor),
+                                    ),
+                                    Icon(Icons.arrow_forward,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .color),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width *
+                                0.025), // 2.5% of screen width
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.width * 0.035,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: BorderRadius.circular(
+                                MediaQuery.of(context).size.width * 0.03,
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(Icons.bookmark_outline,
+                                    color: app_Colors_Light.MainColor),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03),
+                                Text(
+                                  "Total Booking",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(fontSize: 15),
+                                ),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "635",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              color:
+                                                  app_Colors_Light.MainColor),
+                                    ),
+                                    Icon(Icons.arrow_forward,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .color),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.025), // 2.5% of screen width
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.width * 0.035,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.width * 0.03,
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.bookmark_outline, color: app_Colors_Light.MainColor),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                            Text(
-                              "Total Booking",
-                              style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 15),
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height *
+                            0.02), // 2% of screen height
+                    // SECOND ROW
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.width * 0.035,
                             ),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: BorderRadius.circular(
+                                MediaQuery.of(context).size.width * 0.03,
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Icon(Icons.monetization_on_outlined,
+                                    color: app_Colors_Light.MainColor),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03),
                                 Text(
-                                  "635",
+                                  "Total Services",
                                   style: Theme.of(context)
                                       .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: app_Colors_Light.MainColor),
+                                      .bodySmall!
+                                      .copyWith(fontSize: 15),
                                 ),
-                                Icon(Icons.arrow_forward, color: Theme.of(context).textTheme.bodySmall!.color),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "35",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              color:
+                                                  app_Colors_Light.MainColor),
+                                    ),
+                                    Icon(Icons.arrow_forward,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .color),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.025),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            padding: EdgeInsets.all(
+                              MediaQuery.of(context).size.width * 0.035,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: BorderRadius.circular(
+                                MediaQuery.of(context).size.width * 0.03,
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(Icons.monetization_on_outlined,
+                                    color: app_Colors_Light.MainColor),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.03),
+                                Text(
+                                  "Total Categories",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(fontSize: 15),
+                                ),
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "60",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .copyWith(
+                                              color:
+                                                  app_Colors_Light.MainColor),
+                                    ),
+                                    Icon(Icons.arrow_forward,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .color),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02), // 2% of screen height
-                // SECOND ROW
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.width * 0.035,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.width * 0.03,
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.monetization_on_outlined, color: app_Colors_Light.MainColor),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                            Text(
-                              "Total Services",
-                              style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 15),
-                            ),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "35",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: app_Colors_Light.MainColor),
-                                ),
-                                Icon(Icons.arrow_forward, color: Theme.of(context).textTheme.bodySmall!.color),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.025),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.width * 0.035,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: BorderRadius.circular(
-                            MediaQuery.of(context).size.width * 0.03,
-                          ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.monetization_on_outlined, color: app_Colors_Light.MainColor),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                            Text(
-                              "Total Categories",
-                              style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 15),
-                            ),
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "60",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: app_Colors_Light.MainColor),
-                                ),
-                                Icon(Icons.arrow_forward, color: Theme.of(context).textTheme.bodySmall!.color),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+              ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02), // Dynamic height
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      0.02), // Dynamic height
 
               //CHARTS
 
               Container(
                 padding: EdgeInsets.all(
-                  MediaQuery.of(context).size.width * 0.04, // 4% of screen width
+                  MediaQuery.of(context).size.width *
+                      0.04, // 4% of screen width
                 ),
                 color: Theme.of(context).cardColor,
                 child: Column(
@@ -402,16 +507,19 @@ class _home_providerState extends State<home_provider> {
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.01, // 1% of screen height
+                      height: MediaQuery.of(context).size.height *
+                          0.01, // 1% of screen height
                     ),
                     Container(
                       padding: EdgeInsets.all(
-                        MediaQuery.of(context).size.width * 0.03, // 3% of screen width
+                        MediaQuery.of(context).size.width *
+                            0.03, // 3% of screen width
                       ),
                       decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
                         borderRadius: BorderRadius.circular(
-                          MediaQuery.of(context).size.width * 0.03, // 3% of screen width
+                          MediaQuery.of(context).size.width *
+                              0.03, // 3% of screen width
                         ),
                       ),
                       child: Column(
@@ -419,7 +527,8 @@ class _home_providerState extends State<home_provider> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01, // 1% of screen height
+                            height: MediaQuery.of(context).size.height *
+                                0.01, // 1% of screen height
                           ),
                           Row(
                             children: [
@@ -432,9 +541,10 @@ class _home_providerState extends State<home_provider> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
-                                    .copyWith(color: app_Colors_Light.MainColor),
+                                    .copyWith(
+                                        color: app_Colors_Light.MainColor),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               Row(
                                 children: ['W', 'M', 'Y'].map((timeFrame) {
                                   return GestureDetector(
@@ -445,11 +555,17 @@ class _home_providerState extends State<home_provider> {
                                     },
                                     child: Container(
                                       margin: EdgeInsets.symmetric(
-                                        horizontal: MediaQuery.of(context).size.width * 0.01,
+                                        horizontal:
+                                            MediaQuery.of(context).size.width *
+                                                0.01,
                                       ),
                                       padding: EdgeInsets.symmetric(
-                                        horizontal: MediaQuery.of(context).size.width * 0.02,
-                                        vertical: MediaQuery.of(context).size.height * 0.01,
+                                        horizontal:
+                                            MediaQuery.of(context).size.width *
+                                                0.02,
+                                        vertical:
+                                            MediaQuery.of(context).size.height *
+                                                0.01,
                                       ),
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -472,29 +588,36 @@ class _home_providerState extends State<home_provider> {
                             ],
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.02, // 2% of screen height
+                            height: MediaQuery.of(context).size.height *
+                                0.02, // 2% of screen height
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.3, // 30% of screen height
+                            height: MediaQuery.of(context).size.height *
+                                0.3, // 30% of screen height
                             width: double.infinity,
                             child: BarChart(
                               BarChartData(
                                 barTouchData: BarTouchData(
                                   enabled: true,
                                   touchTooltipData: BarTouchTooltipData(
-                                    getTooltipColor: (group) => app_Colors_Light.MainColor,
+                                    getTooltipColor: (group) =>
+                                        app_Colors_Light.MainColor,
                                     tooltipPadding: EdgeInsets.all(
                                       MediaQuery.of(context).size.width * 0.02,
                                     ),
-                                    tooltipMargin: MediaQuery.of(context).size.width * 0.02,
-                                    getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                                    tooltipMargin:
+                                        MediaQuery.of(context).size.width *
+                                            0.02,
+                                    getTooltipItem:
+                                        (group, groupIndex, rod, rodIndex) {
                                       return BarTooltipItem(
                                         '${rod.toY.toInt()}k\nRevenue',
-                                        TextStyle(color: Colors.white),
+                                        const TextStyle(color: Colors.white),
                                       );
                                     },
                                   ),
-                                  touchCallback: (FlTouchEvent event, response) {
+                                  touchCallback:
+                                      (FlTouchEvent event, response) {
                                     if (!event.isInterestedForInteractions ||
                                         response == null ||
                                         response.spot == null) {
@@ -522,20 +645,30 @@ class _home_providerState extends State<home_provider> {
                                       },
                                     ),
                                   ),
-                                  rightTitles: AxisTitles(
+                                  rightTitles: const AxisTitles(
                                     sideTitles: SideTitles(showTitles: false),
                                   ),
-                                  topTitles: AxisTitles(
+                                  topTitles: const AxisTitles(
                                     sideTitles: SideTitles(showTitles: false),
                                   ),
                                   bottomTitles: AxisTitles(
                                     sideTitles: SideTitles(
                                       showTitles: true,
                                       getTitlesWidget: (value, meta) {
-                                        const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                                        const days = [
+                                          'M',
+                                          'T',
+                                          'W',
+                                          'T',
+                                          'F',
+                                          'S',
+                                          'S'
+                                        ];
                                         return Text(
                                           days[value.toInt()],
-                                          style: Theme.of(context).textTheme.bodySmall,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall,
                                         );
                                       },
                                     ),
@@ -544,24 +677,30 @@ class _home_providerState extends State<home_provider> {
                                 borderData: FlBorderData(show: false),
                                 barGroups: List.generate(
                                   chartData[selectedTimeFrame]!.length,
-                                      (index) {
-                                    final isSelected = index == selectedDayIndex;
+                                  (index) {
+                                    final isSelected =
+                                        index == selectedDayIndex;
                                     return BarChartGroupData(
                                       x: index,
                                       barRods: [
                                         BarChartRodData(
-                                          toY: chartData[selectedTimeFrame]![index],
+                                          toY: chartData[selectedTimeFrame]![
+                                              index],
                                           color: isSelected
                                               ? app_Colors_Light.MainColor
                                               : Colors.grey[300],
-                                          width: MediaQuery.of(context).size.width * 0.04,
-                                          borderRadius: BorderRadius.circular(5),
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
+                                          borderRadius:
+                                              BorderRadius.circular(5),
                                         ),
                                       ],
                                     );
                                   },
                                 ),
-                                gridData: FlGridData(show: false),
+                                gridData: const FlGridData(show: false),
                               ),
                             ),
                           ),
@@ -572,13 +711,16 @@ class _home_providerState extends State<home_provider> {
                 ),
               ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02), // Dynamic height
-
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      0.02), // Dynamic height
 
               // RECENT BOOKING
 
               Container(
-                margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.04), // Adjust margin
+                margin: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width *
+                        0.04), // Adjust margin
                 child: Column(
                   children: [
                     // TITLE OF CARD
@@ -588,7 +730,7 @@ class _home_providerState extends State<home_provider> {
                           "Recent bookings",
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Text(
                           "View all",
                           style: Theme.of(context)
@@ -599,21 +741,23 @@ class _home_providerState extends State<home_provider> {
                       ],
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.03, // Adjust spacing
+                      height: MediaQuery.of(context).size.height *
+                          0.03, // Adjust spacing
                     ),
                     // THE LIST
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: bookings.length,
-                      padding: EdgeInsets.all(0),
+                      padding: const EdgeInsets.all(0),
                       itemBuilder: (context, index) {
                         if (index == bookings.length) {
-                          return SizedBox(height: 10);
+                          return const SizedBox(height: 10);
                         } else {
                           final booking = bookings[index];
                           return serviceRequestCard(
-                            onTap: () => Navigator.pushNamed(context, DetailsBooking.routeName),
+                            onTap: () => Navigator.pushNamed(
+                                context, DetailsBooking.routeName),
                             context: context,
                             requestId: booking["requestId"],
                             serviceName: booking["serviceName"],
@@ -634,44 +778,60 @@ class _home_providerState extends State<home_provider> {
                 ),
               ),
 
-              SizedBox(height: MediaQuery.of(context).size.height * 0.03), // 3% of screen height
+              SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      0.03), // 3% of screen height
 
               //POPULAR SERVICE
 
               Container(
-                padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.04), // Dynamic padding
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width *
+                        0.04), // Dynamic padding
                 decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                 ),
                 child: Column(
                   children: [
                     // TITLE OF CARD
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.02), // Dynamic spacing
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height *
+                            0.02), // Dynamic spacing
                     Row(
                       children: [
                         Text(
                           "Popular Services",
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Text(
                           "View all",
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: app_Colors_Light.MainColor),
                         ),
                       ],
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03), // Dynamic spacing
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height *
+                            0.03), // Dynamic spacing
                     // THE LIST
                     ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: 2,
                       itemBuilder: (context, index) {
                         return InkWell(
-                          onTap: () => Navigator.pushNamed(context, Singleservice_Pro.routeName),
+                          onTap: () => Navigator.pushNamed(
+                              context, Singleservice_Pro.routeName),
                           child: Container(
-                            margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.03), // Dynamic margin
-                            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03), // Dynamic padding
+                            margin: EdgeInsets.only(
+                                bottom: MediaQuery.of(context).size.height *
+                                    0.03), // Dynamic margin
+                            padding: EdgeInsets.all(
+                                MediaQuery.of(context).size.width *
+                                    0.03), // Dynamic padding
                             decoration: BoxDecoration(
                               color: Theme.of(context).scaffoldBackgroundColor,
                               borderRadius: BorderRadius.circular(15),
@@ -685,87 +845,134 @@ class _home_providerState extends State<home_provider> {
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image.asset(
                                     "assets/images/service man.jpg",
-                                    width: MediaQuery.of(context).size.width * 0.9, // Dynamic width
-                                    height: MediaQuery.of(context).size.height * 0.2, // Dynamic height
+                                    width: MediaQuery.of(context).size.width *
+                                        0.9, // Dynamic width
+                                    height: MediaQuery.of(context).size.height *
+                                        0.2, // Dynamic height
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 // DETAILS ABOUT USER
-                                SizedBox(height: MediaQuery.of(context).size.height * 0.02), // Dynamic spacing
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.02), // Dynamic spacing
                                 Row(
                                   children: [
                                     Text(
                                       "Ac water drop solution",
-                                      style: Theme.of(context).textTheme.bodyMedium,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Text(
                                       "\$12.00",
-                                      style: Theme.of(context).textTheme.bodyMedium,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: MediaQuery.of(context).size.height * 0.01), // Dynamic spacing
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01), // Dynamic spacing
                                 Row(
                                   children: [
                                     Container(
-                                      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.005), // Dynamic padding
+                                      padding: EdgeInsets.all(
+                                          MediaQuery.of(context).size.width *
+                                              0.005), // Dynamic padding
                                       decoration: BoxDecoration(
-                                        color: Theme.of(context).textTheme.bodySmall!.color,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .color,
                                         shape: BoxShape.circle,
                                       ),
                                     ),
-                                    SizedBox(width: MediaQuery.of(context).size.width * 0.01), // Dynamic spacing
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.01), // Dynamic spacing
                                     Text(
                                       "Ac Repair",
-                                      style: Theme.of(context).textTheme.bodySmall,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    SizedBox(width: MediaQuery.of(context).size.width * 0.015), // Dynamic spacing
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.015), // Dynamic spacing
                                     Icon(
                                       Icons.bookmark_outline,
-                                      color: Theme.of(context).textTheme.bodySmall!.color,
-                                      size: MediaQuery.of(context).size.width * 0.04, // Dynamic icon size
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .color,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.04, // Dynamic icon size
                                     ),
-                                    SizedBox(width: MediaQuery.of(context).size.width * 0.005), // Dynamic spacing
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.005), // Dynamic spacing
                                     Text(
                                       "255 booked",
-                                      style: Theme.of(context).textTheme.bodySmall,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
                                   ],
                                 ),
                                 // NAME OF USER AND RATE
-                                SizedBox(height: MediaQuery.of(context).size.height * 0.02), // Dynamic spacing
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.02), // Dynamic spacing
                                 Container(
-                                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03), // Dynamic padding
+                                  padding: EdgeInsets.all(
+                                      MediaQuery.of(context).size.width *
+                                          0.03), // Dynamic padding
                                   decoration: BoxDecoration(
                                     color: Theme.of(context).cardColor,
                                     borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(color: Theme.of(context).colorScheme.outline),
+                                    border: Border.all(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .outline),
                                   ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Active Status",
-                                        style: Theme.of(context).textTheme.bodyMedium,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       Switch(
-                                        inactiveTrackColor: app_Colors_Light.BG_Card_color,
+                                        inactiveTrackColor:
+                                            app_Colors_Light.BG_Card_color,
                                         inactiveThumbColor: Colors.grey,
-                                        trackOutlineColor: WidgetStatePropertyAll(app_Colors_Light.BG_Card_color),
+                                        trackOutlineColor:
+                                            WidgetStatePropertyAll(
+                                                app_Colors_Light.BG_Card_color),
                                         activeColor: app_Colors_Light.MainColor,
-                                        value: settingProvider.currentTheme == ThemeMode.dark,
+                                        value: settingProvider.currentTheme ==
+                                            ThemeMode.dark,
                                         onChanged: (value) {
                                           settingProvider.changeCurrentTheme(
-                                            value ? ThemeMode.dark : ThemeMode.light,
+                                            value
+                                                ? ThemeMode.dark
+                                                : ThemeMode.light,
                                           );
                                         },
                                       ),
                                     ],
                                   ),
                                 ),
-                                SizedBox(height: MediaQuery.of(context).size.height * 0.01), // Dynamic spacing
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01), // Dynamic spacing
                               ],
                             ),
                           ),
@@ -775,8 +982,6 @@ class _home_providerState extends State<home_provider> {
                   ],
                 ),
               ),
-
-
             ],
           ),
         ),
