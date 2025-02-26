@@ -22,7 +22,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
   bool like = false;
 
   final List<String> thumbnails = [
-    'assets/images/service man.jpg',
+    'assets/images/serviceman.jpg',
     'assets/images/Splash.png',
     'assets/images/support.png',
     'assets/images/Splash.png',
@@ -63,8 +63,8 @@ class _Singleservice_userState extends State<Singleservice_user> {
                           image: AssetImage(thumbnails[selectedIndex]),
                           fit: BoxFit.cover,
                         ),
-                        boxShadow: [
-                          const BoxShadow(
+                        boxShadow: const [
+                          BoxShadow(
                             color: Colors.grey,
                             offset: Offset(0, 6),
                             blurRadius: 10,
@@ -88,12 +88,12 @@ class _Singleservice_userState extends State<Singleservice_user> {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
+                                Colors.black.withValues(
+                                    alpha: 0.1), // Start of gradient
+                                Colors.black.withValues(
+                                    alpha: 0.2), // Middle of gradient
                                 Colors.black
-                                    .withOpacity(0.1), // Start of gradient
-                                Colors.black
-                                    .withOpacity(0.2), // Middle of gradient
-                                Colors.black
-                                    .withOpacity(0.8), // End of gradient
+                                    .withValues(alpha: 0.8), // End of gradient
                               ],
                             ),
                           ),
@@ -205,7 +205,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                               children: [
                                 // Edit Icon
                                 InkWell(
-                                  onTap: () => null,
+                                  onTap: () {},
                                   child: Container(
                                       padding: const EdgeInsets.all(7),
                                       decoration: BoxDecoration(
@@ -222,14 +222,15 @@ class _Singleservice_userState extends State<Singleservice_user> {
 
                                 // Delete Icon
                                 InkWell(
-                                  onTap: () => null,
+                                  onTap: () {},
                                   child: Container(
                                       padding: const EdgeInsets.all(7),
                                       decoration: const BoxDecoration(
                                           color: Color(0xFFffeded),
                                           shape: BoxShape.circle),
                                       child: Icon(Icons.delete_outline_outlined,
-                                          color: Colors.red.withOpacity(0.6))),
+                                          color: Colors.red
+                                              .withValues(alpha: 0.6))),
                                 ),
                               ],
                             ),
@@ -337,7 +338,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                             child: Container(
                               width: 80,
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.5),
+                                color: Colors.black.withValues(alpha: 0.5),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               alignment: Alignment.center,
@@ -531,7 +532,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                                 const CircleAvatar(
                                   radius: 17,
                                   backgroundImage: AssetImage(
-                                      "assets/images/service man.jpg"),
+                                      "assets/images/serviceman.jpg"),
                                 ),
                                 const SizedBox(
                                   width: 10,
@@ -608,7 +609,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                   ),
                 ),
 
-                // reviwe
+                // review
                 const SizedBox(height: 20),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -659,7 +660,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                               const CircleAvatar(
                                 radius: 20,
                                 backgroundImage:
-                                    AssetImage("assets/images/service man.jpg"),
+                                    AssetImage("assets/images/serviceman.jpg"),
                               ),
                               const SizedBox(
                                 width: 5,
@@ -751,7 +752,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                   height: 15,
                 ),
 
-                Container(
+                SizedBox(
                   height: 233, // Set a fixed height
                   child: ListView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -775,7 +776,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                               borderRadius: BorderRadius.circular(10),
                               child: const Image(
                                 image:
-                                    AssetImage("assets/images/service man.jpg"),
+                                    AssetImage("assets/images/serviceman.jpg"),
                                 fit: BoxFit.cover,
                                 width: double.infinity,
                               ),
@@ -999,7 +1000,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                 controller: PageController(
                     initialPage: initialIndex), // Set initial page index
                 itemBuilder: (context, index) {
-                  return Container(
+                  return SizedBox(
                     width:
                         MediaQuery.of(context).size.width, // Full screen width
                     height: MediaQuery.of(context)

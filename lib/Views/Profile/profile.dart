@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:yourcolor/Views/Login/login.dart';
 import 'package:yourcolor/Views/Profile/FavouriteList/favourite_list.dart';
 import 'package:yourcolor/Views/Profile/Location/location.dart';
-import 'package:yourcolor/Views/SignUp/SignUp.dart';
 import '../../Widgets/exit/exit.dart';
 import '../../generated/l10n.dart';
 import '../../providers_state_mange/settings/settings.dart';
@@ -26,9 +24,9 @@ class profile_screen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(bottom: 100, top: 10),
+        padding: const EdgeInsets.only(bottom: 100, top: 10),
         child: Container(
-          margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+          margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -41,7 +39,7 @@ class profile_screen extends StatelessWidget {
                 children: [
                   Text(S.of(context).title_profile,
                       style: Theme.of(context).textTheme.bodyLarge),
-                  Spacer(),
+                  const Spacer(),
                   InkWell(
                     splashColor: Theme.of(context).scaffoldBackgroundColor,
                     highlightColor: Theme.of(context).scaffoldBackgroundColor,
@@ -49,7 +47,7 @@ class profile_screen extends StatelessWidget {
                       Navigator.pushNamed(context, Setting_Screen.routeName);
                     },
                     child: Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: Theme.of(context).cardColor,
                           shape: BoxShape.circle),
@@ -59,20 +57,20 @@ class profile_screen extends StatelessWidget {
                             .textTheme
                             .bodyMedium!
                             .color!
-                            .withOpacity(0.8),
+                            .withValues(alpha: 0.8),
                       ),
                     ),
                   )
                 ],
               ),
 
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               //DETAILS_OF_USER
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(20),
@@ -92,7 +90,7 @@ class profile_screen extends StatelessWidget {
                           onTap: () => Navigator.pushNamed(
                               context, Userprofile.routeName),
                           child: Container(
-                            padding: EdgeInsets.all(5),
+                            padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
                                 color:
                                     Theme.of(context).scaffoldBackgroundColor,
@@ -105,7 +103,7 @@ class profile_screen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     // Profile image
                     Container(
@@ -113,33 +111,33 @@ class profile_screen extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(
                               color: app_Colors_Light.Strok_color, width: 2)),
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         radius: 40,
                         backgroundImage: AssetImage('assets/images/forget.png'),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
                     // Name
-                    Text(
+                    const Text(
                       'Zeyad Nabawy',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
 
                     // Email
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.email_outlined,
                           size: 16,
                           color: Colors.grey,
                         ),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(
                           'ZeaydNabawy118@gmail.com',
                           style: TextStyle(
@@ -150,12 +148,12 @@ class profile_screen extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
 
                     // Balance information
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: app_Colors_Light.MainColor,
                         borderRadius: BorderRadius.circular(15),
@@ -170,7 +168,7 @@ class profile_screen extends StatelessWidget {
                                 .bodyMedium!
                                 .copyWith(color: Colors.white),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -180,7 +178,7 @@ class profile_screen extends StatelessWidget {
                                       .bodyMedium!
                                       .copyWith(
                                           color: Colors.white, fontSize: 25)),
-                              Icon(
+                              const Icon(
                                 Icons.arrow_forward,
                                 color: Colors.white,
                               ),
@@ -192,7 +190,7 @@ class profile_screen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(
@@ -202,12 +200,13 @@ class profile_screen extends StatelessWidget {
                     .bodyMedium!
                     .copyWith(color: app_Colors_Light.MainColor),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(12.0),
@@ -217,15 +216,16 @@ class profile_screen extends StatelessWidget {
                       color: Theme.of(context).cardColor,
                       spreadRadius: 0,
                       blurRadius: 7,
-                      offset: Offset(0, -3), // Negative Y offset for top shadow
+                      offset: const Offset(
+                          0, -3), // Negative Y offset for top shadow
                     ),
                     // Shadow for the bottom
                     BoxShadow(
                       color: Theme.of(context).cardColor,
                       spreadRadius: 0,
                       blurRadius: 7,
-                      offset:
-                          Offset(0, 3), // Positive Y offset for bottom shadow
+                      offset: const Offset(
+                          0, 3), // Positive Y offset for bottom shadow
                     ),
                   ],
                 ),
@@ -257,7 +257,7 @@ class profile_screen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
@@ -267,12 +267,13 @@ class profile_screen extends StatelessWidget {
                     .bodyMedium!
                     .copyWith(color: app_Colors_Light.MainColor),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   borderRadius: BorderRadius.circular(12.0),
@@ -282,15 +283,16 @@ class profile_screen extends StatelessWidget {
                       color: Theme.of(context).cardColor,
                       spreadRadius: 0,
                       blurRadius: 7,
-                      offset: Offset(0, -3), // Negative Y offset for top shadow
+                      offset: const Offset(
+                          0, -3), // Negative Y offset for top shadow
                     ),
                     // Shadow for the bottom
                     BoxShadow(
                       color: Theme.of(context).cardColor,
                       spreadRadius: 0,
                       blurRadius: 7,
-                      offset:
-                          Offset(0, 3), // Positive Y offset for bottom shadow
+                      offset: const Offset(
+                          0, 3), // Positive Y offset for bottom shadow
                     ),
                   ],
                 ),
@@ -323,24 +325,23 @@ class profile_screen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
                 onTap: () {
                   provider.changeNavigateAt();
-                  provider.changeUserType();
                   Navigator.pushNamed(
                     context,
                     Onboarding_provider.routeName,
                   );
                 },
                 child: Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 10.0),
                   decoration: BoxDecoration(
-                    color: app_Colors_Light.MainColor.withOpacity(
-                        0.07), // Light background color
+                    color: app_Colors_Light.MainColor.withValues(
+                        alpha: 0.07), // Light background color
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Row(
@@ -351,8 +352,8 @@ class profile_screen extends StatelessWidget {
                         height: 40,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: app_Colors_Light.MainColor.withOpacity(
-                              0.2), // Background color for the avatar
+                          color: app_Colors_Light.MainColor.withValues(
+                              alpha: 0.2), // Background color for the avatar
                         ),
                         child: Icon(
                           Icons.person, // Replace with an image if available
@@ -360,7 +361,7 @@ class profile_screen extends StatelessWidget {
                           size: 28,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                           width: 12.0), // Space between the avatar and the text
 
                       // Main Text
@@ -378,13 +379,14 @@ class profile_screen extends StatelessWidget {
                       Icon(
                         Icons.arrow_forward_ios,
                         size: 18,
-                        color: app_Colors_Light.MainColor.withOpacity(0.9),
+                        color:
+                            app_Colors_Light.MainColor.withValues(alpha: 0.9),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
@@ -398,11 +400,11 @@ class profile_screen extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, vertical: 10.0),
                   decoration: BoxDecoration(
-                    color:
-                        Colors.red.withOpacity(0.07), // Light background color
+                    color: Colors.red
+                        .withValues(alpha: 0.07), // Light background color
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Row(
@@ -413,17 +415,17 @@ class profile_screen extends StatelessWidget {
                         height: 40,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.red.withOpacity(
-                              0.2), // Background color for the avatar
+                          color: Colors.red.withValues(
+                              alpha: 0.2), // Background color for the avatar
                         ),
-                        child: Icon(
+                        child: const Icon(
                           Icons
                               .logout_outlined, // Replace with an image if available
                           color: Colors.red,
                           size: 28,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                           width: 12.0), // Space between the avatar and the text
 
                       // Main Text
@@ -439,13 +441,13 @@ class profile_screen extends StatelessWidget {
                       Icon(
                         Icons.arrow_forward_ios,
                         size: 18,
-                        color: Colors.red.withOpacity(0.9),
+                        color: Colors.red.withValues(alpha: 0.9),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
               //
@@ -465,11 +467,14 @@ class profile_screen extends StatelessWidget {
   }) {
     return ListTile(
       leading: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Icon(
           icon,
-          color:
-              Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
+          color: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .color!
+              .withValues(alpha: 0.7),
         ),
       ),
       title: Text(
@@ -491,7 +496,11 @@ class profile_screen extends StatelessWidget {
       trailing: Icon(
         Icons.arrow_forward_ios,
         size: 18,
-        color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.7),
+        color: Theme.of(context)
+            .textTheme
+            .bodyMedium!
+            .color!
+            .withValues(alpha: 0.7),
       ),
       onTap: onTap, // onTap is optional
     );
@@ -512,7 +521,7 @@ class profile_screen extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            contentPadding: EdgeInsets.all(16),
+            contentPadding: const EdgeInsets.all(16),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -524,9 +533,9 @@ class profile_screen extends StatelessWidget {
                       .bodyLarge!
                       .copyWith(fontSize: 17),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Image.asset("assets/images/log_out.png"),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -553,7 +562,7 @@ class profile_screen extends StatelessWidget {
                         ),
                       ),
                     )),
-                    SizedBox(
+                    const SizedBox(
                       width: 8,
                     ),
                     // Exit Button

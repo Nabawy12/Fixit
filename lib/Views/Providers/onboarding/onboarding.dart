@@ -35,7 +35,7 @@ class Onboarding_provider extends StatelessWidget {
                 height: screenHeight * 0.4, // 40% of screen height
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/service man.jpg"),
+                    image: AssetImage("assets/images/serviceman.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -98,7 +98,7 @@ class Onboarding_provider extends StatelessWidget {
                       ),
                       SizedBox(
                           height: screenHeight * 0.03), // 3% of screen height
-                      provider.user == "user"
+                      provider.user == "user" || provider.user != "user"
                           ? InkWell(
                               onTap: () {
                                 Navigator.pushNamed(

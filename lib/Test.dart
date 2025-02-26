@@ -46,15 +46,16 @@ class _home_providerState extends State<home_provider> {
                   children: [
                     CircleAvatar(
                       backgroundColor: Theme.of(context).cardColor,
-                      backgroundImage: AssetImage("assets/images/service man.jpg"),
+                      backgroundImage:
+                          AssetImage("assets/images/serviceman.jpg"),
                       radius: isSmallScreen ? 18 : 24,
                     ),
                     SizedBox(width: screenWidth * 0.02),
                     Text(
                       "Hello, Zeyad Nabawy!!",
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontSize: isSmallScreen ? 14 : 16,
-                      ),
+                            fontSize: isSmallScreen ? 14 : 16,
+                          ),
                     ),
                     Spacer(),
                     Container(
@@ -101,18 +102,20 @@ class _home_providerState extends State<home_provider> {
                       children: [
                         Text(
                           "Wallet bal :",
-                          style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontSize: isSmallScreen ? 12 : 14,
-                            color: Colors.white,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    fontSize: isSmallScreen ? 12 : 14,
+                                    color: Colors.white,
+                                  ),
                         ),
                         SizedBox(height: screenHeight * 0.005),
                         Text(
                           "\$2,562.23",
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: Colors.white,
-                            fontSize: isSmallScreen ? 16 : 18,
-                          ),
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    color: Colors.white,
+                                    fontSize: isSmallScreen ? 16 : 18,
+                                  ),
                         ),
                       ],
                     ),
@@ -127,9 +130,9 @@ class _home_providerState extends State<home_provider> {
                       child: Text(
                         "Withdraw",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          fontSize: isSmallScreen ? 12 : 14,
-                          color: app_Colors_Light.MainColor,
-                        ),
+                              fontSize: isSmallScreen ? 12 : 14,
+                              color: app_Colors_Light.MainColor,
+                            ),
                       ),
                     ),
                   ],
@@ -147,9 +150,9 @@ class _home_providerState extends State<home_provider> {
                     Text(
                       "Details",
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: isSmallScreen ? 14 : 16,
-                      ),
+                            fontWeight: FontWeight.bold,
+                            fontSize: isSmallScreen ? 14 : 16,
+                          ),
                     ),
                     SizedBox(height: screenHeight * 0.02),
                     SizedBox(
@@ -161,10 +164,12 @@ class _home_providerState extends State<home_provider> {
                             enabled: true,
                             touchTooltipData: BarTouchTooltipData(
                               getTooltipColor: (group) =>
-                              app_Colors_Light.MainColor,
-                              tooltipPadding: EdgeInsets.all(screenWidth * 0.02),
+                                  app_Colors_Light.MainColor,
+                              tooltipPadding:
+                                  EdgeInsets.all(screenWidth * 0.02),
                               tooltipMargin: 8,
-                              getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                              getTooltipItem:
+                                  (group, groupIndex, rod, rodIndex) {
                                 return BarTooltipItem(
                                   '${rod.toY.toInt()}k\nRevenue',
                                   TextStyle(color: Colors.white),
@@ -194,7 +199,8 @@ class _home_providerState extends State<home_provider> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodySmall!
-                                        .copyWith(fontSize: isSmallScreen ? 8 : 10),
+                                        .copyWith(
+                                            fontSize: isSmallScreen ? 8 : 10),
                                   );
                                 },
                               ),
@@ -203,10 +209,19 @@ class _home_providerState extends State<home_provider> {
                               sideTitles: SideTitles(
                                 showTitles: true,
                                 getTitlesWidget: (value, meta) {
-                                  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+                                  const days = [
+                                    'M',
+                                    'T',
+                                    'W',
+                                    'T',
+                                    'F',
+                                    'S',
+                                    'S'
+                                  ];
                                   return Text(
                                     days[value.toInt()],
-                                    style: Theme.of(context).textTheme.bodySmall,
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall,
                                   );
                                 },
                               ),
@@ -215,7 +230,7 @@ class _home_providerState extends State<home_provider> {
                           borderData: FlBorderData(show: false),
                           barGroups: List.generate(
                             chartData[selectedTimeFrame]!.length,
-                                (index) {
+                            (index) {
                               final isSelected = index == selectedDayIndex;
                               return BarChartGroupData(
                                 x: index,

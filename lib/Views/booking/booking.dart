@@ -55,7 +55,7 @@ class _BookingScreenState extends State<booking_screen>
       "paymentStatus": "Not paid yet",
       "customerName": "Zeyad Nabawy Mostafa Fayed",
       "customerImage": "assets/images/me.jpg",
-      "serviceImage": "assets/images/service man.jpg",
+      "serviceImage": "assets/images/serviceman.jpg",
       "statusColor": app_Colors_Light.Rate_color,
     },
     {
@@ -68,7 +68,7 @@ class _BookingScreenState extends State<booking_screen>
       "paymentStatus": "Paid",
       "customerName": "Ahmed Ali",
       "customerImage": "assets/images/me.jpg",
-      "serviceImage": "assets/images/service man.jpg",
+      "serviceImage": "assets/images/serviceman.jpg",
       "statusColor": Colors.green,
     },
     {
@@ -81,7 +81,7 @@ class _BookingScreenState extends State<booking_screen>
       "paymentStatus": "Not paid yet",
       "customerName": "Sara Mohamed",
       "customerImage": "assets/images/me.jpg",
-      "serviceImage": "assets/images/service man.jpg",
+      "serviceImage": "assets/images/serviceman.jpg",
       "statusColor": app_Colors_Light.Rate_color,
     },
     {
@@ -94,7 +94,7 @@ class _BookingScreenState extends State<booking_screen>
       "paymentStatus": "Refunded",
       "customerName": "Mona Sameh",
       "customerImage": "assets/images/me.jpg",
-      "serviceImage": "assets/images/service man.jpg",
+      "serviceImage": "assets/images/serviceman.jpg",
       "statusColor": Colors.red,
     },
   ];

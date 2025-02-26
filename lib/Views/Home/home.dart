@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yourcolor/Utils/Colors/colors.dart';
@@ -19,9 +20,7 @@ class home_screen extends StatefulWidget {
 }
 
 class _home_screenState extends State<home_screen> {
-  final PageController _pageController = PageController(viewportFraction: 0.9);
   final PageController coupon = PageController(viewportFraction: 0.8);
-  int _currentIndex = 0;
   ScrollController allpage = ScrollController();
 
   final List<Map<String, String>> offers = [
@@ -108,61 +107,30 @@ class _home_screenState extends State<home_screen> {
             const SizedBox(
               height: 20,
             ),
-            //PAGE VIEW BUILDER
-            SizedBox(
-              height: 250,
-              child: PageView.builder(
-                pageSnapping: true,
-                padEnds: false,
-                reverse: false,
-                controller: _pageController,
-                itemCount: offers.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      left: provider.currentLocale.languageCode == "en" &&
-                              index == 0
-                          ? 12.0
-                          : 7.0,
-                      right: provider.currentLocale.languageCode != "en" &&
-                                  index == 0 ||
-                              index == offers.length - 1
-                          ? 12.0
-                          : 7.0,
-                    ),
-                    child: OfferCard(
-                      title: offers[index]["title"]!,
-                      subtitle: offers[index]["subtitle"]!,
-                      buttonText: offers[index]["buttonText"]!,
-                      tag: offers[index]["tag"]!,
-                    ),
-                  );
-                },
+
+            CarouselSlider(
+              options: CarouselOptions(
+                autoPlay: false,
+                enableInfiniteScroll: true,
+                padEnds: true,
+                aspectRatio: 1.0,
+                enlargeCenterPage: true,
               ),
-            ),
-            const SizedBox(height: 10),
-            // Dot indicator
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(offers.length, (index) {
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                  height: 8.0,
-                  width: _currentIndex == index ? 16.0 : 8.0,
-                  decoration: BoxDecoration(
-                    color: _currentIndex == index
-                        ? app_Colors_Light.MainColor
-                        : Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
+              items: offers.map((offer) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return SizedBox(
+                      width: double.infinity,
+                      child: OfferCard(
+                        title: offer["title"]!,
+                        subtitle: offer["subtitle"]!,
+                        buttonText: offer["buttonText"]!,
+                        tag: offer["tag"]!,
+                      ),
+                    );
+                  },
                 );
-              }),
+              }).toList(),
             ),
 
             const SizedBox(height: 20),
@@ -348,7 +316,7 @@ class _home_screenState extends State<home_screen> {
                                   const CircleAvatar(
                                     radius: 15,
                                     backgroundImage: AssetImage(
-                                        "assets/images/service man.jpg"),
+                                        "assets/images/serviceman.jpg"),
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -382,7 +350,7 @@ class _home_screenState extends State<home_screen> {
                               children: [
                                 const Image(
                                   image: AssetImage(
-                                      "assets/images/service man.jpg"),
+                                      "assets/images/serviceman.jpg"),
                                   width: double.infinity,
                                   fit: BoxFit.cover,
                                 ),
@@ -494,7 +462,11 @@ class _home_screenState extends State<home_screen> {
                                     ),
                                   ),
                                   const Expanded(
-                                      flex: 1, child: CustomButton(text: "ADD"))
+                                      flex: 1,
+                                      child: CustomButton(
+                                        text: "ADD",
+                                        height: 37,
+                                      ))
                                 ],
                               ),
                             ),

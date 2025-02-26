@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:yourcolor/Utils/Colors/colors.dart';
 import 'package:yourcolor/Views/NavBar/navbar.dart';
 import 'package:yourcolor/Views/Splash/splash.dart';
 import 'package:yourcolor/providers_state_mange/settings/settings.dart';
@@ -57,16 +58,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<setting_Providers>(context);
     return MaterialApp(
+      title: "FixIt",
+      color: app_Colors_Light.MainColor,
       debugShowCheckedModeBanner: false,
       themeMode: provider.currentTheme,
       theme: style_mode.LightTheme,
       darkTheme: style_mode.DarkTheme,
       locale: provider.currentLocale,
-      supportedLocales: [
-        const Locale('en'),
-        const Locale('ar'),
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -260,8 +263,6 @@ class MyApp extends StatelessWidget {
       case TransitionType.bottomToTop:
         return SlideRoute(page,
             begin: const Offset(0.0, 1.0), end: Offset.zero);
-      default:
-        return SlideRoute(page);
     }
   }
 }

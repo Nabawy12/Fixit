@@ -29,7 +29,6 @@ class DetailsBooking extends StatelessWidget {
       }
     }
 
-    
     var provider = Provider.of<setting_Providers>(context);
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -40,7 +39,9 @@ class DetailsBooking extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -68,16 +69,18 @@ class DetailsBooking extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     Spacer(),
-          
                   ],
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Theme.of(context).colorScheme.outline),
+                    border: Border.all(
+                        color: Theme.of(context).colorScheme.outline),
                     boxShadow: [
                       // Shadow for the top
                       BoxShadow(
@@ -98,44 +101,72 @@ class DetailsBooking extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                          child: Image(image: AssetImage("assets/images/service man.jpg")
-                          )
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image(
+                              image:
+                                  AssetImage("assets/images/serviceman.jpg"))),
+                      SizedBox(
+                        height: 10,
                       ),
-                      SizedBox(height: 10,),
                       // Title of Details
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text("#58961",style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),),
+                          Text(
+                            "#58961",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: app_Colors_Light.MainColor),
+                          ),
                           Spacer(),
                           Container(
                             padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(1),
-                              color: app_Colors_Light.BG_Selcted
-                            ),
+                                borderRadius: BorderRadius.circular(1),
+                                color: app_Colors_Light.BG_Selcted),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text("View status",style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor,fontWeight: FontWeight.w200),),
-                                SizedBox(width: 5,),
-                                Icon(FontAwesomeIcons.arrowRightLong,color: app_Colors_Light.MainColor,size: 17,)
+                                Text(
+                                  "View status",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          color: app_Colors_Light.MainColor,
+                                          fontWeight: FontWeight.w200),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  FontAwesomeIcons.arrowRightLong,
+                                  color: app_Colors_Light.MainColor,
+                                  size: 17,
+                                )
                               ],
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       //Name of Services
-                      Text("Cleaning Services",style: Theme.of(context).textTheme.bodyMedium,),
-                      SizedBox(height: 10,),
+                      Text(
+                        "Cleaning Services",
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
                       // Details of services
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Theme.of(context).colorScheme.outline)
-                        ),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                                color: Theme.of(context).colorScheme.outline)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -146,20 +177,30 @@ class DetailsBooking extends StatelessWidget {
                                     padding: const EdgeInsets.all(16.0),
                                     child: Row(
                                       children: [
-                                        Icon(Icons.calendar_today_outlined, size: 20, color: Colors.grey[700]),
+                                        Icon(Icons.calendar_today_outlined,
+                                            size: 20, color: Colors.grey[700]),
                                         const SizedBox(width: 8),
-                                        Container(width: 1,height: 20,color: Theme.of(context).colorScheme.outline,),
+                                        Container(
+                                          width: 1,
+                                          height: 20,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .outline,
+                                        ),
                                         const SizedBox(width: 8),
                                         Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              '6 Sep, 2023',
-                                                style: Theme.of(context).textTheme.bodyMedium
-                                            ),
+                                            Text('6 Sep, 2023',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium),
                                             Text(
                                               'Date',
-                                              style: Theme.of(context).textTheme.bodySmall,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall,
                                             ),
                                           ],
                                         ),
@@ -174,24 +215,38 @@ class DetailsBooking extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 10),
-
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 10),
                                     child: Row(
                                       children: [
-                                        Icon(Icons.access_time_outlined, size: 20, color: Theme.of(context).textTheme.bodySmall!.color),
+                                        Icon(Icons.access_time_outlined,
+                                            size: 20,
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .color),
                                         const SizedBox(width: 8),
-                                        Container(width: 1,height: 20,color: Theme.of(context).colorScheme.outline,),
+                                        Container(
+                                          width: 1,
+                                          height: 20,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .outline,
+                                        ),
                                         const SizedBox(width: 8),
                                         Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              '6:00 PM',
-                                              style: Theme.of(context).textTheme.bodyMedium
-                                            ),
+                                            Text('6:00 PM',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium),
                                             Text(
                                               'Time',
-                                              style: Theme.of(context).textTheme.bodySmall,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall,
                                             ),
                                           ],
                                         ),
@@ -201,20 +256,32 @@ class DetailsBooking extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Container(color: Theme.of(context).colorScheme.outline,width: double.infinity,height: 1,),
+                            Container(
+                              color: Theme.of(context).colorScheme.outline,
+                              width: double.infinity,
+                              height: 1,
+                            ),
                             Container(
                               padding: const EdgeInsets.all(16.0),
                               child: Row(
                                 children: [
-                                  Icon(Icons.location_on_outlined, size: 20, color: Colors.grey[700]),
+                                  Icon(Icons.location_on_outlined,
+                                      size: 20, color: Colors.grey[700]),
                                   const SizedBox(width: 8),
-                                  Container(width: 1,height: 20,color: Theme.of(context).colorScheme.outline,),
+                                  Container(
+                                    width: 1,
+                                    height: 20,
+                                    color:
+                                        Theme.of(context).colorScheme.outline,
+                                  ),
                                   const SizedBox(width: 8),
                                   Expanded(
                                     child: Text(
-                                      '2118 Thornridge Cir. Syracuse, Connecticut - 35624, USA.',
-                                      style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 13)
-                                    ),
+                                        '2118 Thornridge Cir. Syracuse, Connecticut - 35624, USA.',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .copyWith(fontSize: 13)),
                                   ),
                                 ],
                               ),
@@ -229,9 +296,18 @@ class DetailsBooking extends StatelessWidget {
                                 ),
                                 child: Row(
                                   children: [
-                                    Text("VIEW LOCATION ON MAP",style: Theme.of(context).textTheme.bodyMedium,),
+                                    Text(
+                                      "VIEW LOCATION ON MAP",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium,
+                                    ),
                                     Spacer(),
-                                    Icon(FontAwesomeIcons.arrowRightLong,color: app_Colors_Light.MainColor,size: 17,)
+                                    Icon(
+                                      FontAwesomeIcons.arrowRightLong,
+                                      color: app_Colors_Light.MainColor,
+                                      size: 17,
+                                    )
                                   ],
                                 ),
                               ),
@@ -239,47 +315,81 @@ class DetailsBooking extends StatelessWidget {
                           ],
                         ),
                       ),
-          
+
                       //Description
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Description",style: Theme.of(context).textTheme.bodySmall,),
-                          SizedBox(height: 4,),
+                          Text(
+                            "Description",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
                           ReadMoreText(
                             'The Flutter framework builds its layout via the composition of widgets, everything that you construct programmatically is a widget and these are compiled together to create the user interface.',
                             trimLength: 100,
-                            style: GoogleFonts.alexandria(fontSize: 13,fontWeight: FontWeight.w400,color: provider.currentTheme == ThemeMode.light ? Colors.black : Colors.white,height: 2),
-                            lessStyle: Theme.of(context).textTheme.bodySmall!.copyWith(color: app_Colors_Light.MainColor),
-                            moreStyle: Theme.of(context).textTheme.bodySmall!.copyWith(color: app_Colors_Light.MainColor),
+                            style: GoogleFonts.alexandria(
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400,
+                                color: provider.currentTheme == ThemeMode.light
+                                    ? Colors.black
+                                    : Colors.white,
+                                height: 2),
+                            lessStyle: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(color: app_Colors_Light.MainColor),
+                            moreStyle: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(color: app_Colors_Light.MainColor),
                             colorClickableText: app_Colors_Light.MainColor,
                             trimCollapsedText: ' Read more',
                             trimExpandedText: '  Show less',
                           ),
-          
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       // Customer Details
                       Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Theme.of(context).cardColor,
-                          borderRadius: BorderRadius.circular(10)
-                        ),
+                            color: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 10,),
-                            Text("Customer details",style: Theme.of(context).textTheme.bodySmall,),
-                            SizedBox(height: 10,),
-                            Divider(color: Theme.of(context).colorScheme.outline,),
-                            SizedBox(height: 10,),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Customer details",
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Divider(
+                              color: Theme.of(context).colorScheme.outline,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Row(
                               children: [
-                                CircleAvatar(backgroundImage: AssetImage("assets/images/me.jpg"),),
-                                SizedBox(width: 6,),
-                                TruncatedText(text: "Zeyad Nabawy Mostafa Fayed"),
+                                CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage("assets/images/me.jpg"),
+                                ),
+                                SizedBox(
+                                  width: 6,
+                                ),
+                                TruncatedText(
+                                    text: "Zeyad Nabawy Mostafa Fayed"),
                                 Spacer(),
                                 Container(
                                   child: Row(
@@ -288,85 +398,141 @@ class DetailsBooking extends StatelessWidget {
                                         padding: EdgeInsets.all(7),
                                         decoration: BoxDecoration(
                                             color: app_Colors_Light.BG_Selcted,
-                                            border: Border.all(color: app_Colors_Light.MainColor),
-                                            borderRadius: BorderRadius.circular(5)
+                                            border: Border.all(
+                                                color:
+                                                    app_Colors_Light.MainColor),
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        child: Icon(
+                                          Icons.message_outlined,
+                                          color: app_Colors_Light.MainColor,
+                                          size: 17,
                                         ),
-                                        child: Icon(Icons.message_outlined,color: app_Colors_Light.MainColor,size: 17,),
                                       ),
-                                      SizedBox(width: 10,),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
                                       Container(
                                         padding: EdgeInsets.all(7),
                                         decoration: BoxDecoration(
                                             color: app_Colors_Light.BG_Selcted,
-                                            border: Border.all(color: app_Colors_Light.MainColor),
-                                            borderRadius: BorderRadius.circular(5)
+                                            border: Border.all(
+                                                color:
+                                                    app_Colors_Light.MainColor),
+                                            borderRadius:
+                                                BorderRadius.circular(5)),
+                                        child: Icon(
+                                          Icons.call_outlined,
+                                          color: app_Colors_Light.MainColor,
+                                          size: 17,
                                         ),
-                                        child: Icon(Icons.call_outlined,color: app_Colors_Light.MainColor,size: 17,),
                                       ),
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 4,),
-
+                                SizedBox(
+                                  width: 4,
+                                ),
                               ],
                             )
                           ],
                         ),
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(
+                        height: 5,
+                      ),
                     ],
                   ),
                 ),
-                SizedBox(height: 10,),
-                Text("Bill summary",style: Theme.of(context).textTheme.bodyMedium,),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Bill summary",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Theme.of(context).cardColor,
-                    border: Border.all(color: Theme.of(context).colorScheme.outline)
-                  ),
+                      borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).cardColor,
+                      border: Border.all(
+                          color: Theme.of(context).colorScheme.outline)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          Text("Amount",style: Theme.of(context).textTheme.bodySmall,),
+                          Text(
+                            "Amount",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                           Spacer(),
-                          Text("\$12.00",style: Theme.of(context).textTheme.bodyMedium),
+                          Text("\$12.00",
+                              style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Row(
                         children: [
-                          Text("Tax",style: Theme.of(context).textTheme.bodySmall,),
+                          Text(
+                            "Tax",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                           Spacer(),
-                          Text("\$10.00",style: Theme.of(context).textTheme.bodyMedium),
+                          Text("\$10.00",
+                              style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Row(
                         children: [
-                          Text("Coupon discount (24% off)",style: Theme.of(context).textTheme.bodySmall,),
+                          Text(
+                            "Coupon discount (24% off)",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
                           Spacer(),
-                          Text("-\$1.00",style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Colors.red),),
+                          Text(
+                            "-\$1.00",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: Colors.red),
+                          ),
                         ],
                       ),
-                      Divider(color: Theme.of(context).colorScheme.outline,),
+                      Divider(
+                        color: Theme.of(context).colorScheme.outline,
+                      ),
                       Row(
                         children: [
-                          Text("Total Amount",style: Theme.of(context).textTheme.bodyMedium,),
+                          Text(
+                            "Total Amount",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
                           Spacer(),
-                          Text("\$21.00",style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),),
+                          Text(
+                            "\$21.00",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(color: app_Colors_Light.MainColor),
+                          ),
                         ],
                       ),
-
-
                     ],
                   ),
                 ),
-                SizedBox(height: 50,),
+                SizedBox(
+                  height: 50,
+                ),
                 Row(
                   children: [
                     Expanded(
@@ -400,4 +566,3 @@ class DetailsBooking extends StatelessWidget {
     );
   }
 }
-

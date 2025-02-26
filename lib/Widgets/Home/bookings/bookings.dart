@@ -8,7 +8,6 @@ import '../../../Views/Providers/SingleService/singleservice.dart';
 import '../../../providers_state_mange/settings/settings.dart';
 
 Widget serviceRequestCard({
-
   required BuildContext context,
   required String requestId,
   required String serviceName,
@@ -29,9 +28,13 @@ Widget serviceRequestCard({
 
   return InkWell(
     onTap: onTap,
+    splashColor: Colors.transparent,
+    enableFeedback: false,
+    overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+    hoverColor: Colors.transparent,
     child: Container(
-      margin: EdgeInsets.symmetric(vertical: 15),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.symmetric(vertical: 15),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Theme.of(context).colorScheme.outline),
@@ -51,79 +54,84 @@ Widget serviceRequestCard({
                         .bodySmall!
                         .copyWith(color: app_Colors_Light.MainColor),
                   ),
-                  SizedBox(height: 5),
-                  Text(serviceName, style: Theme.of(context).textTheme.bodyMedium),
-                  SizedBox(height: 5),
-                  Text("\$$price", style: Theme.of(context).textTheme.bodyMedium),
+                  const SizedBox(height: 5),
+                  Text(serviceName,
+                      style: Theme.of(context).textTheme.bodyMedium),
+                  const SizedBox(height: 5),
+                  Text("\$$price",
+                      style: Theme.of(context).textTheme.bodyMedium),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image(
                   image: AssetImage(serviceImage),
-                  width: screenWidth > 600 ? 120 : 90, // Adjust image size based on screen width
-                  height: screenWidth > 600 ? 120 : 90, // Adjust image size based on screen width
+                  width: screenWidth > 600
+                      ? 120
+                      : 90, // Adjust image size based on screen width
+                  height: screenWidth > 600
+                      ? 120
+                      : 90, // Adjust image size based on screen width
                   fit: BoxFit.cover,
                 ),
               ),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           dashedDivider(context),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             children: [
               Text("Status", style: Theme.of(context).textTheme.bodySmall),
-              Spacer(),
+              const Spacer(),
               Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   color: statusColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Text(
                   status,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(color: Theme.of(context).scaffoldBackgroundColor),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Theme.of(context).scaffoldBackgroundColor),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             children: [
               Text("Date & Time", style: Theme.of(context).textTheme.bodySmall),
-              Spacer(),
+              const Spacer(),
               Text(dateTime, style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             children: [
               Text("Location", style: Theme.of(context).textTheme.bodySmall),
-              Spacer(),
+              const Spacer(),
               Text(location, style: Theme.of(context).textTheme.bodyMedium),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             children: [
               Text("Payment", style: Theme.of(context).textTheme.bodySmall),
-              Spacer(),
+              const Spacer(),
               Text(
                 paymentStatus,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: paymentStatus == "Paid" ? Colors.green : Colors.red,
-                ),
+                      color:
+                          paymentStatus == "Paid" ? Colors.green : Colors.red,
+                    ),
               ),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Theme.of(context).cardColor,
@@ -134,55 +142,59 @@ Widget serviceRequestCard({
                   radius: 15,
                   backgroundImage: AssetImage(customerImage),
                 ),
-                SizedBox(width: 7),
+                const SizedBox(width: 7),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    provider.user == "provider" ?
-                    Text("Customer", style: Theme.of(context).textTheme.bodySmall):
-                    Text("Provider", style: Theme.of(context).textTheme.bodySmall),
-                    SizedBox(height: 5),
-                    Text(customerName, style: Theme.of(context).textTheme.bodyMedium),
-
+                    provider.user == "provider"
+                        ? Text("Customer",
+                            style: Theme.of(context).textTheme.bodySmall)
+                        : Text("Provider",
+                            style: Theme.of(context).textTheme.bodySmall),
+                    const SizedBox(height: 5),
+                    Text(customerName,
+                        style: Theme.of(context).textTheme.bodyMedium),
                   ],
                 ),
               ],
             ),
           ),
-          SizedBox(height: 15),
-          provider.user == "provider" ?
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 50,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: app_Colors_Light.MainColor),
-                  ),
-                  child: Text(
-                    "Reject",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(color: app_Colors_Light.MainColor),
-                  ),
-                ),
-              ),
-              SizedBox(width: 15),
-              Expanded(
-                child: CustomButton(text: "Accept"),
-              ),
-            ],
-          ) : Container(),
+          const SizedBox(height: 15),
+          provider.user == "provider"
+              ? Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 50,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: app_Colors_Light.MainColor),
+                        ),
+                        child: Text(
+                          "Reject",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: app_Colors_Light.MainColor),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    const Expanded(
+                      child: CustomButton(text: "Accept"),
+                    ),
+                  ],
+                )
+              : Container(),
         ],
       ),
     ),
   );
 }
 
-Widget dashedDivider(BuildContext context, {double dashWidth = 8.0, double dashHeight = 1.0}) {
+Widget dashedDivider(BuildContext context,
+    {double dashWidth = 8.0, double dashHeight = 1.0}) {
   return CustomPaint(
     size: Size(double.infinity, dashHeight),
     painter: DashedLinePainter(

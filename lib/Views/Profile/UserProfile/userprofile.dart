@@ -221,27 +221,30 @@ class _UserprofileState extends State<Userprofile> {
                         ),
                         SizedBox(height: 10),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                          child: customTextField(
-                            isRequired: true,
-                            context: context,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return "${S.of(context).Email_vaild}";
-                              }
-                              return null;
-                            },
-                            keyboardType: TextInputType.emailAddress,
-                            hintText: S.of(context).Login_email_text_field_hint,
-                            controller: email,
-                            prefixIcon: Icons.email_outlined,
-                            fillColor:
-                                Theme.of(context).scaffoldBackgroundColor,
-                            obscureText: false,
-                            hintTextColor: Colors.grey.shade400,
-                            iconColor: app_Colors_Light.ICon_textForm_color,
-                          ),
-                        ),
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: customTextField(
+                              isRequired: true,
+                              context: context,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return S.of(context).Email_vaild;
+                                } else if (!value.contains('@') ||
+                                    value.indexOf('@') < 3) {
+                                  return "ُEmail not true";
+                                }
+                                return null;
+                              },
+                              hintText:
+                                  S.of(context).Login_email_text_field_hint,
+                              controller: email,
+                              prefixIcon: Icons.email_outlined,
+                              fillColor:
+                                  Theme.of(context).scaffoldBackgroundColor,
+                              hintTextColor: Colors.grey.shade400,
+                              iconColor: app_Colors_Light.ICon_textForm_color,
+                              obscureText: false,
+                            )),
                         SizedBox(height: 16),
 
                         // Phone Number Field

@@ -8,6 +8,7 @@ class OfferCard extends StatelessWidget {
   final String tag;
 
   const OfferCard({
+    super.key,
     required this.title,
     required this.subtitle,
     required this.buttonText,
@@ -17,24 +18,24 @@ class OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: AssetImage("assets/images/service man.jpg"),
+        image: const DecorationImage(
+          image: AssetImage("assets/images/serviceman.jpg"),
           fit: BoxFit.cover,
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               decoration: BoxDecoration(
-                color: Colors.red,
+                color: app_Colors_Light.OFFER_Selcted,
                 borderRadius: BorderRadius.circular(5),
               ),
               child: Text(
@@ -42,22 +43,35 @@ class OfferCard extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge!
-                    .copyWith(fontSize: 12),
+                    .copyWith(fontSize: 12, color: Colors.white),
               ),
             ),
-            SizedBox(height: 10),
-            Text(title, style: Theme.of(context).textTheme.bodyMedium),
-            Text(
-              subtitle,
-              style: Theme.of(context).textTheme.bodySmall,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(buttonText),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                backgroundColor: app_Colors_Light.MainColor,
+            const SizedBox(height: 10),
+            Text(title,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(fontWeight: FontWeight.w700)),
+            const SizedBox(height: 20),
+            SizedBox(
+              height: 38,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  overlayColor: app_Colors_Light.MainColor,
+                  shadowColor: app_Colors_Light.MainColor,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  backgroundColor: app_Colors_Light.MainColor,
+                ),
+                child: Text(
+                  buttonText,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: Colors.white),
+                ),
               ),
             ),
           ],

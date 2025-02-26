@@ -12,10 +12,10 @@ class HelpSupport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<setting_Providers>(context);
-    Future<void> _launchEmail() async {
+    Future<void> launchEmail() async {
       final Uri emailUri = Uri(
         scheme: 'mailto',
-        path: 'example.help%26support@gmail.com', // Use %26 for '&'
+        path: 'example.help%26support@gmail.com',
       );
 
       if (await canLaunchUrl(emailUri)) {
@@ -25,7 +25,7 @@ class HelpSupport extends StatelessWidget {
       }
     }
 
-    Future<void> _launchPhone(String phoneNumber) async {
+    Future<void> launchPhone(String phoneNumber) async {
       final Uri phoneUri = Uri(
         scheme: 'tel',
         path: phoneNumber,
@@ -41,9 +41,10 @@ class HelpSupport extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 20,
+              height: 10,
               child: Container(
                 color: Theme.of(context).cardColor,
               ),
@@ -60,8 +61,8 @@ class HelpSupport extends StatelessWidget {
                     },
                     child: Container(
                       margin: provider.currentLocale.languageCode == "en"
-                          ? EdgeInsets.only(left: 16)
-                          : EdgeInsets.only(right: 16),
+                          ? const EdgeInsets.only(left: 16)
+                          : const EdgeInsets.only(right: 16),
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: Theme.of(context).scaffoldBackgroundColor,
@@ -82,12 +83,18 @@ class HelpSupport extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 10,
+              child: Container(
+                color: Theme.of(context).cardColor,
+              ),
+            ),
             ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20)),
                 child: Image.asset("assets/images/support.png")),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -102,8 +109,8 @@ class HelpSupport extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(16),
-              padding: EdgeInsets.all(16),
+              margin: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(12),
@@ -115,47 +122,45 @@ class HelpSupport extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.email_outlined, color: Colors.grey),
-                      SizedBox(width: 8),
+                      const Icon(Icons.email_outlined, color: Colors.grey),
+                      const SizedBox(width: 8),
                       Text(
                         'Email address :',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   InkWell(
                     onTap: () {
                       FocusScope.of(context).unfocus();
-                      _launchEmail();
+                      launchEmail();
                     },
-                    child: Container(
-                      child: Text(
-                        'example.help&support@gmail.com',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
+                    child: Text(
+                      'example.help&support@gmail.com',
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   // Contact Number Section
                   Row(
                     children: [
-                      Icon(Icons.phone_outlined, color: Colors.grey),
-                      SizedBox(width: 8),
+                      const Icon(Icons.phone_outlined, color: Colors.grey),
+                      const SizedBox(width: 8),
                       Text(
                         'Contact number :',
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],
                   ),
-                  SizedBox(height: 7),
+                  const SizedBox(height: 7),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
                         onTap: () {
                           FocusScope.of(context).unfocus();
-                          _launchPhone("+201012126866");
+                          launchPhone("+201012126866");
                         },
                         child: Text(
                           '+201012126866',
@@ -165,7 +170,7 @@ class HelpSupport extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           FocusScope.of(context).unfocus();
-                          _launchPhone("+201127547535");
+                          launchPhone("+201127547535");
                         },
                         child: Text(
                           '+201127547535',

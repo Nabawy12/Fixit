@@ -12,10 +12,9 @@ class AllReviewsScreen extends StatefulWidget {
 
 class _AllReviewsScreenState extends State<AllReviewsScreen> {
   String _selectedValue = 'Lowest rate';
-  
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -39,7 +38,11 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                     ),
                     child: Icon(
                       Icons.arrow_back_ios_new,
-                      color: Theme.of(context).textTheme.bodyMedium!.color!.withOpacity(0.8),
+                      color: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .color!
+                          .withOpacity(0.8),
                     ),
                   ),
                 ),
@@ -51,15 +54,16 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                 const Spacer(),
               ],
             ),
-            const SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20),
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                   color: app_Colors_Light.MainColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: app_Colors_Light.MainColor)
-              ),
+                  border: Border.all(color: app_Colors_Light.MainColor)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -68,12 +72,14 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                   Icon(Icons.star, color: app_Colors_Light.MainColor),
                   Icon(Icons.star, color: app_Colors_Light.MainColor),
                   Icon(Icons.star_border, color: app_Colors_Light.MainColor),
-                  const SizedBox(width: 5,),
-                  Text(
-                      'Average rate : 4.5/5',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor)
+                  const SizedBox(
+                    width: 5,
                   ),
-
+                  Text('Average rate : 4.5/5',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: app_Colors_Light.MainColor)),
                 ],
               ),
             ),
@@ -84,7 +90,7 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
               children: [
                 Text(
                   'Reviews',
-                  style:Theme.of(context).textTheme.bodyMedium,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -108,9 +114,12 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
-                              .copyWith(fontSize: 12, fontWeight: FontWeight.w400),
+                              .copyWith(
+                                  fontSize: 12, fontWeight: FontWeight.w400),
                         ),
-                        const SizedBox(width: 5,),
+                        const SizedBox(
+                          width: 5,
+                        ),
                         Icon(
                           Icons.arrow_drop_down,
                           color: Theme.of(context).textTheme.bodySmall!.color,
@@ -121,7 +130,9 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             _buildReviewCard(
               name: 'Devon Lane',
               time: '12 min ago',
@@ -136,7 +147,7 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
               time: '12 min ago',
               rating: 4.0,
               review:
-              'I just love their service & the staff nature for work, I’d like to hire them again',
+                  'I just love their service & the staff nature for work, I’d like to hire them again',
               serviceName: 'House cleaning',
               BuildContext: context,
             ),
@@ -177,10 +188,10 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                 color: Theme.of(context).cardColor,
                 spreadRadius: 0,
                 blurRadius: 7,
-                offset: const Offset(0, 3), // Positive Y offset for bottom shadow
+                offset:
+                    const Offset(0, 3), // Positive Y offset for bottom shadow
               ),
             ],
-
           ),
           child: Column(
             children: [
@@ -272,7 +283,7 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
             children: [
               const CircleAvatar(
                 radius: 20,
-                backgroundImage: AssetImage('assets/images/service man.jpg'),
+                backgroundImage: AssetImage('assets/images/serviceman.jpg'),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -292,12 +303,14 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
               ),
               Row(
                 children: [
-                   Icon(Icons.star, color: app_Colors_Light.Rate_color, size: 16),
+                  Icon(Icons.star,
+                      color: app_Colors_Light.Rate_color, size: 16),
                   const SizedBox(width: 4),
-                  Text(
-                    rating.toString(),
-                    style: Theme.of(BuildContext).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w400,fontSize: 13)
-                  ),
+                  Text(rating.toString(),
+                      style: Theme.of(BuildContext)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(fontWeight: FontWeight.w400, fontSize: 13)),
                 ],
               ),
             ],
@@ -323,9 +336,14 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
                 ),
                 Text(
                   '$serviceName',
-                  style: Theme.of(BuildContext).textTheme.bodyMedium!.copyWith(fontSize: 12),
+                  style: Theme.of(BuildContext)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(fontSize: 12),
                 ),
-                Icon(Icons.arrow_forward_ios, size: 16, color:  Theme.of(BuildContext).textTheme.bodySmall!.color),
+                Icon(Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Theme.of(BuildContext).textTheme.bodySmall!.color),
               ],
             ),
           ),
@@ -333,6 +351,4 @@ class _AllReviewsScreenState extends State<AllReviewsScreen> {
       ),
     );
   }
-
 }
-

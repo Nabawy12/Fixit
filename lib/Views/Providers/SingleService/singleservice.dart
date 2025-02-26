@@ -17,15 +17,13 @@ class Singleservice_Pro extends StatefulWidget {
 }
 
 class _SingleserviceProState extends State<Singleservice_Pro> {
-
   final List<String> thumbnails = [
-    'assets/images/service man.jpg',
+    'assets/images/serviceman.jpg',
     'assets/images/Splash.png',
     'assets/images/support.png',
     'assets/images/Splash.png',
     'assets/images/support.png',
   ];
-
 
   int selectedIndex = 0;
 
@@ -89,109 +87,118 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                 ),
 
                 // Back Button
-                provider.currentLocale.languageCode == "en" ?
-                Positioned(
-                  top: 30,
-                  left: 10,
-                  child: InkWell(
-                    onTap: () => Navigator.pop(context),
-                    child: Container(
-                        padding: const EdgeInsets.all(7),
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            shape: BoxShape.circle),
-                        child: Icon(Icons.arrow_back,
-                            color:
-                            Theme.of(context).textTheme.bodyMedium!.color)),
-                  ),
-                ):Positioned(
-                  top: 30,
-                  right: 10,
-                  child: InkWell(
-                    onTap: () => Navigator.pop(context),
-                    child: Container(
-                        padding: const EdgeInsets.all(7),
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            shape: BoxShape.circle),
-                        child: Icon(Icons.arrow_back,
-                            color:
-                            Theme.of(context).textTheme.bodyMedium!.color)),
-                  ),
-                ),
+                provider.currentLocale.languageCode == "en"
+                    ? Positioned(
+                        top: 30,
+                        left: 10,
+                        child: InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Container(
+                              padding: const EdgeInsets.all(7),
+                              decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  shape: BoxShape.circle),
+                              child: Icon(Icons.arrow_back,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .color)),
+                        ),
+                      )
+                    : Positioned(
+                        top: 30,
+                        right: 10,
+                        child: InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Container(
+                              padding: const EdgeInsets.all(7),
+                              decoration: BoxDecoration(
+                                  color:
+                                      Theme.of(context).scaffoldBackgroundColor,
+                                  shape: BoxShape.circle),
+                              child: Icon(Icons.arrow_back,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .color)),
+                        ),
+                      ),
 
                 // Edit and Delete Icons
-                provider.currentLocale.languageCode == "en" ?
+                provider.currentLocale.languageCode == "en"
+                    ? Positioned(
+                        top: 30,
+                        right: 10,
+                        child: Row(
+                          children: [
+                            // Edit Icon
+                            InkWell(
+                              onTap: () => null,
+                              child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                      shape: BoxShape.circle),
+                                  child: Icon(Icons.edit_outlined,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .color)),
+                            ),
+                            const SizedBox(width: 10),
 
-                Positioned(
-                  top: 30,
-                  right: 10,
-                  child: Row(
-                    children: [
-                      // Edit Icon
-                      InkWell(
-                        onTap: () => null,
-                        child: Container(
-                            padding: const EdgeInsets.all(7),
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).scaffoldBackgroundColor,
-                                shape: BoxShape.circle),
-                            child: Icon(Icons.edit_outlined,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .color)),
-                      ),
-                      const SizedBox(width: 10),
+                            // Delete Icon
+                            InkWell(
+                              onTap: () => null,
+                              child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xFFffeded),
+                                      shape: BoxShape.circle),
+                                  child: Icon(Icons.delete_outline_outlined,
+                                      color: Colors.red.withOpacity(0.6))),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Positioned(
+                        top: 30,
+                        left: 10,
+                        child: Row(
+                          children: [
+                            // Edit Icon
+                            InkWell(
+                              onTap: () => null,
+                              child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                      shape: BoxShape.circle),
+                                  child: Icon(Icons.edit_outlined,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium!
+                                          .color)),
+                            ),
+                            const SizedBox(width: 10),
 
-                      // Delete Icon
-                      InkWell(
-                        onTap: () =>null,
-                        child: Container(
-                            padding: const EdgeInsets.all(7),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFffeded),
-                                shape: BoxShape.circle),
-                            child: Icon(Icons.delete_outline_outlined,
-                                color: Colors.red.withOpacity(0.6))),
+                            // Delete Icon
+                            InkWell(
+                              onTap: () => null,
+                              child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                      color: Color(0xFFffeded),
+                                      shape: BoxShape.circle),
+                                  child: Icon(Icons.delete_outline_outlined,
+                                      color: Colors.red.withOpacity(0.6))),
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ):Positioned(
-                  top: 30,
-                  left: 10,
-                  child: Row(
-                    children: [
-                      // Edit Icon
-                      InkWell(
-                        onTap: () => null,
-                        child: Container(
-                            padding: const EdgeInsets.all(7),
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).scaffoldBackgroundColor,
-                                shape: BoxShape.circle),
-                            child: Icon(Icons.edit_outlined,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .color)),
-                      ),
-                      const SizedBox(width: 10),
-
-                      // Delete Icon
-                      InkWell(
-                        onTap: () =>null,
-                        child: Container(
-                            padding: const EdgeInsets.all(7),
-                            decoration: BoxDecoration(
-                                color: Color(0xFFffeded),
-                                shape: BoxShape.circle),
-                            child: Icon(Icons.delete_outline_outlined,
-                                color: Colors.red.withOpacity(0.6))),
-                      ),
-                    ],
-                  ),
-                ),
 
                 // Title and Rating
                 Positioned(
@@ -220,7 +227,7 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                   child: Container(
                     padding: const EdgeInsets.all(6),
                     child: Row(
-                      children:  [
+                      children: [
                         Icon(
                           Icons.star,
                           color: app_Colors_Light.Rate_color,
@@ -269,12 +276,13 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                   ),
                   if (thumbnails.length > 4)
                     Positioned(
-                      right:provider.currentLocale.languageCode  =="ar" ? 265 : 9,
+                      right:
+                          provider.currentLocale.languageCode == "ar" ? 265 : 9,
                       top: 0,
                       bottom: 0,
                       child: GestureDetector(
                         onTap: () {
-                          showFullScreenBottomSheet(context,thumbnails);
+                          showFullScreenBottomSheet(context, thumbnails);
                         },
                         child: Container(
                           width: 80,
@@ -309,9 +317,19 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
               ),
               child: Row(
                 children: [
-                  Text("Amount",style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13,color: app_Colors_Light.MainColor),),
+                  Text(
+                    "Amount",
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 13, color: app_Colors_Light.MainColor),
+                  ),
                   Spacer(),
-                  Text("\$12.00",style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),)
+                  Text(
+                    "\$12.00",
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium!
+                        .copyWith(color: app_Colors_Light.MainColor),
+                  )
                 ],
               ),
             ),
@@ -352,7 +370,12 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                             title: 'Duration',
                             value: '45 minute',
                           ),
-                          Container(margin:EdgeInsets.symmetric(horizontal: 10),width: 1,height: 100,color: Theme.of(context).colorScheme.outline,),
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            width: 1,
+                            height: 100,
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
                           _buildInfoTile(
                             icon: Icons.layers_outlined,
                             title: 'Category',
@@ -369,7 +392,12 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                             title: 'Commission',
                             value: '30%',
                           ),
-                          Container(margin:EdgeInsets.symmetric(horizontal: 10),width: 1,height: 100,color: Theme.of(context).colorScheme.outline,),
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 10),
+                            width: 1,
+                            height: 100,
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
                           _buildInfoTile(
                             icon: Icons.receipt_long_outlined,
                             title: 'Tax',
@@ -380,22 +408,41 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                       dashedDivider(context),
                     ],
                   ),
-                  SizedBox(height: 10,),
-                  Text("Description",style: Theme.of(context).textTheme.bodySmall,),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Description",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   ReadMoreText(
                     'The Flutter framework builds its layout via the composition of widgets, everything that you construct programmatically is a widget and these are compiled together to create the user interface.',
                     trimLength: 100,
-                    style: GoogleFonts.alexandria(fontSize: 13,fontWeight: FontWeight.w400,color: provider.currentTheme == ThemeMode.light ? Colors.black : Colors.white,height: 2),
-                    lessStyle: Theme.of(context).textTheme.bodySmall!.copyWith(color: app_Colors_Light.MainColor),
-                    moreStyle: Theme.of(context).textTheme.bodySmall!.copyWith(color: app_Colors_Light.MainColor),
+                    style: GoogleFonts.alexandria(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                        color: provider.currentTheme == ThemeMode.light
+                            ? Colors.black
+                            : Colors.white,
+                        height: 2),
+                    lessStyle: Theme.of(context)
+                        .textTheme
+                        .bodySmall!
+                        .copyWith(color: app_Colors_Light.MainColor),
+                    moreStyle: Theme.of(context)
+                        .textTheme
+                        .bodySmall!
+                        .copyWith(color: app_Colors_Light.MainColor),
                     colorClickableText: app_Colors_Light.MainColor,
                     trimCollapsedText: ' Read more',
                     trimExpandedText: '  Show less',
                   ),
-                  SizedBox(height: 10,)
-
-
+                  SizedBox(
+                    height: 10,
+                  )
                 ],
               ),
             ),
@@ -404,69 +451,106 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
               margin: EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
-                  Text("Reviews",style: Theme.of(context).textTheme.bodyMedium,),
+                  Text(
+                    "Reviews",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
                   Spacer(),
                   InkWell(
-                    onTap: () => Navigator.pushNamed(context,AllReviewsScreen.routeName),
-                      child: Text("View all",style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: app_Colors_Light.MainColor),))
+                      onTap: () => Navigator.pushNamed(
+                          context, AllReviewsScreen.routeName),
+                      child: Text(
+                        "View all",
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: app_Colors_Light.MainColor),
+                      ))
                 ],
               ),
             ),
-            SizedBox(height: 10,),
-            ListView.builder(
-                padding: EdgeInsets.all(0),
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: 3,
-                shrinkWrap: true,
-                cacheExtent: 1,
-                itemBuilder:(context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(bottom: 15,left: 16,right: 16),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Theme.of(context).colorScheme.outline),
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundImage: AssetImage("assets/images/service man.jpg"),
-                            ),
-                            SizedBox(width: 5,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Zeyad",style: Theme.of(context).textTheme.bodyMedium,),
-                                SizedBox(height: 3,),
-                                Text("12 min ago",style: Theme.of(context).textTheme.bodySmall,)
-                              ],
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Icon(Icons.star,color: app_Colors_Light.Rate_color,size: 18,),
-                                SizedBox(width: 1,),
-                                Text("4.3",style: Theme.of(context).textTheme.bodyMedium,)
-                              ],
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 15,),
-                        Text(
-                          maxLines: 3,
-                            "i just love their services & the staff nature for work,i would like to hire them again it is very good and i will call them again",
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 13,fontWeight: FontWeight.w300,height: 1.6),
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      ],
-                    ),
-                  );
-                },
+            SizedBox(
+              height: 10,
             ),
-
+            ListView.builder(
+              padding: EdgeInsets.all(0),
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 3,
+              shrinkWrap: true,
+              cacheExtent: 1,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(bottom: 15, left: 16, right: 16),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                        color: Theme.of(context).colorScheme.outline),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 20,
+                            backgroundImage:
+                                AssetImage("assets/images/serviceman.jpg"),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Zeyad",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                "12 min ago",
+                                style: Theme.of(context).textTheme.bodySmall,
+                              )
+                            ],
+                          ),
+                          Spacer(),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star,
+                                color: app_Colors_Light.Rate_color,
+                                size: 18,
+                              ),
+                              SizedBox(
+                                width: 1,
+                              ),
+                              Text(
+                                "4.3",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        maxLines: 3,
+                        "i just love their services & the staff nature for work,i would like to hire them again it is very good and i will call them again",
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w300,
+                            height: 1.6),
+                        overflow: TextOverflow.ellipsis,
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -478,89 +562,85 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 3),
       child: Container(
-        width: 80,
-        decoration: BoxDecoration(
-          boxShadow: isSelected
-              ? [
-          // Shadow for the top
-          BoxShadow(
-            color: Colors.grey,
-            spreadRadius: 0,
-            blurRadius: 5,
-            offset: Offset(0, -3),
-          ),
-
-          ]
-              : [],
-          border: Border.all(
-            color: isSelected
-                ? app_Colors_Light.MainColor
-                : Colors.transparent,
-            width: 2,
-          ),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Stack(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image(
-                image: AssetImage(imageUrl),
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,
-              ),
+          width: 80,
+          decoration: BoxDecoration(
+            boxShadow: isSelected
+                ? [
+                    // Shadow for the top
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 0,
+                      blurRadius: 5,
+                      offset: Offset(0, -3),
+                    ),
+                  ]
+                : [],
+            border: Border.all(
+              color:
+                  isSelected ? app_Colors_Light.MainColor : Colors.transparent,
+              width: 2,
             ),
-            isSelected ?
-            Container() :  Positioned.fill(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-                  child: Container(
-                    color: Colors.black.withOpacity(0),
-                  ),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image(
+                  image: AssetImage(imageUrl),
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: double.infinity,
                 ),
               ),
-            ),
-          ],
-        )
-      ),
+              isSelected
+                  ? Container()
+                  : Positioned.fill(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
+                          child: Container(
+                            color: Colors.black.withOpacity(0),
+                          ),
+                        ),
+                      ),
+                    ),
+            ],
+          )),
     );
   }
-
-
 
   Widget _buildInfoTile({
     required IconData icon,
     required String title,
     required String value,
-  }
-  ) {
+  }) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.only(top: 10,bottom: 10),
+        margin: EdgeInsets.only(top: 10, bottom: 10),
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(icon, size: 20, color: Theme.of(context).textTheme.bodyMedium!.color),
-                Container(margin: EdgeInsets.symmetric(horizontal: 3),height: 20,width: 1,color: Theme.of(context).colorScheme.outline,),
+                Icon(icon,
+                    size: 20,
+                    color: Theme.of(context).textTheme.bodyMedium!.color),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 3),
+                  height: 20,
+                  width: 1,
+                  color: Theme.of(context).colorScheme.outline,
+                ),
                 SizedBox(width: 2),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      title,
-                      style: Theme.of(context).textTheme.bodyMedium
-                    ),
+                    Text(title, style: Theme.of(context).textTheme.bodyMedium),
                     SizedBox(height: 4),
-                    Text(
-                      value,
-                      style: Theme.of(context).textTheme.bodySmall
-                    ),
+                    Text(value, style: Theme.of(context).textTheme.bodySmall),
                   ],
                 ),
               ],
@@ -571,15 +651,19 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
     );
   }
 
-  Widget dashedDivider(BuildContext context, {double dashWidth = 8.0, double dashHeight = 1.0}) {
+  Widget dashedDivider(BuildContext context,
+      {double dashWidth = 8.0, double dashHeight = 1.0}) {
     return CustomPaint(
       size: Size(double.infinity, dashHeight),
-      painter: DashedLinePainter(dashWidth: dashWidth, dashHeight: dashHeight, color: Theme.of(context).colorScheme.outline),
+      painter: DashedLinePainter(
+          dashWidth: dashWidth,
+          dashHeight: dashHeight,
+          color: Theme.of(context).colorScheme.outline),
     );
   }
 
-
-  void showFullScreenBottomSheet(BuildContext context, List<String> thumbnails) {
+  void showFullScreenBottomSheet(
+      BuildContext context, List<String> thumbnails) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true, // Allow custom height
@@ -588,11 +672,13 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
       builder: (context) {
         return Container(
           height: MediaQuery.of(context).size.height, // Full screen height
-          width: MediaQuery.of(context).size.width,  // Full screen width
+          width: MediaQuery.of(context).size.width, // Full screen width
           decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor, // Background color of the bottom sheet
-            borderRadius: BorderRadius.only(bottomRight: Radius.circular(15),bottomLeft: Radius.circular(15))
-          ),
+              color: Theme.of(context)
+                  .scaffoldBackgroundColor, // Background color of the bottom sheet
+              borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(15))),
           child: Stack(
             children: [
               PageView.builder(
@@ -600,13 +686,19 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                 itemCount: thumbnails.length, // Number of items in the list
                 itemBuilder: (context, index) {
                   return Container(
-                    width: MediaQuery.of(context).size.width, // Take full width of the screen
-                    height: MediaQuery.of(context).size.height, // Take full height of the screen
+                    width: MediaQuery.of(context)
+                        .size
+                        .width, // Take full width of the screen
+                    height: MediaQuery.of(context)
+                        .size
+                        .height, // Take full height of the screen
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8), // Optional: rounded corners
+                      borderRadius:
+                          BorderRadius.circular(8), // Optional: rounded corners
                       child: Image.asset(
                         thumbnails[index], // Load image from the asset
-                        fit: BoxFit.cover, // Image fit type to cover the entire container
+                        fit: BoxFit
+                            .cover, // Image fit type to cover the entire container
                       ),
                     ),
                   );
@@ -617,7 +709,9 @@ class _SingleserviceProState extends State<Singleservice_Pro> {
                 top: 30, // Position close button
                 right: 10,
                 child: IconButton(
-                  icon: Icon(Icons.close, color: Theme.of(context).textTheme.bodyMedium!.color, size: 30),
+                  icon: Icon(Icons.close,
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
+                      size: 30),
                   onPressed: () {
                     Navigator.pop(context); // Close bottom sheet
                   },

@@ -34,7 +34,7 @@ class _home_providerState extends State<home_provider> {
       "paymentStatus": "Not paid yet",
       "customerName": "Zeyad Nabawy Mostafa Fayed",
       "customerImage": "assets/images/me.jpg",
-      "serviceImage": "assets/images/service man.jpg",
+      "serviceImage": "assets/images/serviceman.jpg",
       "statusColor": app_Colors_Light.Rate_color,
     },
     {
@@ -47,7 +47,7 @@ class _home_providerState extends State<home_provider> {
       "paymentStatus": "Paid",
       "customerName": "Ahmed Ali",
       "customerImage": "assets/images/me.jpg",
-      "serviceImage": "assets/images/service man.jpg",
+      "serviceImage": "assets/images/serviceman.jpg",
       "statusColor": Colors.green,
     },
   ];
@@ -82,7 +82,7 @@ class _home_providerState extends State<home_provider> {
                           0.05, // CircleAvatar size relative to screen width
                       backgroundColor: Theme.of(context).cardColor,
                       backgroundImage:
-                          const AssetImage("assets/images/service man.jpg"),
+                          const AssetImage("assets/images/serviceman.jpg"),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width *
@@ -844,7 +844,7 @@ class _home_providerState extends State<home_provider> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image.asset(
-                                    "assets/images/service man.jpg",
+                                    "assets/images/serviceman.jpg",
                                     width: MediaQuery.of(context).size.width *
                                         0.9, // Dynamic width
                                     height: MediaQuery.of(context).size.height *
