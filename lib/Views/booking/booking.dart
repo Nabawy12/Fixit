@@ -7,17 +7,17 @@ import '../../Widgets/Home/bookings/Details_booking/details_booking.dart';
 import '../../Widgets/Home/bookings/bookings.dart';
 import '../../generated/l10n.dart';
 
-class booking_screen extends StatefulWidget {
-  const booking_screen({super.key});
+class BookingScreen extends StatefulWidget {
+  const BookingScreen({super.key});
 
   @override
-  State<booking_screen> createState() => _BookingScreenState();
+  State<BookingScreen> createState() => _BookingScreenState();
 }
 
-class _BookingScreenState extends State<booking_screen>
+class _BookingScreenState extends State<BookingScreen>
     with TickerProviderStateMixin {
   final calendarController = CleanCalendarController(
-    minDate: DateTime(2024, 1, 1),
+    minDate: DateTime.now(),
     maxDate: DateTime.now().add(const Duration(days: 365)),
     onRangeSelected: (firstDate, secondDate) {},
     onDayTapped: (date) {},

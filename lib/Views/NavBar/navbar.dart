@@ -39,7 +39,7 @@ class _NavbarState extends State<Navbar> {
     var provider = Provider.of<setting_Providers>(context);
     final List<Widget> screens = [
       provider.user == "user" ? const home_screen() : const home_provider(),
-      const booking_screen(),
+      const BookingScreen(),
       provider.user == "user" ? const offer_screen() : const Walet(),
       provider.user == "user"
           ? const profile_screen()

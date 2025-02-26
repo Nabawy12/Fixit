@@ -16,7 +16,7 @@ class DetailsBooking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String mapUrl =
+    const String mapUrl =
         "https://www.google.com/maps?q=30.044420,31.235712"; // Replace with your desired location
 
     Future<void> _openMap() async {
@@ -35,11 +35,11 @@ class DetailsBooking extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -63,25 +63,25 @@ class DetailsBooking extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       "pending booking",
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    Spacer(),
+                    const Spacer(),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).scaffoldBackgroundColor,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                         color: Theme.of(context).colorScheme.outline),
-                    boxShadow: [
+                    boxShadow: const [
                       // Shadow for the top
                       BoxShadow(
                         color: Colors.black12,
@@ -102,10 +102,10 @@ class DetailsBooking extends StatelessWidget {
                     children: [
                       ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: Image(
+                          child: const Image(
                               image:
                                   AssetImage("assets/images/serviceman.jpg"))),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       // Title of Details
@@ -119,12 +119,12 @@ class DetailsBooking extends StatelessWidget {
                                 .bodyMedium!
                                 .copyWith(color: app_Colors_Light.MainColor),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Container(
-                            padding: EdgeInsets.all(5),
+                            padding: const EdgeInsets.all(5),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(1),
-                                color: app_Colors_Light.BG_Selcted),
+                                borderRadius: BorderRadius.circular(4),
+                                color: Theme.of(context).cardColor),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
@@ -137,7 +137,7 @@ class DetailsBooking extends StatelessWidget {
                                           color: app_Colors_Light.MainColor,
                                           fontWeight: FontWeight.w200),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 5,
                                 ),
                                 Icon(
@@ -150,7 +150,7 @@ class DetailsBooking extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       //Name of Services
@@ -158,7 +158,7 @@ class DetailsBooking extends StatelessWidget {
                         "Cleaning Services",
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       // Details of services
@@ -215,8 +215,8 @@ class DetailsBooking extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Container(
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 10),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 10),
                                     child: Row(
                                       children: [
                                         Icon(Icons.access_time_outlined,
@@ -289,20 +289,20 @@ class DetailsBooking extends StatelessWidget {
                             InkWell(
                               onTap: () => _openMap(),
                               child: Container(
-                                margin: EdgeInsets.only(top: 10),
-                                padding: EdgeInsets.all(10),
+                                margin: const EdgeInsets.only(top: 10),
+                                padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: app_Colors_Light.BG_Selcted,
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: Theme.of(context).cardColor,
                                 ),
                                 child: Row(
                                   children: [
                                     Text(
                                       "VIEW LOCATION ON MAP",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
+                                      style:
+                                          Theme.of(context).textTheme.bodySmall,
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Icon(
                                       FontAwesomeIcons.arrowRightLong,
                                       color: app_Colors_Light.MainColor,
@@ -315,7 +315,9 @@ class DetailsBooking extends StatelessWidget {
                           ],
                         ),
                       ),
-
+                      SizedBox(
+                        height: 10,
+                      ),
                       //Description
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -324,7 +326,7 @@ class DetailsBooking extends StatelessWidget {
                             "Description",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 4,
                           ),
                           ReadMoreText(
@@ -351,86 +353,86 @@ class DetailsBooking extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       // Customer Details
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                             color: Theme.of(context).cardColor,
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
                               "Customer details",
                               style: Theme.of(context).textTheme.bodySmall,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Divider(
                               color: Theme.of(context).colorScheme.outline,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Row(
                               children: [
-                                CircleAvatar(
+                                const CircleAvatar(
                                   backgroundImage:
                                       AssetImage("assets/images/me.jpg"),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 6,
                                 ),
                                 TruncatedText(
                                     text: "Zeyad Nabawy Mostafa Fayed"),
-                                Spacer(),
-                                Container(
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.all(7),
-                                        decoration: BoxDecoration(
-                                            color: app_Colors_Light.BG_Selcted,
-                                            border: Border.all(
-                                                color:
-                                                    app_Colors_Light.MainColor),
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        child: Icon(
-                                          Icons.message_outlined,
-                                          color: app_Colors_Light.MainColor,
-                                          size: 17,
-                                        ),
+                                const Spacer(),
+                                Row(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(7),
+                                      decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .scaffoldBackgroundColor,
+                                          border: Border.all(
+                                              color:
+                                                  app_Colors_Light.MainColor),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: Icon(
+                                        Icons.message_outlined,
+                                        color: app_Colors_Light.MainColor,
+                                        size: 17,
                                       ),
-                                      SizedBox(
-                                        width: 10,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.all(7),
+                                      decoration: BoxDecoration(
+                                          color: Theme.of(context)
+                                              .scaffoldBackgroundColor,
+                                          border: Border.all(
+                                              color:
+                                                  app_Colors_Light.MainColor),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      child: Icon(
+                                        Icons.call_outlined,
+                                        color: app_Colors_Light.MainColor,
+                                        size: 17,
                                       ),
-                                      Container(
-                                        padding: EdgeInsets.all(7),
-                                        decoration: BoxDecoration(
-                                            color: app_Colors_Light.BG_Selcted,
-                                            border: Border.all(
-                                                color:
-                                                    app_Colors_Light.MainColor),
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        child: Icon(
-                                          Icons.call_outlined,
-                                          color: app_Colors_Light.MainColor,
-                                          size: 17,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 4,
                                 ),
                               ],
@@ -438,24 +440,24 @@ class DetailsBooking extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "Bill summary",
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Theme.of(context).cardColor,
@@ -470,12 +472,12 @@ class DetailsBooking extends StatelessWidget {
                             "Amount",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text("\$12.00",
                               style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -484,12 +486,12 @@ class DetailsBooking extends StatelessWidget {
                             "Tax",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text("\$10.00",
                               style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -498,7 +500,7 @@ class DetailsBooking extends StatelessWidget {
                             "Coupon discount (24% off)",
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text(
                             "-\$1.00",
                             style: Theme.of(context)
@@ -517,7 +519,7 @@ class DetailsBooking extends StatelessWidget {
                             "Total Amount",
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Text(
                             "\$21.00",
                             style: Theme.of(context)
@@ -530,7 +532,7 @@ class DetailsBooking extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Row(
@@ -552,8 +554,8 @@ class DetailsBooking extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: 15),
-                    Expanded(
+                    const SizedBox(width: 15),
+                    const Expanded(
                       child: CustomButton(text: "Accept"),
                     ),
                   ],

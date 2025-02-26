@@ -557,7 +557,6 @@ class _home_screenState extends State<home_screen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  const SizedBox(width: 5),
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image(
@@ -627,12 +626,19 @@ class _home_screenState extends State<home_screen> {
                                             const SizedBox(
                                               width: 4,
                                             ),
-                                            Text(
-                                              "Egypt,Zagazig,EL Zhoor",
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall,
-                                            )
+                                            index == 0
+                                                ? Text(
+                                                    "Egypt,Zagazig,EL Zhoor",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodySmall,
+                                                  )
+                                                : Text(
+                                                    "Egypt,Zagazig,Hassan Salah",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodySmall,
+                                                  )
                                           ],
                                         )
                                       ],

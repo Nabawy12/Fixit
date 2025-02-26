@@ -677,7 +677,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                                     height: 3,
                                   ),
                                   Text(
-                                    "12 min ago",
+                                    "${index + 3}${index + 7} min ago",
                                     style:
                                         Theme.of(context).textTheme.bodySmall,
                                   )
@@ -753,7 +753,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                 ),
 
                 SizedBox(
-                  height: 233, // Set a fixed height
+                  height: 224, // Set a fixed height
                   child: ListView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     scrollDirection: Axis.horizontal,
@@ -761,7 +761,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return Container(
-                        width: 260, // Set a width for each item
+                        width: 260,
                         margin: const EdgeInsets.symmetric(horizontal: 5),
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
@@ -786,7 +786,7 @@ class _Singleservice_userState extends State<Singleservice_user> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    "Ac Water drop solution zeyad ",
+                                    "Ac Water drop solution zeyad",
                                     overflow: TextOverflow.ellipsis,
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
@@ -828,6 +828,8 @@ class _Singleservice_userState extends State<Singleservice_user> {
                             ),
                             const SizedBox(height: 7),
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Expanded(
                                   flex: 2,
@@ -839,7 +841,10 @@ class _Singleservice_userState extends State<Singleservice_user> {
                                 ),
                                 const Expanded(
                                   flex: 1,
-                                  child: CustomButton(text: "Add"),
+                                  child: CustomButton(
+                                    text: "Add",
+                                    height: 35,
+                                  ),
                                 ),
                               ],
                             ),

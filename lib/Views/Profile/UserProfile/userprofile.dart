@@ -26,7 +26,7 @@ class _UserprofileState extends State<Userprofile> {
   TextEditingController repassword = TextEditingController();
   bool isChecked = false;
   bool showAgreementError = false;
-  bool visblePassword = false;
+  bool visiblePassword = false;
   File? _image;
 
   // Explicitly choose the gallery
@@ -55,14 +55,14 @@ class _UserprofileState extends State<Userprofile> {
         },
         child: SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Form(
               key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     children: [
                       InkWell(
@@ -96,11 +96,11 @@ class _UserprofileState extends State<Userprofile> {
                       const Spacer(),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
 
                   // Profile Image and Fields
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     decoration: BoxDecoration(
                       color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.circular(16),
@@ -124,7 +124,8 @@ class _UserprofileState extends State<Userprofile> {
                                   radius: 40,
                                   backgroundImage: _image != null
                                       ? FileImage(_image!)
-                                      : AssetImage('assets/images/person.jpg')
+                                      : const AssetImage(
+                                              'assets/images/person.jpg')
                                           as ImageProvider,
                                 ),
                               ),
@@ -138,8 +139,8 @@ class _UserprofileState extends State<Userprofile> {
                                   onTap:
                                       _pickImage, // Open gallery on edit icon tap
                                   child: Container(
-                                    padding:
-                                        EdgeInsets.all(3), // Space around icon
+                                    padding: const EdgeInsets.all(
+                                        3), // Space around icon
                                     decoration: BoxDecoration(
                                       color: Theme.of(context)
                                           .scaffoldBackgroundColor,
@@ -156,7 +157,7 @@ class _UserprofileState extends State<Userprofile> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
                         // User Name Field
                         Row(
@@ -169,14 +170,14 @@ class _UserprofileState extends State<Userprofile> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Text(
                               S.of(context).User_name_title,
                               style: Theme.of(context).textTheme.bodyMedium,
                             )
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: customTextField(
@@ -184,7 +185,7 @@ class _UserprofileState extends State<Userprofile> {
                             context: context,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return "${S.of(context).userName_vaild}";
+                                return S.of(context).userName_vaild;
                               }
                               return null;
                             },
@@ -199,7 +200,7 @@ class _UserprofileState extends State<Userprofile> {
                             obscureText: false,
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
                         // Email Field
                         Row(
@@ -212,14 +213,14 @@ class _UserprofileState extends State<Userprofile> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Text(
                               S.of(context).Login_email_title_text_field,
                               style: Theme.of(context).textTheme.bodyMedium,
                             )
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 16.0),
@@ -245,7 +246,7 @@ class _UserprofileState extends State<Userprofile> {
                               iconColor: app_Colors_Light.ICon_textForm_color,
                               obscureText: false,
                             )),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
                         // Phone Number Field
                         Row(
@@ -258,14 +259,14 @@ class _UserprofileState extends State<Userprofile> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Text(
                               S.of(context).Phone_Number_title,
                               style: Theme.of(context).textTheme.bodyMedium,
                             )
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: customTextField(
@@ -273,7 +274,7 @@ class _UserprofileState extends State<Userprofile> {
                             context: context,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return "${S.of(context).phone_vaild}";
+                                return S.of(context).phone_vaild;
                               }
                               return null;
                             },
@@ -291,11 +292,11 @@ class _UserprofileState extends State<Userprofile> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
 
                         // Update Button
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
                           child: CustomButton(
                               text: S.of(context).Update,
                               onPressed: () {
@@ -311,7 +312,7 @@ class _UserprofileState extends State<Userprofile> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),
